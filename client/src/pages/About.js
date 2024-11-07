@@ -1,7 +1,7 @@
 // AboutUs.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ContactModal from '../components/ContactModal'; // Make sure this path matches the location of your ContactModal component
+import ContactModal from '../components/ContactModal'; 
 
 const AboutUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
