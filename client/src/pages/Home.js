@@ -2,16 +2,42 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
+import articles from '../data/articlesData'; // Import articles data
 
 const Home = () => {
+  const [currentIndex, setCurrentIndex] = useState(0); // Current index for article carousel
   const navigate = useNavigate();
+
+  const handleArticleClick = (id) => {
+    navigate(`/article/${id}`);
+  };
+
+  const handleViewAllArticlesClick = () => {
+    navigate('/articles'); // Navigate to All Articles page
+  };
+
+  const visibleArticles = articles.slice(currentIndex, currentIndex + 3);
+
+  // Handle navigation within the carousel
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex + 3 < articles.length ? prevIndex + 1 : 0
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : articles.length - 3
+    );
+  };
 
   const handleConsultationClick = () => {
     navigate('/contact'); // Navigate to Contact Us page
   };
+
 
   const [showForm, setShowForm] = useState(false);
 
@@ -77,25 +103,26 @@ const Home = () => {
 
     {/* Articles Section */}
     <ArticlesSection>
-      <h2>Latest Articles</h2>
-      <ArticleGrid>
-        <ArticleCard>
-          <ArticleImage src="https://example.com/path-to-article-image1.jpg" alt="Mortgage Basics" />
-          <h3>Understanding Mortgage Basics</h3>
-          <p>An in-depth look at mortgage basics to help you make informed decisions.</p>
-        </ArticleCard>
-        <ArticleCard>
-          <ArticleImage src="https://example.com/path-to-article-image2.jpg" alt="Refinancing" />
-          <h3>Refinancing: Is It Right for You?</h3>
-          <p>Learn about the pros and cons of refinancing your mortgage.</p>
-        </ArticleCard>
-        <ArticleCard>
-          <ArticleImage src="https://example.com/path-to-article-image3.jpg" alt="Debt Management" />
-          <h3>Debt Management Strategies</h3>
-          <p>Effective debt consolidation and management strategies.</p>
-        </ArticleCard>
-      </ArticleGrid>
-    </ArticlesSection>
+        <h2>Latest Articles</h2>
+        <ArticleCarousel>
+          <Arrow onClick={handlePrev}>
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </Arrow>
+          <ArticleGrid>
+            {visibleArticles.map((article) => (
+              <ArticleCard key={article.id} onClick={() => handleArticleClick(article.id)}>
+                <ArticleImage src={article.image} alt={article.title} />
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+              </ArticleCard>
+            ))}
+          </ArticleGrid>
+          <Arrow onClick={handleNext}>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </Arrow>
+        </ArticleCarousel>
+        <ViewAllLink onClick={handleViewAllArticlesClick}>View All Articles</ViewAllLink>
+      </ArticlesSection>
 
     {/* Call to Action Section */}
     <CTASection>
@@ -292,6 +319,13 @@ const ArticlesSection = styled.section`
   }
 `;
 
+const ArticleCarousel = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+
 const ArticleGrid = styled.div`
   display: flex;
   justify-content: space-between;
@@ -299,23 +333,65 @@ const ArticleGrid = styled.div`
   gap: 20px;
 `;
 
+const Arrow = styled.div`
+  cursor: pointer;
+  font-size: 2rem;
+  color: #0d1b2a;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fcbf49;
+  }
+`;
+
 const ArticleCard = styled.div`
   background: #f7f9fc;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  flex: 1 1 30%;
-  max-width: 30%;
+  width: 300px;
   text-align: center;
+  cursor: pointer;
+
+  h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #1b263b;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #666;
+  }
 `;
 
 const ArticleImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 150px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 15px;
 `;
+
+const ViewAllLink = styled.button`
+  background: none;
+  border: none;
+  color: #0d1b2a;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fcbf49;
+  }
+`;
+
+
+
+
 
 const CTASection = styled.section`
   background: #1b263b;
