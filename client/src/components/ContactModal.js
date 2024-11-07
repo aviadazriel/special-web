@@ -19,7 +19,6 @@ const ContactModal = ({ isOpen, onClose }) => {
     <Overlay>
       <ModalContainer>
         <CloseButton onClick={onClose}>&times;</CloseButton>
-        <h1>Contact Us</h1>
 
         {isSubmitted ? (
           <ThankYouMessage>
