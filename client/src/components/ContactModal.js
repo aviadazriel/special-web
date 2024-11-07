@@ -136,7 +136,7 @@ const IconLink = styled.a`
 
 const FormContainer = styled.div`
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
 
   h2 {
     font-size: 1.8rem;
