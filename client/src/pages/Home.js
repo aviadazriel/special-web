@@ -1,13 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import articles from '../data/articlesData'; // Import articles data
 
+
+
+
+const testimonials = [
+  {
+    id: 1,
+    text: "The team at Mortgage Consultancy made the entire mortgage process so smooth and stress-free. Highly recommended!",
+    author: "Alex R.",
+    source: "Google",
+  },
+  {
+    id: 2,
+    text: "Professional, knowledgeable, and truly dedicated to client success. Thank you for everything!",
+    author: "Lisa K.",
+    source: "Facebook",
+  },
+  {
+    id: 3,
+    text: "Great service! They helped me find the best refinancing options with ease.",
+    author: "John D.",
+    source: "Google",
+  },
+];
+
+
 const Home = () => {
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+  const [fadeTransition, setFadeTransition] = useState(true); // For smooth transition
   const [currentIndex, setCurrentIndex] = useState(0); // Current index for article carousel
   const navigate = useNavigate();
 
@@ -44,6 +71,22 @@ const Home = () => {
   const handleFormToggle = () => {
     setShowForm(true);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeTransition(false); // Start fade-out transition
+      setTimeout(() => {
+        setCurrentTestimonialIndex((prevIndex) =>
+          prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+        );
+        setFadeTransition(true); // Start fade-in transition
+      }, 500); // Match the transition duration
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentTestimonial = testimonials[currentTestimonialIndex];
+
   return (
   <HomeContainer>
     {/* Hero Section */}
@@ -89,17 +132,16 @@ const Home = () => {
 
     {/* Testimonials Section */}
     <TestimonialsSection>
-      <h2>What Our Clients Say</h2>
-      <TestimonialCard>
-        <p>"The team at Mortgage Consultancy made the entire mortgage process so smooth and stress-free. Highly
-        recommended!"</p>
-        <h4>- Alex R.</h4>
-      </TestimonialCard>
-      <TestimonialCard>
-        <p>"Professional, knowledgeable, and truly dedicated to client success. Thank you for everything!"</p>
-        <h4>- Lisa K.</h4>
-      </TestimonialCard>
-    </TestimonialsSection>
+        <h2>What Our Clients Say</h2>
+        <TestimonialCard fadeTransition={fadeTransition}>
+          <PlatformIcon source={currentTestimonial.source}>
+            <FontAwesomeIcon icon={currentTestimonial.source === "Google" ? faGoogle : faFacebook} />
+          </PlatformIcon>
+          <p>"{currentTestimonial.text}"</p>
+          <Author>{currentTestimonial.author}</Author>
+          <Source>{currentTestimonial.source} Review</Source>
+        </TestimonialCard>
+      </TestimonialsSection>
 
     {/* Articles Section */}
     <ArticlesSection>
@@ -179,7 +221,62 @@ const Home = () => {
 )
   };
 
+  const TestimonialsSection = styled.section`
+  max-width: 800px;
+  padding: 40px 20px;
+  text-align: center;
+  margin: auto;
 
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+`;
+
+const TestimonialCard = styled.div`
+  background: #ffffff;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Increase width for better alignment */
+  height: 180px; /* Set consistent height */
+  overflow: hidden;
+  transition: opacity 0.5s ease-in-out;
+  opacity: ${(props) => (props.fadeTransition ? 1 : 0)};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+
+  p {
+    font-size: 1rem;
+    color: #333;
+    font-style: italic;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+`;
+
+const PlatformIcon = styled.div`
+  position: absolute;
+  top: 15px; /* Adjusted for visibility */
+  left: 20px;
+  font-size: 1.5rem;
+  color: ${({ source }) => (source === "Google" ? "#DB4437" : "#4267B2")};
+`;
+
+const Author = styled.h4`
+  font-size: 1rem;
+  color: #0d1b2a;
+  margin-top: 10px;
+`;
+
+const Source = styled.span`
+  font-size: 0.8rem;
+  color: #888;
+`;
 
 const HeroSection = styled.section`
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
@@ -276,36 +373,8 @@ const ServiceImage = styled.img`
   margin-bottom: 15px;
 `;
 
-const TestimonialsSection = styled.section`
-  max-width: 800px;
-  padding: 40px 20px;
-  text-align: center;
 
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-`;
 
-const TestimonialCard = styled.div`
-  background: #ffffff;
-  padding: 20px;
-  margin: 20px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  p {
-    font-size: 1rem;
-    color: #333;
-    font-style: italic;
-  }
-
-  h4 {
-    font-size: 1rem;
-    color: #0d1b2a;
-    margin-top: 10px;
-  }
-`;
 
 const ArticlesSection = styled.section`
   width: 100%;
