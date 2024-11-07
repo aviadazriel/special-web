@@ -1,21 +1,19 @@
 {
-  "name": "@mortgage-blog/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
-  "private": true,
-  "dependencies": {},
+  "name": "mortgage-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "@nx/js": "20.0.10",
-    "@swc-node/register": "~1.9.1",
-    "@swc/core": "~1.5.7",
-    "@swc/helpers": "~0.5.11",
-    "nx": "20.0.10",
-    "prettier": "^2.6.2",
-    "tslib": "^2.3.0",
-    "typescript": "~5.5.2"
+    "concurrently": "^9.1.0"
   },
   "workspaces": [
-    "packages/*"
+    "backend",
+    "frontend"
   ]
 }
+// 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
