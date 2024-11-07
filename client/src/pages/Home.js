@@ -1,14 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => (
+
+const Home = () => {
+  const navigate = useNavigate();
+
+  const handleConsultationClick = () => {
+    navigate('/contact'); // Navigate to Contact Us page
+  };
+  return (
   <HomeContainer>
     {/* Hero Section */}
     <HeroSection>
       <HeroText>
         <h1>Welcome to Mortgage Consultancy</h1>
         <p>Your trusted partner in navigating mortgage financing and achieving financial peace of mind.</p>
-        <HeroButton>Get Your Free Consultation</HeroButton>
+        <HeroButton onClick={handleConsultationClick}>Get Your Free Consultation</HeroButton>
       </HeroText>
     </HeroSection>
 
@@ -83,10 +91,11 @@ const Home = () => (
     {/* Call to Action Section */}
     <CTASection>
       <h2>Ready to take control of your mortgage?</h2>
-      <CTAButton>Book Your Free Consultation</CTAButton>
+      <CTAButton onClick={handleConsultationClick}>Book Your Free Consultation</CTAButton>
     </CTASection>
   </HomeContainer>
-);
+)
+  };
 
 // Styled Components
 const HomeContainer = styled.div`

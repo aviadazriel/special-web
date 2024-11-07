@@ -1,8 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Header = () => (
+const Header = () => {
+  const navigate = useNavigate();
+
+  const handleConsultationClick = () => {
+    navigate('/contact'); // Navigate to Contact Us page
+  };
+  
+  return (
   <HeaderContainer>
     <Nav>
       {/* Logo */}
@@ -22,10 +29,11 @@ const Header = () => (
       </NavLinks>
 
       {/* Call-to-Action Button */}
-      <CTAButton>Free Consultation</CTAButton>
+      <CTAButton onClick={handleConsultationClick}>Free Consultation</CTAButton>
     </Nav>
   </HeaderContainer>
-);
+)
+  };
 
 const HeaderContainer = styled.header`
   width: 100%;
