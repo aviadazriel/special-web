@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 
 const Home = () => {
@@ -8,6 +11,12 @@ const Home = () => {
 
   const handleConsultationClick = () => {
     navigate('/contact'); // Navigate to Contact Us page
+  };
+
+  const [showForm, setShowForm] = useState(false);
+
+  const handleFormToggle = () => {
+    setShowForm(true);
   };
   return (
   <HomeContainer>
@@ -93,17 +102,57 @@ const Home = () => {
       <h2>Ready to take control of your mortgage?</h2>
       <CTAButton onClick={handleConsultationClick}>Book Your Free Consultation</CTAButton>
     </CTASection>
+
+
+
+    <ContactContainer>
+        <h1>Contact Us</h1>
+
+        {/* Contact Icons Section */}
+        <IconsContainer>
+          <IconLink href="tel:+972508857282" color="#25D366">
+            <FontAwesomeIcon icon={faPhone} />
+          </IconLink>
+          <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </IconLink>
+          <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
+            <FontAwesomeIcon icon={faWhatsapp} />
+          </IconLink>
+          <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
+            <FontAwesomeIcon icon={faFacebook} />
+          </IconLink>
+        </IconsContainer>
+
+        {/* Message or Contact Form */}
+        {!showForm ? (
+          <MessageContainer onClick={handleFormToggle}>
+            Leave Details
+          </MessageContainer>
+        ) : (
+          <FormContainer>
+            <h2>Send Us Your Details</h2>
+            <ContactForm>
+              <InlineFields>
+                <FormLabel>
+                  Name
+                  <FormInput type="text" placeholder="Your Name" required />
+                </FormLabel>
+                <FormLabel>
+                  Phone Number
+                  <FormInput type="tel" placeholder="Your Phone Number" required />
+                </FormLabel>
+              </InlineFields>
+              <SubmitButton type="submit">Submit</SubmitButton>
+            </ContactForm>
+          </FormContainer>
+        )}
+      </ContactContainer>
   </HomeContainer>
 )
   };
 
-// Styled Components
-const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-`;
+
 
 const HeroSection = styled.section`
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
@@ -292,6 +341,154 @@ const CTAButton = styled.button`
 
   &:hover {
     background-color: #f0a500;
+  }
+`;
+
+
+// Styled Components for the Contact Section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Styled Components
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
+
+const ContactContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #1b263b;
+    margin-bottom: 20px;
+  }
+`;
+
+const IconsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 400px;
+`;
+
+const IconLink = styled.a`
+  color: ${({ color }) => color};
+  font-size: 3rem;
+  transition: transform 0.3s, color 0.3s;
+
+  &:hover {
+    transform: scale(1.2);
+    color: ${({ color }) => color};
+  }
+`;
+
+const MessageContainer = styled.div`
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  padding: 15px 25px;
+  border: 2px solid #fcbf49;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: #fdf4e3;
+  max-width: 300px;
+  margin-top: 20px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  text-align: center;
+
+  &:hover {
+    background-color: #fcbf49;
+    color: #fff;
+    transform: scale(1.05);
+  }
+`;
+
+const FormContainer = styled.div`
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
+  margin-top: 20px;
+
+  h2 {
+    font-size: 2rem;
+    color: #1b263b;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+`;
+
+const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+const InlineFields = styled.div`
+  display: flex;
+  gap: 20px;
+  width: 100%;
+`;
+
+const FormLabel = styled.label`
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+`;
+
+const FormInput = styled.input`
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  width: 100%;
+
+  &:focus {
+    border-color: #fcbf49;
+    outline: none;
+  }
+`;
+const SubmitButton = styled.button`
+  background-color: #fcbf49;
+  color: #0d1b2a;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  align-self: center;
+
+  &:hover {
+    background-color: #f0a500;
+    transform: scale(1.05);
   }
 `;
 

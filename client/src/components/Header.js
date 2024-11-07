@@ -1,40 +1,35 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ContactModal from './ContactModal';
+
 
 const Header = () => {
-  const navigate = useNavigate();
-
-  const handleConsultationClick = () => {
-    navigate('/contact'); // Navigate to Contact Us page
-  };
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-  <HeaderContainer>
-    <Nav>
-      {/* Logo */}
-      <LogoContainer>
-        <Link to="/">
-          <Logo src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" />
-        </Link>
-      </LogoContainer>
+    <HeaderContainer>
+      <Nav>
+        <LogoContainer>
+          <Link to="/">
+            <Logo src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" />
+          </Link>
+        </LogoContainer>
 
-      {/* Navigation Links */}
-      <NavLinks>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/services">Services</StyledLink>
-        <StyledLink to="/articles">Articles</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </NavLinks>
+        <NavLinks>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/about">About</StyledLink>
+          <StyledLink to="/services">Services</StyledLink>
+          <StyledLink to="/articles">Articles</StyledLink>
+        </NavLinks>
 
-      {/* Call-to-Action Button */}
-      <CTAButton onClick={handleConsultationClick}>Free Consultation</CTAButton>
-    </Nav>
-  </HeaderContainer>
-)
-  };
+        <CTAButton onClick={() => setIsModalOpen(true)}>Contact Us</CTAButton>
+      </Nav>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </HeaderContainer>
+  );
+};
 
+// Styled Components
 const HeaderContainer = styled.header`
   width: 100%;
   background: linear-gradient(135deg, #0d1b2a, #1b263b);
@@ -62,11 +57,6 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   height: 50px;
   cursor: pointer;
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
 const NavLinks = styled.div`
@@ -91,10 +81,10 @@ const CTAButton = styled.button`
   color: #0d1b2a;
   font-weight: 600;
   padding: 10px 20px;
-  margin-left: 25px;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  margin-left: 25px;  /* Adds space to the left of the button */
   transition: background-color 0.2s ease, transform 0.1s ease;
 
   &:hover {
