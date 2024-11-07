@@ -52,11 +52,13 @@ const Nav = styled.nav`
 
 const LogoContainer = styled.div`
   flex: 1;
+ 
 `;
 
 const Logo = styled.img`
-  height: 50px;
+  height: 100px;
   cursor: pointer;
+  border-radius: 10px;
 `;
 
 const NavLinks = styled.div`
