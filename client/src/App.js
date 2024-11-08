@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import ArticlePage from './pages/ArticlePage';
 import ArticleDetail from './pages/ArticleDetail';
 import CalculatorPage from './pages/CalculatorPage';
+import RealEstateNews from './pages/RealEstateNewsPage'; // Import your new component
 
 import GlobalStyles from './GlobalStyles';
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/articles" element={<ArticlePage />} />
             <Route path="/article/:id" element={<ArticleDetail />} />
             <Route path="/calculator" element={<CalculatorPage />} />
+            <Route path="/real-estate-news" element={<RealEstateNews />} />
           </Routes>
         </MainContent>
         <Footer />

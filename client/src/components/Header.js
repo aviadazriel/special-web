@@ -17,7 +17,7 @@ const Header = () => {
           <StyledLink to="/services">שירותים</StyledLink>
           <StyledLink to="/about">אודות</StyledLink>
 
-          <StyledLink to="/about">כתבות בנושא נדלן</StyledLink>
+          <Link to="/real-estate-news">כתבות בנושא נדל"ן</Link>
           <Link to="/calculator">מחשבון משכנתא</Link>
           
         </NavLinks>

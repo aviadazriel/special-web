@@ -1,13 +1,14 @@
 // CalculatorPage.js
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalculator, faPercentage, faChartPie, faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 
 const CalculatorPage = () => {
   const [selectedCalculator, setSelectedCalculator] = useState(null);
 
   useEffect(() => {
     let jQueryScript, script1, script2;
-
 
     if (selectedCalculator) {
       // Load jQuery first
@@ -41,31 +42,58 @@ const CalculatorPage = () => {
     };
   }, [selectedCalculator]);
 
-  // Define data-type attribute based on the selected calculator
-  const calculatorDataType = selectedCalculator === 'calculator1' 
-    ? 'eVNvV0tudC96Ry81V3RQNm4zeHZHdz09' 
-    : selectedCalculator === 'calculator2'
-    ? 'T0lTTUxoYzZoR05hanhCR1JKck94dz09'
-    : null;
+  const calculators = [
+    {
+      id: 'calculator1',
+      title: 'מחשבון זכאות',
+      description: 'בדוק את זכאות המשכנתא שלך במהירות ובקלות.',
+      icon: faCalculator,
+      dataType: 'eVNvV0tudC96Ry81V3RQNm4zeHZHdz09'
+    },
+    {
+      id: 'calculator2',
+      title: 'בניית תמהיל',
+      description: 'בנה תמהיל הלוואה מתאים לפי צרכיך האישיים.',
+      icon: faChartPie,
+      dataType: 'T0lTTUxoYzZoR05hanhCR1JKck94dz09'
+    },
+    {
+      id: 'calculator3',
+      title: 'חישוב ריביות',
+      description: 'חשב את הריביות והתשלומים שלך.',
+      icon: faPercentage,
+      dataType: 'dummyDataType3' // Replace with actual data-type if available
+    },
+    {
+      id: 'calculator4',
+      title: 'חישוב יכולת החזר',
+      description: 'בדוק את יכולת ההחזר שלך בהתאם להכנסה.',
+      icon: faBalanceScale,
+      dataType: 'dummyDataType4' // Replace with actual data-type if available
+    }
+  ];
 
-
-  // Handles setting the selected calculator type
-  const handleCalculatorSelect = (calculatorType) => {
-    setSelectedCalculator(calculatorType);
+  const handleCalculatorSelect = (calculatorId) => {
+    const calculator = calculators.find((calc) => calc.id === calculatorId);
+    setSelectedCalculator(calculator);
   };
 
   return (
     <CalculatorContainer>
-
-      {/* Calculator Selection Menu */}
+      <h1>בחר מחשבון</h1>
       <SelectionContainer>
-        <button onClick={() => handleCalculatorSelect('calculator1')}>מחשבון זכאות</button>
-        <button onClick={() => handleCalculatorSelect('calculator2')}>בניית תמהיל</button>
+        {calculators.map((calc) => (
+          <CalculatorCard key={calc.id} onClick={() => handleCalculatorSelect(calc.id)}>
+            <FontAwesomeIcon icon={calc.icon} size="3x" />
+            <CardTitle>{calc.title}</CardTitle>
+            <CardDescription>{calc.description}</CardDescription>
+          </CalculatorCard>
+        ))}
       </SelectionContainer>
 
       {/* Render selected calculator */}
       {selectedCalculator && (
-        <CalculatorWrapper id="snpv_calc" data-type={calculatorDataType}>
+        <CalculatorWrapper id="snpv_calc" data-type={selectedCalculator.dataType}>
           {/* Calculator content will load here based on the chosen calculator */}
         </CalculatorWrapper>
       )}
@@ -73,7 +101,7 @@ const CalculatorPage = () => {
   );
 };
 
-// Styled Components for styling the calculator container
+// Styled Components
 const CalculatorContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -82,26 +110,50 @@ const CalculatorContainer = styled.div`
   max-width: 1200px;
   margin: auto;
   text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #1b263b;
+    margin-bottom: 40px;
+  }
 `;
 
 const SelectionContainer = styled.div`
-  margin-bottom: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
-  button {
-    background-color: #fcbf49;
-    color: #0d1b2a;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: background-color 0.3s;
-    
-    &:hover {
-      background-color: #f0a500;
-    }
+const CalculatorCard = styled.div`
+  background: #f7f9fc;
+  padding: 20px;
+  width: 240px;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  &:hover {
+    transform: translateY(-5px);
+    background-color: #eaeff5;
   }
+`;
+
+const CardTitle = styled.h3`
+  font-size: 1.2rem;
+  color: #0d1b2a;
+  margin: 10px 0;
+`;
+
+const CardDescription = styled.p`
+  font-size: 0.9rem;
+  color: #333;
 `;
 
 const CalculatorWrapper = styled.div`
