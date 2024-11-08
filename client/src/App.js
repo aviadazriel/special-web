@@ -9,6 +9,8 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import ArticlePage from './pages/ArticlePage';
 import ArticleDetail from './pages/ArticleDetail';
+import CalculatorPage from './pages/CalculatorPage';
+
 import GlobalStyles from './GlobalStyles';
 
 
@@ -27,6 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/articles" element={<ArticlePage />} />
             <Route path="/article/:id" element={<ArticleDetail />} />
+            <Route path="/calculator" element={<CalculatorPage />} />
           </Routes>
         </MainContent>
         <Footer />
