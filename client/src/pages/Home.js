@@ -5,37 +5,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-import articles from '../data/articlesData'; // Import articles data
-
-
-
+import articles from '../data/articlesData';
 
 const testimonials = [
   {
     id: 1,
-    text: "The team at Mortgage Consultancy made the entire mortgage process so smooth and stress-free. Highly recommended!",
-    author: "Alex R.",
+    text: "הצוות בייעוץ המשכנתאות הפך את תהליך המשכנתא לכל כך חלק וחף מלחצים. מומלץ בחום!",
+    author: "אלכס ר.",
     source: "Google",
   },
   {
     id: 2,
-    text: "Professional, knowledgeable, and truly dedicated to client success. Thank you for everything!",
-    author: "Lisa K.",
+    text: "מקצועיים, ידענים ומחויבים להצלחת הלקוח. תודה על הכל!",
+    author: "ליסה ק.",
     source: "Facebook",
   },
   {
     id: 3,
-    text: "Great service! They helped me find the best refinancing options with ease.",
-    author: "John D.",
+    text: "שירות נהדר! הם עזרו לי למצוא את אפשרויות המימון הטובות ביותר בקלות.",
+    author: "ג'ון ד.",
     source: "Google",
   },
 ];
 
-
 const Home = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const [fadeTransition, setFadeTransition] = useState(true); // For smooth transition
-  const [currentIndex, setCurrentIndex] = useState(0); // Current index for article carousel
+  const [fadeTransition, setFadeTransition] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
   const handleArticleClick = (id) => {
@@ -43,12 +39,11 @@ const Home = () => {
   };
 
   const handleViewAllArticlesClick = () => {
-    navigate('/articles'); // Navigate to All Articles page
+    navigate('/articles');
   };
 
   const visibleArticles = articles.slice(currentIndex, currentIndex + 3);
 
-  // Handle navigation within the carousel
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex + 3 < articles.length ? prevIndex + 1 : 0
@@ -62,9 +57,8 @@ const Home = () => {
   };
 
   const handleConsultationClick = () => {
-    navigate('/contact'); // Navigate to Contact Us page
+    navigate('/contact');
   };
-
 
   const [showForm, setShowForm] = useState(false);
 
@@ -74,13 +68,13 @@ const Home = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFadeTransition(false); // Start fade-out transition
+      setFadeTransition(false);
       setTimeout(() => {
         setCurrentTestimonialIndex((prevIndex) =>
           prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
         );
-        setFadeTransition(true); // Start fade-in transition
-      }, 500); // Match the transition duration
+        setFadeTransition(true);
+      }, 500);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -88,64 +82,64 @@ const Home = () => {
   const currentTestimonial = testimonials[currentTestimonialIndex];
 
   return (
-  <HomeContainer>
-    {/* Hero Section */}
-    <HeroSection>
-      <HeroText>
-        <h1>Welcome to Mortgage Consultancy</h1>
-        <p>Your trusted partner in navigating mortgage financing and achieving financial peace of mind.</p>
-        <HeroButton onClick={handleConsultationClick}>Get Your Free Consultation</HeroButton>
-      </HeroText>
-    </HeroSection>
+    <HomeContainer>
+      {/* Hero Section */}
+      <HeroSection>
+        <HeroText>
+          <h1>ברוכים הבאים לייעוץ משכנתאות</h1>
+          <p>השותף המהימן שלך בניווט מימון המשכנתא והשגת רוגע פיננסי.</p>
+          <HeroButton onClick={handleConsultationClick}>קבל ייעוץ חינם</HeroButton>
+        </HeroText>
+      </HeroSection>
 
-    {/* About Us Section */}
-    <AboutSection>
-      <h2>About Us</h2>
-      <p>
-        With years of experience in the mortgage industry, we provide tailored advice to help you make informed financial
-        decisions. Our personalized service, in-depth knowledge, and commitment to your goals make us the right partner
-        in your mortgage journey.
-      </p>
-    </AboutSection>
+      {/* About Us Section */}
+      <AboutSection>
+        <h2>אודותינו</h2>
+        <p>
+          עם שנים של ניסיון בתחום המשכנתאות, אנו מספקים ייעוץ מותאם אישית
+          כדי לעזור לך לקבל החלטות פיננסיות נכונות. השירות שלנו אישי,
+          עם ידע מעמיק ומחויבות להגשמת המטרות שלך.
+        </p>
+      </AboutSection>
 
-    {/* Services Section */}
-    <ServicesSection>
-      <h2>Our Services</h2>
-      <ServiceCards>
-        <ServiceCard>
-          <ServiceImage src="https://mashkantaguru.co.il/wp-content/uploads/2019/03/mashkanta-hol-430x330.jpg" alt="Mortgage Planning" />
-          <h3>Mortgage Planning</h3>
-          <p>Detailed planning to align your mortgage with your financial goals.</p>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2016/03/mortgage-351x480.jpg" alt="Loan Refinancing" />
-          <h3>Loan Refinancing</h3>
-          <p>Discover opportunities to lower your interest rates and improve terms.</p>
-        </ServiceCard>
-        <ServiceCard>
-          <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2011/11/%D7%9E%D7%93%D7%A8%D7%99%D7%9A%D7%99-%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%D7%95%D7%AA-55x55-1.jpg" alt="Debt Consolidation" />
-          <h3>Debt Consolidation</h3>
-          <p>Effective strategies to simplify your finances and manage debt.</p>
-        </ServiceCard>
-      </ServiceCards>
-    </ServicesSection>
+      {/* Services Section */}
+      <ServicesSection>
+        <h2>השירותים שלנו</h2>
+        <ServiceCards>
+          <ServiceCard>
+            <ServiceImage src="https://mashkantaguru.co.il/wp-content/uploads/2019/03/mashkanta-hol-430x330.jpg" alt="תכנון משכנתא" />
+            <h3>תכנון משכנתא</h3>
+            <p>תכנון מפורט כדי להתאים את המשכנתא שלך למטרות הפיננסיות שלך.</p>
+          </ServiceCard>
+          <ServiceCard>
+            <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2016/03/mortgage-351x480.jpg" alt="מיחזור הלוואות" />
+            <h3>מיחזור הלוואות</h3>
+            <p>גלה אפשרויות להורדת ריביות ולשיפור תנאים.</p>
+          </ServiceCard>
+          <ServiceCard>
+            <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2011/11/%D7%9E%D7%93%D7%A8%D7%99%D7%9A%D7%99-%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%D7%95%D7%AA-55x55-1.jpg" alt="איחוד חובות" />
+            <h3>איחוד חובות</h3>
+            <p>אסטרטגיות יעילות לפישוט הפיננסים שלך וניהול חובות.</p>
+          </ServiceCard>
+        </ServiceCards>
+      </ServicesSection>
 
-    {/* Testimonials Section */}
-    <TestimonialsSection>
-        <h2>What Our Clients Say</h2>
+      {/* Testimonials Section */}
+      <TestimonialsSection>
+        <h2>מה הלקוחות שלנו אומרים</h2>
         <TestimonialCard fadeTransition={fadeTransition}>
           <PlatformIcon source={currentTestimonial.source}>
             <FontAwesomeIcon icon={currentTestimonial.source === "Google" ? faGoogle : faFacebook} />
           </PlatformIcon>
           <p>"{currentTestimonial.text}"</p>
           <Author>{currentTestimonial.author}</Author>
-          <Source>{currentTestimonial.source} Review</Source>
+          <Source>חוות דעת מ- {currentTestimonial.source}</Source>
         </TestimonialCard>
       </TestimonialsSection>
 
-    {/* Articles Section */}
-    <ArticlesSection>
-        <h2>Latest Articles</h2>
+      {/* Articles Section */}
+      <ArticlesSection>
+        <h2>מאמרים אחרונים</h2>
         <ArticleCarousel>
           <Arrow onClick={handlePrev}>
             <FontAwesomeIcon icon={faChevronLeft} />
@@ -163,21 +157,19 @@ const Home = () => {
             <FontAwesomeIcon icon={faChevronRight} />
           </Arrow>
         </ArticleCarousel>
-        <ViewAllLink onClick={handleViewAllArticlesClick}>View All Articles</ViewAllLink>
+        <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
 
-    {/* Call to Action Section */}
-    <CTASection>
-      <h2>Ready to take control of your mortgage?</h2>
-      <CTAButton onClick={handleConsultationClick}>Book Your Free Consultation</CTAButton>
-    </CTASection>
+      {/* Call to Action Section */}
+      <CTASection>
+        <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
+        <CTAButton onClick={handleConsultationClick}>קבע פגישה לייעוץ חינם</CTAButton>
+      </CTASection>
 
+      {/* Contact Section */}
+      <ContactContainer>
+        <h1>צור קשר</h1>
 
-
-    <ContactContainer>
-        <h1>Contact Us</h1>
-
-        {/* Contact Icons Section */}
         <IconsContainer>
           <IconLink href="tel:+972508857282" color="#25D366">
             <FontAwesomeIcon icon={faPhone} />
@@ -193,33 +185,32 @@ const Home = () => {
           </IconLink>
         </IconsContainer>
 
-        {/* Message or Contact Form */}
         {!showForm ? (
           <MessageContainer onClick={handleFormToggle}>
-            Leave Details
+            השאר פרטים
           </MessageContainer>
         ) : (
           <FormContainer>
-            <h2>Send Us Your Details</h2>
+            <h2>שלח לנו את פרטיך</h2>
             <ContactForm>
               <InlineFields>
                 <FormLabel>
-                  Name
-                  <FormInput type="text" placeholder="Your Name" required />
+                  שם
+                  <FormInput type="text" placeholder="הכנס את שמך" required />
                 </FormLabel>
                 <FormLabel>
-                  Phone Number
-                  <FormInput type="tel" placeholder="Your Phone Number" required />
+                  מספר טלפון
+                  <FormInput type="tel" placeholder="הכנס את מספר הטלפון שלך" required />
                 </FormLabel>
               </InlineFields>
-              <SubmitButton type="submit">Submit</SubmitButton>
+              <SubmitButton type="submit">שלח</SubmitButton>
             </ContactForm>
           </FormContainer>
         )}
       </ContactContainer>
-  </HomeContainer>
-)
-  };
+    </HomeContainer>
+  );
+};
 
   const TestimonialsSection = styled.section`
   max-width: 800px;
