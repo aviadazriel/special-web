@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import ServiceList from '../components/ServiceList'; // Import the new ServiceList component
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
@@ -33,6 +34,10 @@ const Home = () => {
   const [fadeTransition, setFadeTransition] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
+
+  const handleServiceClick = (serviceId) => {
+    navigate(`/services/${serviceId}`);
+  };
 
   const handleArticleClick = (id) => {
     navigate(`/article/${id}`);
@@ -105,19 +110,7 @@ const Home = () => {
       {/* Services Section */}
       <ServicesSection>
         <h2>השירותים שלנו</h2>
-        <ServiceCards>
-
-
-{services.map((service) => (
-      <ServiceCard key={service.id}>
-        <IconContainer>
-          <FontAwesomeIcon icon={service.icon} />
-        </IconContainer>
-        <ServiceTitle>{service.title}</ServiceTitle>
-        <ServiceDescription>{service.description}</ServiceDescription>
-      </ServiceCard>
-    ))}
-        </ServiceCards>
+        <ServiceList services={services} onCardClick={handleServiceClick} />
       </ServicesSection>
 
       {/* Testimonials Section */}
