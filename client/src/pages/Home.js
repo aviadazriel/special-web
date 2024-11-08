@@ -6,7 +6,7 @@ import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-i
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import articles from '../data/articlesData';
-
+import services from '../data/servicesData';
 const testimonials = [
   {
     id: 1,
@@ -106,21 +106,13 @@ const Home = () => {
       <ServicesSection>
         <h2>השירותים שלנו</h2>
         <ServiceCards>
-          <ServiceCard>
-            <ServiceImage src="https://mashkantaguru.co.il/wp-content/uploads/2019/03/mashkanta-hol-430x330.jpg" alt="תכנון משכנתא" />
-            <h3>תכנון משכנתא</h3>
-            <p>תכנון מפורט כדי להתאים את המשכנתא שלך למטרות הפיננסיות שלך.</p>
-          </ServiceCard>
-          <ServiceCard>
-            <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2016/03/mortgage-351x480.jpg" alt="מיחזור הלוואות" />
-            <h3>מיחזור הלוואות</h3>
-            <p>גלה אפשרויות להורדת ריביות ולשיפור תנאים.</p>
-          </ServiceCard>
-          <ServiceCard>
-            <ServiceImage src="https://www.hon.co.il/wp-content/uploads/2011/11/%D7%9E%D7%93%D7%A8%D7%99%D7%9A%D7%99-%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%D7%95%D7%AA-55x55-1.jpg" alt="איחוד חובות" />
-            <h3>איחוד חובות</h3>
-            <p>אסטרטגיות יעילות לפישוט הפיננסים שלך וניהול חובות.</p>
-          </ServiceCard>
+          {services.map((service) => (
+            <ServiceCard key={service.id}>
+              <ServiceImage src={service.image} alt={service.title} />
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </ServiceCard>
+          ))}
         </ServiceCards>
       </ServicesSection>
 
