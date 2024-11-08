@@ -65,11 +65,8 @@ const Home = () => {
     navigate('/contact');
   };
 
-  const [showForm, setShowForm] = useState(false);
 
-  const handleFormToggle = () => {
-    setShowForm(true);
-  };
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -151,58 +148,38 @@ const Home = () => {
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
 
-      {/* Call to Action Section */}
       <CTASection>
         <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
         <CTAButton onClick={handleConsultationClick}>קבע פגישה לייעוץ חינם</CTAButton>
-      </CTASection>
-
-      {/* Contact Section */}
-      <ContactContainer>
-        <h1>צור קשר</h1>
-
+        
         <IconsContainer>
-          <IconLink href="tel:+972508857282" color="#25D366">
+          <IconLink href="tel:+972508857282" color="#4CAF50">
             <FontAwesomeIcon icon={faPhone} />
           </IconLink>
           <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
             <FontAwesomeIcon icon={faEnvelope} />
           </IconLink>
-          <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
+          <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#4CAF50">
             <FontAwesomeIcon icon={faWhatsapp} />
           </IconLink>
-          <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
+          <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#3b5998">
             <FontAwesomeIcon icon={faFacebook} />
           </IconLink>
         </IconsContainer>
+      </CTASection>
 
-        {!showForm ? (
-          <MessageContainer onClick={handleFormToggle}>
-            השאר פרטים
-          </MessageContainer>
-        ) : (
-          <FormContainer>
-            <h2>שלח לנו את פרטיך</h2>
-            <ContactForm>
-              <InlineFields>
-                <FormLabel>
-                  שם
-                  <FormInput type="text" placeholder="הכנס את שמך" required />
-                </FormLabel>
-                <FormLabel>
-                  מספר טלפון
-                  <FormInput type="tel" placeholder="הכנס את מספר הטלפון שלך" required />
-                </FormLabel>
-              </InlineFields>
-              <SubmitButton type="submit">שלח</SubmitButton>
-            </ContactForm>
-          </FormContainer>
-        )}
-      </ContactContainer>
+     
     </HomeContainer>
   );
 };
 
+
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+`;
   const TestimonialsSection = styled.section`
   max-width: 800px;
   padding: 40px 20px;
@@ -418,179 +395,72 @@ const ViewAllLink = styled.button`
 
 
 
+
 const CTASection = styled.section`
-  background: #1b263b;
-  color: white;
-  padding: 40px 20px;
+  background: linear-gradient(135deg, #e8effa, #d4dced);
+  color: #1b263b;
+  padding: 50px 20px;
   text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  width: 90%;
+  max-width: 800px;
 
   h2 {
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
   }
 `;
 
 const CTAButton = styled.button`
-  background-color: #fcbf49;
-  color: #0d1b2a;
-  padding: 10px 20px;
+  background: #ffb84d;
+  color: #1b263b;
+  padding: 12px 25px;
   border: none;
   border-radius: 20px;
-  font-weight: bold;
+  font-size: 1.1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 
   &:hover {
-    background-color: #f0a500;
+    background: #ff9f1a;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
   }
-`;
 
-
-// Styled Components for the Contact Section
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Styled Components
-const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-`;
-
-const ContactContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
-  text-align: center;
-
-  h1 {
-    font-size: 2.5rem;
-    color: #1b263b;
-    margin-bottom: 20px;
+  &:active {
+    transform: translateY(2px);
   }
 `;
 
 const IconsContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  margin-bottom: 40px;
-  width: 100%;
-  max-width: 400px;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
 `;
 
 const IconLink = styled.a`
-  color: ${({ color }) => color};
-  font-size: 3rem;
-  transition: transform 0.3s, color 0.3s;
+  background-color: ${({ color }) => color};
+  color: white;
+  font-size: 1.8rem;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 
   &:hover {
-    transform: scale(1.2);
-    color: ${({ color }) => color};
-  }
-`;
-
-const MessageContainer = styled.div`
-  font-size: 1.5rem;
-  color: #333;
-  cursor: pointer;
-  padding: 15px 25px;
-  border: 2px solid #fcbf49;
-  border-radius: 30px;
-  font-weight: bold;
-  background-color: #fdf4e3;
-  max-width: 300px;
-  margin-top: 20px;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  text-align: center;
-
-  &:hover {
-    background-color: #fcbf49;
-    color: #fff;
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 `;
 
-const FormContainer = styled.div`
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
-  margin-top: 20px;
-
-  h2 {
-    font-size: 2rem;
-    color: #1b263b;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-`;
-
-const ContactForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const InlineFields = styled.div`
-  display: flex;
-  gap: 20px;
-  width: 100%;
-`;
-
-const FormLabel = styled.label`
-  font-size: 1rem;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-`;
-
-const FormInput = styled.input`
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #333;
-  width: 100%;
-
-  &:focus {
-    border-color: #fcbf49;
-    outline: none;
-  }
-`;
-const SubmitButton = styled.button`
-  background-color: #fcbf49;
-  color: #0d1b2a;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  align-self: center;
-
-  &:hover {
-    background-color: #f0a500;
-    transform: scale(1.05);
-  }
-`;
 
 export default Home;
