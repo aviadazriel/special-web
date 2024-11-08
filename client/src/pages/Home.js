@@ -106,13 +106,17 @@ const Home = () => {
       <ServicesSection>
         <h2>השירותים שלנו</h2>
         <ServiceCards>
-          {services.map((service) => (
-            <ServiceCard key={service.id}>
-              <ServiceImage src={service.image} alt={service.title} />
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </ServiceCard>
-          ))}
+
+
+{services.map((service) => (
+      <ServiceCard key={service.id}>
+        <IconContainer>
+          <FontAwesomeIcon icon={service.icon} />
+        </IconContainer>
+        <ServiceTitle>{service.title}</ServiceTitle>
+        <ServiceDescription>{service.description}</ServiceDescription>
+      </ServiceCard>
+    ))}
         </ServiceCards>
       </ServicesSection>
 
@@ -274,6 +278,24 @@ const HeroSection = styled.section`
   text-align: center;
 `;
 
+
+const ServiceTitle = styled.h3`
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+`;
+
+const ServiceDescription = styled.p`
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+`;
+const IconContainer = styled.div`
+  font-size: 2rem;
+  color: #4e73df;
+  margin-bottom: 10px;
+`;
 const HeroText = styled.div`
   max-width: 800px;
 

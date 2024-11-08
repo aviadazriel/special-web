@@ -1,43 +1,63 @@
-// servicesData.js
+// src/data/servicesData.js
+
+import { faHome, faRedo, faUsers, faHandHoldingUsd, faTools, faBuilding, faUmbrella } from '@fortawesome/free-solid-svg-icons';
+
 const services = [
-    {
-      id: 1,
-      title: "תכנון משכנתא",
-      description: "שירותי תכנון מקיפים למשכנתא שלך.",
-      image: "https://mashkantaguru.co.il/wp-content/uploads/2019/03/mashkanta-hol-430x330.jpg",
-    },
-    {
-      id: 2,
-      title: "מיחזור הלוואות",
-      description: "סיוע במציאת אפשרויות מיחזור טובות יותר.",
-      image: "https://www.hon.co.il/wp-content/uploads/2016/03/mortgage-351x480.jpg",
-    },
-    {
-      id: 3,
-      title: "איחוד חובות",
-      description: "אסטרטגיות לאיחוד וניהול חובות בצורה יעילה.",
-      image: "https://www.hon.co.il/wp-content/uploads/2011/11/%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99-%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%D7%95%D7%AA-55x55-1.jpg",
-    },
-    {
-        id: 4,
-        title: "תכנון משכנתא",
-        description: "שירותי תכנון מקיפים למשכנתא שלך.",
-        image: "https://mashkantaguru.co.il/wp-content/uploads/2019/03/mashkanta-hol-430x330.jpg",
-      },
-      {
-        id: 5,
-        title: "מיחזור הלוואות",
-        description: "סיוע במציאת אפשרויות מיחזור טובות יותר.",
-        image: "https://www.hon.co.il/wp-content/uploads/2016/03/mortgage-351x480.jpg",
-      },
-      {
-        id: 6,
-        title: "איחוד חובות",
-        description: "אסטרטגיות לאיחוד וניהול חובות בצורה יעילה.",
-        image: "https://www.hon.co.il/wp-content/uploads/2011/11/%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99-%D7%9E%D7%A9%D7%9B%D7%A0%D7%AA%D7%90%D7%95%D7%AA-55x55-1.jpg",
-      },
-    // Add additional services as needed
-  ];
-  
-  export default services;
-  
+  {
+    id: 1,
+    title: "מסורבי משכנתא",
+    description: "סיוע לאנשים אשר הבקשה שלהם למשכנתא נדחתה על ידי הבנקים, ומתן פתרונות חלופיים.",
+    icon: faHandHoldingUsd,
+  },
+  {
+    id: 2,
+    title: "משכנתא לדירה ראשונה",
+    description: "ליווי צמוד במתן פתרונות פיננסיים למשכנתא לרוכשי דירה ראשונה.",
+    icon: faHome,
+  },
+  {
+    id: 3,
+    title: "משכנתא לדירה שניה",
+    description: "שירותי ייעוץ והשגת תנאים מיטביים עבור רוכשי דירה נוספת להשקעה או מגורים.",
+    icon: faBuilding,
+  },
+  {
+    id: 4,
+    title: "משכנתא לזוגות צעירים",
+    description: "פתרונות מימון מותאמים לזוגות צעירים כדי לאפשר התחלת חיים משותפים בצורה כלכלית.",
+    icon: faUsers,
+  },
+  {
+    id: 5,
+    title: "משכנתא לדירה בהנחה",
+    description: "ייעוץ משכנתא עבור רכישת דירה בתנאים מיוחדים של מחירים מוזלים.",
+    icon: faHandHoldingUsd,
+  },
+  {
+    id: 6,
+    title: "משכנתא למשפרי דיור",
+    description: "ליווי מקצועי במעבר דירה תוך שמירה על תנאים מיטביים.",
+    icon: faTools,
+  },
+  {
+    id: 7,
+    title: "מחזור משכנתא",
+    description: "בחינת תנאי המשכנתא הקיימת והשגת מימון טוב יותר דרך מיחזור.",
+    icon: faRedo,
+  },
+  {
+    id: 8,
+    title: "משכנתא לכל מטרה",
+    description: "הלוואת משכנתא לשימושים שונים, כולל שיפוץ, חופשה, ועוד.",
+    icon: faUmbrella,
+  },
+  {
+    id: 9,
+    title: "איחוד הלוואות",
+    description: "הלוואת משכנתא לשימושים שונים, כולל שיפוץ, חופשה, ועוד.",
+    icon: faUmbrella,
+  },
+];
+// משכנתא לבניה עצמית
+
+export default services;
