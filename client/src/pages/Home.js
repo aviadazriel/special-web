@@ -271,24 +271,6 @@ const HeroSection = styled.section`
   text-align: center;
 `;
 
-
-const ServiceTitle = styled.h3`
-  font-size: 1.1rem;
-  color: #333;
-  margin: 0;
-  font-weight: 500;
-`;
-
-const ServiceDescription = styled.p`
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 10px;
-`;
-const IconContainer = styled.div`
-  font-size: 2rem;
-  color: #4e73df;
-  margin-bottom: 10px;
-`;
 const HeroText = styled.div`
   max-width: 800px;
 
@@ -348,22 +330,6 @@ const ServicesSection = styled.section`
   }
 `;
 
-const ServiceCards = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
-
-const ServiceCard = styled.div`
-  background: #f7f9fc;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  flex: 1 1 30%;
-  max-width: 30%;
-  text-align: center;
-`;
 
 
 const ArticlesSection = styled.section`
