@@ -23,8 +23,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         {isSubmitted ? (
           <ThankYouMessage>
             <FontAwesomeIcon icon={faCheckCircle} size="3x" color="#25D366" />
-            <h2>Thank You!</h2>
-            <p>We will contact you soon.</p>
+            <h2>תודה!</h2>
+            <p>ניצור איתך קשר בקרוב.</p>
           </ThankYouMessage>
         ) : (
           <>
@@ -44,23 +44,23 @@ const ContactModal = ({ isOpen, onClose }) => {
             </IconsContainer>
 
             <FormContainer>
-              <h2>Send Us a Message</h2>
+              <h2>שלח לנו הודעה</h2>
               <ContactForm onSubmit={handleSubmit}>
                 <InlineFields>
                   <FormLabel>
-                    Name
-                    <FormInput type="text" placeholder="Your Name" required />
+                    שם
+                    <FormInput type="text" placeholder="הכנס את שמך" required />
                   </FormLabel>
                   <FormLabel>
-                    Phone Number
-                    <FormInput type="tel" placeholder="Your Phone Number" required />
+                    מספר טלפון
+                    <FormInput type="tel" placeholder="הכנס את מספר הטלפון שלך" required />
                   </FormLabel>
                 </InlineFields>
                 <MessageLabel>
-                  Message
-                  <MessageTextarea placeholder="Your Message" />
+                  הודעה
+                  <MessageTextarea placeholder="הכנס את הודעתך" />
                 </MessageLabel>
-                <SubmitButton type="submit">Submit</SubmitButton>
+                <SubmitButton type="submit">שלח</SubmitButton>
               </ContactForm>
             </FormContainer>
           </>
@@ -93,12 +93,13 @@ const ModalContainer = styled.div`
   position: relative;
   text-align: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  direction: rtl;
 `;
 
 const CloseButton = styled.span`
   position: absolute;
   top: 15px;
-  right: 20px;
+  left: 20px;
   font-size: 1.8rem;
   cursor: pointer;
   color: #888;

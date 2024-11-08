@@ -1,7 +1,7 @@
 // AboutUs.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ContactModal from '../components/ContactModal'; 
+import ContactModal from '../components/ContactModal';
 
 const AboutUs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,68 +18,67 @@ const AboutUs = () => {
     <AboutContainer>
       {/* Our Story Section */}
       <Section>
-        <StoryImage src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Our Story" />
+        <StoryImage src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="הסיפור שלנו" />
         <TextContainer>
-          <h2>Our Story</h2>
+          <h2>הסיפור שלנו</h2>
           <p>
-            Mortgage Consultancy was founded on a simple belief: navigating mortgage financing shouldn't be stressful.
-            With over a decade of experience, we’ve helped countless individuals and families make informed financial
-            decisions, turning dreams of homeownership into reality. We pride ourselves on our personalized approach
-            and unwavering commitment to our clients’ goals.
+            ייעוץ משכנתאות נוסד מתוך אמונה פשוטה: תהליך קבלת משכנתא לא חייב להיות מלחיץ.
+            עם ניסיון של מעל עשור, עזרנו לאינספור אנשים ומשפחות לקבל החלטות פיננסיות מושכלות ולהגשים את חלום הבית. 
+            אנו גאים בגישה האישית שלנו ובמחויבות הבלתי מתפשרת למטרות לקוחותינו.
           </p>
         </TextContainer>
       </Section>
 
       {/* Our Values Section */}
       <ValuesSection>
-        <h2>Our Values</h2>
+        <h2>הערכים שלנו</h2>
         <ValuesGrid>
           <ValueCard>
-            <h3>Integrity</h3>
-            <p>We prioritize transparency and honesty in every interaction, ensuring you feel confident and informed.</p>
+            <h3>יושרה</h3>
+            <p>אנו נותנים עדיפות לשקיפות ואמינות בכל אינטראקציה, כדי שתוכלו להרגיש בטוחים ומודעים.</p>
           </ValueCard>
           <ValueCard>
-            <h3>Dedication</h3>
-            <p>Your success is our success. We go the extra mile to find solutions that fit your unique needs.</p>
+            <h3>מחויבות</h3>
+            <p>ההצלחה שלכם היא ההצלחה שלנו. אנו עושים את המרב כדי למצוא פתרונות המותאמים לצרכים הייחודיים שלכם.</p>
           </ValueCard>
           <ValueCard>
-            <h3>Expertise</h3>
-            <p>With years of industry knowledge, we guide you through the mortgage process with clarity and confidence.</p>
+            <h3>מקצועיות</h3>
+            <p>עם שנים של ניסיון בתחום, אנו מלווים אתכם בתהליך המשכנתא בביטחון ובהירות.</p>
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
 
       {/* Meet the Team Section */}
       <TeamSection>
-        <h2>Meet the Team</h2>
+        <h2>פגשו את הצוות</h2>
         <TeamGrid>
           <TeamMember>
-            <MemberImage src="https://cdnstorage.sendbig.com/unreal/female.webp" alt="Alisa Cohen" />
-            <h3>Jane Doe</h3>
-            <p>Senior Mortgage Advisor</p>
+            <MemberImage src="https://cdnstorage.sendbig.com/unreal/female.webp" alt="אליסה כהן" />
+            <h3>אליסה כהן</h3>
+            <p>יועצת משכנתאות בכירה</p>
           </TeamMember>
           <TeamMember>
-            <MemberImage src="https://www.zmo.ai/wp-content/uploads/2023/03/Feishu20230309-195534-300x300.png" alt="Jonathan Yuval" />
-            <h3>John Smith</h3>
-            <p>Financial Consultant</p>
+            <MemberImage src="https://www.zmo.ai/wp-content/uploads/2023/03/Feishu20230309-195534-300x300.png" alt="יונתן יובל" />
+            <h3>יונתן יובל</h3>
+            <p>יועץ פיננסי</p>
           </TeamMember>
           <TeamMember>
-            <MemberImage src="https://www.showmetech.com.br/wp-content/uploads//2024/03/imagem_2024-03-25_145108781.png.webp" alt="Team Member 3" />
-            <h3>Mary Johnson</h3>
-            <p>Client Success Manager</p>
+            <MemberImage src="https://www.showmetech.com.br/wp-content/uploads//2024/03/imagem_2024-03-25_145108781.png.webp" alt="מרי ג'ונסון" />
+            <h3>מרי ג'ונסון</h3>
+            <p>מנהל קשרי לקוחות</p>
           </TeamMember>
         </TeamGrid>
       </TeamSection>
 
       {/* Why Choose Us Section */}
       <CTASection>
-        <h2>Why Choose Us?</h2>
+        <h2>למה לבחור בנו?</h2>
         <p>
-          At Mortgage Consultancy, we don’t just provide services; we build partnerships. Our team is dedicated to your
-          success, offering personalized advice, unmatched industry knowledge, and an unwavering commitment to help you
-          achieve your financial dreams. When you choose us, you're choosing a partner who truly cares.
+          אצל ייעוץ משכנתאות, אנחנו לא רק מספקים שירותים; אנחנו יוצרים שותפויות. הצוות שלנו מחויב להצלחה שלכם,
+          עם ייעוץ מותאם אישית, ידע מעמיק ונכונות לעזור לכם להשיג את החלומות הפיננסיים שלכם. כשאתם בוחרים בנו,
+          אתם בוחרים בשותף שאכפת לו באמת.
         </p>
-        <CTAButton onClick={handleOpenModal}>Get in Touch with Us</CTAButton>
+        <CTAButton onClick={handleOpenModal}>צור קשר</CTAButton>
       </CTASection>
 
       {/* Contact Modal */}
@@ -96,13 +95,14 @@ const AboutContainer = styled.div`
   padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
+  direction: rtl; /* RTL layout */
 `;
 
 const Section = styled.section`
   display: flex;
   align-items: center;
   margin: 40px 0;
-  text-align: left;
+  text-align: right; /* RTL alignment */
   gap: 20px;
 
   @media (max-width: 768px) {
