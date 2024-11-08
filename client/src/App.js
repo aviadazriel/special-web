@@ -9,12 +9,15 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import ArticlePage from './pages/ArticlePage';
 import ArticleDetail from './pages/ArticleDetail';
+import GlobalStyles from './GlobalStyles';
 
 
 function App() {
+  
   return (
     <Router>
       <PageWrapper>
+      <GlobalStyles />
         <Header />
         <MainContent>
           <Routes>

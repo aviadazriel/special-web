@@ -3,26 +3,30 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ContactModal from './ContactModal';
 
-
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <HeaderContainer>
       <Nav>
+        <CTAButton onClick={() => setIsModalOpen(true)}>צור קשר</CTAButton>
+        
+        <NavLinks>
+        <StyledLink to="/">יעוץ משכנתא</StyledLink>
+        <StyledLink to="/articles">מאמרים</StyledLink>
+          
+          <StyledLink to="/services">שירותים</StyledLink>
+          <StyledLink to="/about">אודות</StyledLink>
+
+          <StyledLink to="/about">מחשבונים</StyledLink>
+          <StyledLink to="/about">כתבות בנושא נדלן</StyledLink>
+          
+        </NavLinks>
+
         <LogoContainer>
           <Link to="/">
             <Logo src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" />
           </Link>
         </LogoContainer>
-
-        <NavLinks>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/about">About</StyledLink>
-          <StyledLink to="/services">Services</StyledLink>
-          <StyledLink to="/articles">Articles</StyledLink>
-        </NavLinks>
-
-        <CTAButton onClick={() => setIsModalOpen(true)}>Contact Us</CTAButton>
       </Nav>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </HeaderContainer>
@@ -48,11 +52,11 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+  direction: rtl; /* RTL layout */
 `;
 
 const LogoContainer = styled.div`
-  flex: 1;
- 
+  order: 2; /* Moves logo to the right */
 `;
 
 const Logo = styled.img`
@@ -64,12 +68,12 @@ const Logo = styled.img`
 const NavLinks = styled.div`
   display: flex;
   gap: 25px;
+  order: 1; /* Moves navigation links to the left */
 `;
 
 const StyledLink = styled(Link)`
   font-weight: 600;
   color: #ffffff;
-  text-transform: uppercase;
   font-size: 1rem;
   transition: color 0.2s ease-in-out;
 
@@ -86,7 +90,6 @@ const CTAButton = styled.button`
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  margin-left: 25px;  /* Adds space to the left of the button */
   transition: background-color 0.2s ease, transform 0.1s ease;
 
   &:hover {
