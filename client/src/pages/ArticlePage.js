@@ -1,9 +1,7 @@
-
-
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import articles from '../data/articlesData'; // Import articles data
+import articles from '../data/articlesData';
 
 const Articles = () => {
   const navigate = useNavigate();
@@ -17,10 +15,17 @@ const Articles = () => {
       <Header>
         <Logo src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" />
         <TitleSection>
-          <PageHeader>Our Blog</PageHeader>
-          <PageSubHeader>Insights and tips to help you navigate your mortgage journey</PageSubHeader>
+          <PageHeader>הבלוג שלנו</PageHeader>
+          <PageSubHeader>תובנות וטיפים שיעזרו לך לנווט את מסע המשכנתא</PageSubHeader>
         </TitleSection>
       </Header>
+      
+      <IntroParagraph>
+        עם ניסיון וידע עשיר בתחום המשכנתאות והפיננסים, יצרנו את דף המאמרים הזה
+        כדי לספק לך את כל מה שאתה צריך לדעת על משכנתאות, אסטרטגיות חיסכון, ותכנון פיננסי.
+        מאמרים אלו נכתבו מתוך שאיפה לשתף ידע מקיף ולסייע לך לקבל את ההחלטות הפיננסיות הטובות ביותר.
+      </IntroParagraph>
+
       <ArticlesGrid>
         {articles.map((article) => (
           <ArticleCard key={article.id} onClick={() => handleCardClick(article.id)}>
@@ -38,17 +43,16 @@ const Articles = () => {
   );
 };
 
-
 // Styled Components
 const ArticlesContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 40px 20px;
-  background-color: #f4f8fb;
+  background-color: #f9fbfc;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
 `;
 
 const Header = styled.div`
@@ -56,15 +60,15 @@ const Header = styled.div`
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
-  text-align: center;
+  max-width: 1000px;
   justify-content: center;
-  margin-bottom: 20px;
 `;
 
 const Logo = styled.img`
-  max-height: 300px;
+  max-height: 200px;
   width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 `;
 
 const TitleSection = styled.div`
@@ -72,21 +76,29 @@ const TitleSection = styled.div`
 `;
 
 const PageHeader = styled.h1`
-  font-size: 3rem;
-  color: #1b263b;
+  font-size: 2.5rem;
+  color: #1a2c3d;
   font-weight: bold;
   margin: 0;
 `;
 
 const PageSubHeader = styled.p`
-  font-size: 1.4rem;
-  color: #555;
+  font-size: 1.2rem;
+  color: #444;
   margin-top: 10px;
+`;
+
+const IntroParagraph = styled.p`
+  font-size: 1.2rem;
+  color: #4a4a4a;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 800px;
 `;
 
 const ArticlesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1200px;
@@ -94,20 +106,20 @@ const ArticlesGrid = styled.div`
 
 const ArticleCard = styled.div`
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const ImageWrapper = styled.div`
-  height: 200px;
+  height: 180px;
   overflow: hidden;
 `;
 
@@ -123,21 +135,21 @@ const ArticleImage = styled.img`
 `;
 
 const ArticleContent = styled.div`
-  padding: 20px;
+  padding: 15px;
   text-align: left;
 `;
 
 const ArticleTitle = styled.h2`
-  font-size: 1.6rem;
-  color: #1b263b;
-  margin-bottom: 8px;
+  font-size: 1.4rem;
+  color: #1a2c3d;
+  margin-bottom: 10px;
   font-weight: bold;
 `;
 
 const ArticleDescription = styled.p`
   font-size: 1rem;
   color: #666;
-  line-height: 1.5;
+  line-height: 1.4;
 `;
 
 export default Articles;
