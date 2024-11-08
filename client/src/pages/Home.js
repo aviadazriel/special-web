@@ -372,16 +372,6 @@ const ServiceCard = styled.div`
   text-align: center;
 `;
 
-const ServiceImage = styled.img`
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
-`;
-
-
-
 
 const ArticlesSection = styled.section`
   width: 100%;
