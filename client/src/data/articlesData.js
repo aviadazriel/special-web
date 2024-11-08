@@ -1,3 +1,4 @@
+
 // List of article images
 const imageUrls = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Fl6-95Vpd1uCumsq5zRzziS5i717TxE0DQ&s",
@@ -11,28 +12,147 @@ const imageUrls = [
 const getRandomImage = () => {
   return imageUrls[Math.floor(Math.random() * imageUrls.length)];
 };
-
-// Sample articles with random images
 const articles = [
-    { title: "Understanding Mortgage Basics", description: "A beginner's guide to mortgages.", image: getRandomImage() , id: 1},
-    { title: "Refinancing Options Explained", description: "Learn about refinancing options.", image: getRandomImage(), id: 2 },
-    { title: "Managing Debt Effectively", description: "Tips to manage your debt effectively.", image: getRandomImage(), id: 3 },
-    { title: "Top Mortgage Mistakes to Avoid", description: "Common mortgage mistakes.", image: getRandomImage() , id: 4},
-    { title: "Understanding Interest Rates", description: "How interest rates work.", image: getRandomImage() , id: 5},
-    { title: "Should You Refinance Your Mortgage?", description: "Factors to consider for refinancing.", image: getRandomImage(), id: 6 },
-    { title: "How to Improve Your Credit Score", description: "Steps to improve your credit score.", image: getRandomImage() , id: 7},
-    { title: "Fixed vs. Variable Rate Mortgages", description: "Pros and cons of different rates.", image: getRandomImage() , id: 8},
-    { title: "Mortgage Pre-Approval", description: "Benefits of mortgage pre-approval.", image: getRandomImage(), id: 9 },
-    { title: "How Much Can You Borrow?", description: "Understanding borrowing limits.", image: getRandomImage() , id: 10},
-    { title: "Saving for a Down Payment", description: "Tips for saving for a down payment.", image: getRandomImage() , id: 11},
-    { title: "Home Equity Loans vs. HELOCs", description: "Differences between home loans and HELOCs.", image: getRandomImage(), id: 12 },
-    { title: "Understanding Closing Costs", description: "Guide to various closing costs.", image: getRandomImage(), id: 13 },
-    { title: "How to Choose the Right Lender", description: "Choosing the right mortgage lender.", image: getRandomImage() , id: 14},
-    { title: "The Importance of Mortgage Insurance", description: "Overview of mortgage insurance.", image: getRandomImage() , id: 15},
-    { title: "Buying a Home with Low Income", description: "Purchasing a home on a budget.", image: getRandomImage() , id: 16},
-    { title: "Understanding Foreclosure", description: "Preventing foreclosure and how it works.", image: getRandomImage(), id: 17 },
-    { title: "15-Year vs. 30-Year Mortgage", description: "Choosing a mortgage term.", image: getRandomImage() , id: 18},
-    { title: "The Mortgage Application Process", description: "Step-by-step guide to mortgage applications.", image: getRandomImage() , id: 19},
-    { title: "The Role of Mortgage Brokers", description: "How brokers help find the best mortgage.", image: getRandomImage() , id: 20}
-  ];
-  export default articles;
+  { 
+      id: 1, 
+      title: "הבנת היסודות של המשכנתא", 
+      description: "עולם המשכנתאות עשוי להיות מורכב, ולכן חשוב להבין את היסודות: סוגי הריביות, מסלולי ההחזר, וכיצד לבחור את התמהיל הנכון בהתאם למצב הפיננסי שלכם. מאמר זה מציע מדריך מלא לכל מי שנמצא בתחילת הדרך וזקוק להבנה בסיסית לפני התחלת התהליך.",
+      image: getRandomImage(),
+      date: "2023-11-05" 
+  },
+  { 
+      id: 2, 
+      title: "הסבר על אפשרויות מיחזור משכנתא", 
+      description: "מיחזור משכנתא הוא תהליך המאפשר לשנות את תנאי המשכנתא כדי להתאים אותה לשינויים בשוק או במצב הכלכלי האישי. המאמר מתאר את היתרונות במיחזור המשכנתא, מתי כדאי לשקול אותו, ואיך אפשר לחסוך בעלויות לאורך זמן על ידי שינוי תנאי המשכנתא הנוכחיים.",
+      image: getRandomImage(),
+      date: "2023-09-12" 
+  },
+  { 
+      id: 3, 
+      title: "ניהול חובות בצורה יעילה", 
+      description: "ניהול חובות נכון הוא מפתח לשקט נפשי וליציבות כלכלית. במאמר זה נסביר כיצד לבנות תכנית לניהול החובות שלכם, להתמודד עם הריביות, ולמנוע הידרדרות כלכלית. הכנו טיפים מעשיים וכלים שיעזרו לכם לשמור על איזון פיננסי ותחושת שליטה.",
+      image: getRandomImage(),
+      date: "2023-08-22" 
+  },
+  { 
+      id: 4, 
+      title: "טעויות נפוצות במשכנתא שיש להימנע מהן", 
+      description: "רבים מבצעים טעויות במהלך תהליך המשכנתא שמובילות להוצאות מיותרות. במאמר זה נציג את הטעויות הנפוצות ביותר וכיצד ניתן להימנע מהן, כדי להפוך את התהליך לחסכוני יותר ולהימנע מהפתעות לא נעימות לאורך הדרך.",
+      image: getRandomImage(),
+      date: "2023-10-15" 
+  },
+  { 
+      id: 5, 
+      title: "הבנת ריביות במשכנתאות", 
+      description: "הריבית במשכנתא היא גורם מכריע בהוצאות המשכנתא. מאמר זה יסביר איך מחושבות הריביות, מה משפיע עליהן וכיצד ניתן להשיג ריביות נמוכות יותר. נבחן גם את הבדלי הריבית בין משכנתא בריבית קבועה לריבית משתנה וכיצד זה יכול להשפיע על ההחזרים.",
+      image: getRandomImage(),
+      date: "2023-07-01" 
+  },
+  { 
+      id: 6, 
+      title: "האם כדאי למחזר את המשכנתא?", 
+      description: "כיצד מחזור המשכנתא יכול לחסוך לכם אלפי שקלים ולשפר את התזרים החודשי. המאמר מציג שיקולים שונים ואסטרטגיות למי שמתלבט האם למחזר את המשכנתא וכיצד תהליך זה יכול להיות יתרון כלכלי משמעותי.",
+      image: getRandomImage(),
+      date: "2023-05-18" 
+  },
+  { 
+      id: 7, 
+      title: "כיצד לשפר את דירוג האשראי שלך", 
+      description: "דירוג האשראי משפיע על יכולתך לקבל תנאים טובים במשכנתא. במאמר זה נלמד כיצד לשפר את הדירוג שלך, אילו טעויות להימנע מהן, ואילו פעולות יעזרו לך להיראות כלווה אמין בעיני הבנקים.",
+      image: getRandomImage(),
+      date: "2023-06-22" 
+  },
+  { 
+      id: 8, 
+      title: "משכנתאות בריבית קבועה מול משתנה", 
+      description: "השוואה מעמיקה בין ריבית קבועה לריבית משתנה במשכנתאות. במאמר זה נבחן את היתרונות והחסרונות של כל מסלול, מהו המסלול שמתאים יותר לסוגי לווים שונים ואיך לבחור בין מסלולים בהתאם לתנאי השוק.",
+      image: getRandomImage(),
+      date: "2023-10-10" 
+  },
+  { 
+      id: 9, 
+      title: "אישור מוקדם למשכנתא - יתרונות וחסרונות", 
+      description: "אישור מוקדם הוא כלי חשוב עבור לווים רציניים בתהליך רכישת נכס. המאמר מסביר מהם היתרונות באישור מוקדם, כיצד הוא משפיע על אמינות הקונה בעיני המוכרים, ואילו חסרונות יש לשיטה זו.",
+      image: getRandomImage(),
+      date: "2023-03-29" 
+  },
+  { 
+      id: 10, 
+      title: "כמה תוכל ללוות? הבנת מגבלות הלוואה", 
+      description: "מהם הגורמים שקובעים את סכום המשכנתא שתוכלו לקבל? המאמר מספק כלים להבנת מגבלות ההלוואה, מסביר כיצד לחשב את יכולת ההחזר וכיצד להתאים את סכום ההלוואה ליכולות הכלכליות שלכם.",
+      image: getRandomImage(),
+      date: "2023-02-15" 
+  },
+  { 
+      id: 11, 
+      title: "חיסכון להון עצמי לרכישת דירה", 
+      description: "כיצד לחסוך להון עצמי הדרוש לרכישת נכס, כולל שיטות ניהול תקציב וניהול פיננסי חכם. המאמר מציג תובנות מעשיות וכלים לעמידה ביעדים הפיננסיים שלכם במהירות וביעילות.",
+      image: getRandomImage(),
+      date: "2023-04-10" 
+  },
+  { 
+      id: 12, 
+      title: "משכנתאות לעומת הלוואות הון עצמי", 
+      description: "מהם ההבדלים המרכזיים בין משכנתאות להלוואות הון עצמי, ואילו שימושים מתאימים לכל סוג של הלוואה. המאמר מסביר גם כיצד להיעזר בהון עצמי למימון השקעות נוספות.",
+      image: getRandomImage(),
+      date: "2023-08-08" 
+  },
+  { 
+      id: 13, 
+      title: "הבנת עלויות סגירה בעת רכישת דירה", 
+      description: "במהלך רכישת דירה, קיימות עלויות סגירה נוספות שיש לקחת בחשבון. מאמר זה מספק רשימה מקיפה של עלויות אלו, כולל שיטות להתארגנות כלכלית טובה יותר לקראתן.",
+      image: getRandomImage(),
+      date: "2023-01-18" 
+  },
+  { 
+      id: 14, 
+      title: "כיצד לבחור את המלווה הנכון למשכנתא", 
+      description: "בחירת מלווה משכנתא היא שלב קריטי. מאמר זה מתאר את ההיבטים שיש לקחת בחשבון, כיצד להשוות בין המלווים, וכיצד להבטיח שתקבלו את השירות והמחיר הטובים ביותר.",
+      image: getRandomImage(),
+      date: "2023-12-11" 
+  },
+  { 
+      id: 15, 
+      title: "חשיבות ביטוח משכנתא והגנת הנכס", 
+      description: "ביטוח משכנתא הוא מרכיב חשוב להגן על הנכס ועל ההשקעה שלכם. המאמר מסביר את סוגי הביטוחים הקיימים, ומדוע ביטוח משכנתא הוא חובה בתהליך רכישת דירה.",
+      image: getRandomImage(),
+      date: "2023-05-05" 
+  },
+  { 
+      id: 16, 
+      title: "רכישת דירה עם הכנסה נמוכה", 
+      description: "כיצד ניתן לרכוש דירה גם בהכנסה נמוכה? מאמר זה מציג אפשרויות כלכליות למי שמעוניין לרכוש נכס אך נתקל באתגרים כלכליים, כולל תמיכות ממשלתיות ותוכניות מסובסדות.",
+      image: getRandomImage(),
+      date: "2023-09-22" 
+  },
+  { 
+      id: 17, 
+      title: "הבנת תהליכי עיקול ואיך להימנע מהם", 
+      description: "מהו תהליך העיקול ואיך ניתן להימנע ממנו? מאמר זה בוחן את הסיכונים, ומציג עצות לניהול כלכלי נכון שיסייעו לשמור על הנכס במקרה של קושי כלכלי.",
+      image: getRandomImage(),
+      date: "2023-04-02" 
+  },
+  { 
+      id: 18, 
+      title: "משכנתא ל-15 שנה מול 30 שנה: יתרונות וחסרונות", 
+      description: "השוואה בין תקופות משכנתא שונות וכיצד זה משפיע על ההחזרים החודשיים שלכם. המאמר מסביר גם את ההשלכות הכלכליות של תקופות החזר שונות ומתי כדאי לבחור בכל אחת מהן.",
+      image: getRandomImage(),
+      date: "2023-11-01" 
+  },
+  { 
+      id: 19, 
+      title: "שלבי תהליך הגשת בקשה למשכנתא", 
+      description: "מדריך מעשי לכל השלבים בתהליך הגשת בקשת המשכנתא, כולל הכנת המסמכים, הצגת התנאים, וקבלת האישור הסופי מהבנק.",
+      image: getRandomImage(),
+      date: "2023-03-19" 
+  },
+  { 
+      id: 20, 
+      title: "מה תפקידו של מתווך משכנתא?", 
+      description: "מתווך משכנתא עוזר בליווי לקוחות ומשא ומתן עם המלווים כדי למצוא את התנאים הטובים ביותר למשכנתא. במאמר זה נסביר את תפקיד המתווך, יתרונות השירות וכיצד הוא מקצר את תהליך המשכנתא.",
+      image: getRandomImage(),
+      date: "2023-02-24" 
+  }
+];
+
+export default articles;

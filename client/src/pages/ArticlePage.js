@@ -22,17 +22,16 @@ const Articles = () => {
       
       <IntroParagraph>
         עם ניסיון וידע עשיר בתחום המשכנתאות והפיננסים, יצרנו את דף המאמרים הזה
-        כדי לספק לך את כל מה שאתה צריך לדעת על משכנתאות, אסטרטגיות חיסכון, ותכנון פיננסי.
+        כדי לספק לך את כל מה שאתה צריך לדעת על משכנתאות, אסטרטגיות חיסכון ותכנון פיננסי.
         מאמרים אלו נכתבו מתוך שאיפה לשתף ידע מקיף ולסייע לך לקבל את ההחלטות הפיננסיות הטובות ביותר.
       </IntroParagraph>
 
       <ArticlesGrid>
         {articles.map((article) => (
           <ArticleCard key={article.id} onClick={() => handleCardClick(article.id)}>
-            <ImageWrapper>
-              <ArticleImage src={article.image} alt={article.title} />
-            </ImageWrapper>
+            <HoverImage src={article.image} alt={article.title} />
             <ArticleContent>
+              <ArticleDate>{article.date}</ArticleDate> {/* הצגת התאריך */}
               <ArticleTitle>{article.title}</ArticleTitle>
               <ArticleDescription>{article.description}</ArticleDescription>
             </ArticleContent>
@@ -98,45 +97,58 @@ const IntroParagraph = styled.p`
 
 const ArticlesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Increased minmax to make cards 30% larger */
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+`;
+
+const HoverImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 `;
 
 const ArticleCard = styled.div`
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  padding: 20px;
+  border-left: 3px solid #fcbf49;
+  position: relative;
 
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
-`;
 
-const ImageWrapper = styled.div`
-  height: 180px;
-  overflow: hidden;
-`;
-
-const ArticleImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s;
-
-  ${ArticleCard}:hover & {
-    transform: scale(1.05);
+  &:hover ${HoverImage} {
+    opacity: 1;
   }
 `;
 
 const ArticleContent = styled.div`
   padding: 15px;
   text-align: left;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+`;
+
+const ArticleDate = styled.p`
+  font-size: 0.9rem;
+  color: #999;
+  margin: 0 0 10px 0;
 `;
 
 const ArticleTitle = styled.h2`
