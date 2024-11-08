@@ -53,10 +53,28 @@ const AboutUs = () => {
         <h2>פגשו את הצוות</h2>
         <TeamGrid>
           <TeamMember>
-            <MemberImage src="https://cdnstorage.sendbig.com/unreal/female.webp" alt="אליסה כהן" />
-            <h3>אליסה כהן</h3>
-            <p>יועצת משכנתאות בכירה</p>
+            <MemberImage src="https://media.licdn.com/dms/image/v2/D4D03AQHw3b1t4HstgQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1663071861474?e=1736380800&v=beta&t=3wde5vN6a3IO_s_WOdBPsArAu9Ftp7HGqjkC5pX9Ka0" alt="אביעד עזריאל" />
+            <h3>אביעד עזריאל</h3>
+            <p>יועץ משכנתאות בכיר</p>
           </TeamMember>
+          
+
+          <TeamMember>
+            <MemberImage src="https://media.licdn.com/dms/image/v2/C4E03AQHlhrn3s6KzZw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1650709285769?e=1736380800&v=beta&t=PAg5Ps-VpgP46e8XBP21s6R8pDHxI_TIwhZ8oEMgTxs" alt="איתיאל עזריאל" />
+            <h3>איתיאל עזריאל</h3>
+            <p>יועץ משכנתאות ורואה חשבון</p>
+          </TeamMember>
+
+          <TeamMember>
+            <MemberImage src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/64783947_2849908318356078_730348687489761280_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=53a332&_nc_ohc=XXkJpX6urNQQ7kNvgHZG5me&_nc_zt=23&_nc_ht=scontent.ftlv1-1.fna&_nc_gid=AxipmrZTJjZcHvSZ4E9sjTp&oh=00_AYClSGRC1uIaADn5Hn_i_eRhWwdgirUmE_qCjQ3nr131Fw&oe=6755C6F4" alt="אורלי ברון" />
+            <h3>אורלי ברון</h3>
+            <p>יועצת משכנתאות</p>
+          </TeamMember>
+
+
+
+          
+          
           <TeamMember>
             <MemberImage src="https://www.zmo.ai/wp-content/uploads/2023/03/Feishu20230309-195534-300x300.png" alt="יונתן יובל" />
             <h3>יונתן יובל</h3>
