@@ -141,9 +141,10 @@ const Home = () => {
       <ArticlesSection>
         <h2>מאמרים אחרונים</h2>
         <ArticleCarousel>
-          <Arrow onClick={handlePrev}>
-            <FontAwesomeIcon icon={faChevronLeft} />
+        <Arrow onClick={handleNext}>
+            <FontAwesomeIcon icon={faChevronRight} />
           </Arrow>
+          
           <ArticleGrid>
             {visibleArticles.map((article) => (
               <ArticleCard key={article.id} onClick={() => handleArticleClick(article.id)}>
@@ -153,8 +154,9 @@ const Home = () => {
               </ArticleCard>
             ))}
           </ArticleGrid>
-          <Arrow onClick={handleNext}>
-            <FontAwesomeIcon icon={faChevronRight} />
+          
+          <Arrow onClick={handlePrev}>
+            <FontAwesomeIcon icon={faChevronLeft} />
           </Arrow>
         </ArticleCarousel>
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
