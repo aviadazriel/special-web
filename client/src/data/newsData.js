@@ -33,7 +33,7 @@ const news = [
       title: 'ירידות מחירים משמעותיות: האם מדובר במגמה?',
       link: 'https://www.globes.co.il/news/article.aspx?did=1001493211',
       description: 'סקירה על הירידות האחרונות במחירי הנדל"ן בארץ.',
-      imageUrl: 'https://images.globes.co.il/dynamic/images/source/04price_drop_trend.jpg',
+      imageUrl: 'https://res.cloudinary.com/globes/image/upload/t_800X392,f_auto/v1622384296/direct/shutterstock_1923763337_p9tt4d.jpg',
       source: 'Globes',
       publishDate: '2023-09-05'
     },
@@ -42,7 +42,7 @@ const news = [
       title: 'משקיעים ותיקים משנים גישה בשוק',
       link: 'https://www.calcalist.co.il/article/r1hoki1w1e',
       description: 'מדוע משקיעים ותיקים עוברים לגישות חדשות בתחום ההשקעות.',
-      imageUrl: 'https://images.calcalist.co.il/dynamic/images/source/05investor_trends.jpg',
+      imageUrl: 'https://pic1.calcalist.co.il/picserver3/wcm_upload_dev/2022/09/15/Hk9OzwlWi/calcalistlogn.png',
       source: 'Calcalist',
       publishDate: '2023-08-28'
     },
