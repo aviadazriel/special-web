@@ -15,7 +15,7 @@ const Articles = () => {
   return (
     <ArticlesContainer>
       <Header>
-        <Logo src="https://example.com/your-logo.png" alt="Company Logo" />
+        <Logo src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" />
         <TitleSection>
           <PageHeader>Our Blog</PageHeader>
           <PageSubHeader>Insights and tips to help you navigate your mortgage journey</PageSubHeader>
@@ -63,7 +63,7 @@ const Header = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 80px;
+  max-height: 300px;
   width: auto;
 `;
 
