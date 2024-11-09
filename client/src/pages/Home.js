@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ServiceList from '../components/ServiceList'; // Import the new ServiceList component
+import BankCarousel from '../components/BankCarousel'; // Import the BankCarousel component
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
@@ -147,7 +148,12 @@ const Home = () => {
         </ArticleCarousel>
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
+      <AssociationLogo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="Association Logo" />
 
+      <CarouselSection>
+        <h3>בנקים שאיתם אנחנו עובדים</h3>
+        <BankCarousel />
+      </CarouselSection>
       <CTASection>
         <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
         <CTAButton onClick={handleConsultationClick}>קבע פגישה לייעוץ חינם</CTAButton>
@@ -173,7 +179,23 @@ const Home = () => {
   );
 };
 
+const CarouselSection = styled.section`
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
 
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #1b263b;
+  }
+`;
+const AssociationLogo = styled.img`
+  width: 120px;
+  height: auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+`;
 const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
