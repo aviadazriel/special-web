@@ -48,6 +48,30 @@ const AboutUs = () => {
         </ValuesGrid>
       </ValuesSection>
 
+      <AssociationSection>
+      <Logo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="לוגו התאחדות יועצי המשכנתאות" />
+      <AssociationTitle>התאחדות יועצי המשכנתאות בישראל</AssociationTitle>
+
+      <VisionTitle>החזון שלנו</VisionTitle>
+      <VisionText>
+        בחזון העמותה ידע כל לווה שנמצא בתהליך רכישה של נכס ו/או לוקח החלטות כלכליות חשובות וקריטיות, כי באמצעות
+        יועץ משכנתאות מקצועי ואובייקטיבי אשר עומד בסף דרישה מקצועי ואתי, יקבל את המידע הדרוש, והייעוץ הנכון לקבלת
+        ההחלטות והליווי המקצועי עד להשגת משכנתא מתוכננת היטב ומתאימה לצרכים הפיננסיים.
+      </VisionText>
+      
+      <AssociationText>
+        <p>למה חשוב לעבוד רק עם יועץ משכנתאות רשום?</p>
+        <ul>
+          <li>היועצים הרשומים בהתאחדות הם אלו אשר עמדו במבחני הקבלה המחמירים ועומדים בסף מקצועי ואתי.</li>
+          <li>ההתאחדות מפיקה ומארגנת כנסים, הדרכות והשתלמויות כדי להעמיק ולהרחיב את הידע המקצועי של היועצים.</li>
+          <li>חברי ההתאחדות מעודכנים בשינויים הבנקאיים ומקבלים מעטפת של תמיכה ועזרה מקצועית.</li>
+          <li>ההתאחדות מייצגת את כלל היועצים מול המוסדות הבנקאיים ופועלת לשיפור תנאי העבודה, כל זאת לטובת הלקוח.</li>
+        </ul>
+      </AssociationText>
+      
+    </AssociationSection>
+
+
       {/* Meet the Team Section */}
       <TeamSection>
         <h2>פגשו את הצוות</h2>
@@ -254,5 +278,80 @@ const CTAButton = styled.button`
     background-color: #f0a500;
   }
 `;
+const AssociationSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f7f9fc, #e9eff5);
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  max-width: 1000px; /* שימוש מיטבי ברוחב העמוד */
+  margin: 50px auto;
+`;
 
+const Logo = styled.img`
+  width: 150px;
+  margin-bottom: 25px;
+`;
+
+const AssociationTitle = styled.h2`
+  font-size: 2.2rem;
+  color: #0d47a1;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0d47a1, #1976d2);
+  -webkit-background-clip: text;
+  color: transparent;
+`;
+
+const VisionTitle = styled.h3`
+  font-size: 1.8rem;
+  color: #0d47a1;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+`;
+
+const VisionText = styled.p`
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 20px 0;
+  max-width: 850px;
+  padding: 15px;
+  background: rgba(245, 247, 251, 0.85);
+  
+  border-left: 4px solid #0d47a1;
+  border-radius: 10px;
+`;
+
+const AssociationText = styled.div`
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 850px;
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(245, 247, 251, 0.85);
+  border-left: 4px solid #1976d2;
+  border-radius: 10px;
+
+  p {
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    padding-left: 20px;
+    margin-top: 15px;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+`;
 export default AboutUs;
