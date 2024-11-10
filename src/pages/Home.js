@@ -167,7 +167,7 @@ const HeroSection = styled.section`
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   overflow: hidden;
 
   &:before {
@@ -187,7 +187,7 @@ const HeroSection = styled.section`
 
   @media (max-width: 768px) {
     height: 60vh;
-    padding: 40px 20px;
+    padding: 10px 5px;
   }
 `;
 
@@ -247,7 +247,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 
   @media (max-width: 768px) {
     padding: 10px;
