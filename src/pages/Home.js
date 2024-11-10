@@ -151,7 +151,7 @@ const Home = () => {
       <AssociationLogo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="Association Logo" />
 
       <CarouselSection>
-        <h3>בנקים שאיתם אנחנו עובדים</h3>
+        <h3>גופי מימון</h3>
         <BankCarousel />
       </CarouselSection>
       <CTASection>
