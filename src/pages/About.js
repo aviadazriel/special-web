@@ -47,20 +47,19 @@ const AboutUs = () => {
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
-
-      <AssociationSection>
+      <SectionContainer>
       <Logo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="לוגו התאחדות יועצי המשכנתאות" />
       <AssociationTitle>התאחדות יועצי המשכנתאות בישראל</AssociationTitle>
 
       <VisionTitle>החזון שלנו</VisionTitle>
       <VisionText>
         בחזון העמותה ידע כל לווה שנמצא בתהליך רכישה של נכס ו/או לוקח החלטות כלכליות חשובות וקריטיות, כי באמצעות
-        יועץ משכנתאות מקצועי ואובייקטיבי אשר עומד בסף דרישה מקצועי ואתי, יקבל את המידע הדרוש, והייעוץ הנכון לקבלת
+        יועץ משכנתאות <strong>מקצועי</strong> ו<strong>אובייקטיבי</strong> אשר עומד בסף דרישה מקצועי ואתי, יקבל את המידע הדרוש, והייעוץ הנכון לקבלת
         ההחלטות והליווי המקצועי עד להשגת משכנתא מתוכננת היטב ומתאימה לצרכים הפיננסיים.
       </VisionText>
-      
+
       <AssociationText>
-        <p>למה חשוב לעבוד רק עם יועץ משכנתאות רשום?</p>
+        <p><strong>למה חשוב לעבוד רק עם יועץ משכנתאות רשום?</strong></p>
         <ul>
           <li>היועצים הרשומים בהתאחדות הם אלו אשר עמדו במבחני הקבלה המחמירים ועומדים בסף מקצועי ואתי.</li>
           <li>ההתאחדות מפיקה ומארגנת כנסים, הדרכות והשתלמויות כדי להעמיק ולהרחיב את הידע המקצועי של היועצים.</li>
@@ -68,8 +67,7 @@ const AboutUs = () => {
           <li>ההתאחדות מייצגת את כלל היועצים מול המוסדות הבנקאיים ופועלת לשיפור תנאי העבודה, כל זאת לטובת הלקוח.</li>
         </ul>
       </AssociationText>
-      
-    </AssociationSection>
+    </SectionContainer>
 
 
       {/* Meet the Team Section */}
@@ -278,80 +276,92 @@ const CTAButton = styled.button`
     background-color: #f0a500;
   }
 `;
-const AssociationSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, #f7f9fc, #e9eff5);
-  padding: 60px 40px;
-  border-radius: 20px;
+
+
+
+
+// Styled Components
+const SectionContainer = styled.section`
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  padding: 60px;
+  border-radius: 15px;
+  max-width: 900px;
+  margin: 40px auto;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* שימוש מיטבי ברוחב העמוד */
-  margin: 50px auto;
+  text-align: center;
+  color: #0d47a1;
 `;
 
 const Logo = styled.img`
-  width: 150px;
-  margin-bottom: 25px;
+  width: 120px;
+  margin-bottom: 20px;
 `;
 
 const AssociationTitle = styled.h2`
-  font-size: 2.2rem;
+  font-size: 2rem;
+  font-weight: 700;
   color: #0d47a1;
   margin-bottom: 30px;
-  text-align: center;
-  font-weight: 700;
+`;
+
+const VisionTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-bottom: 15px;
   background: linear-gradient(90deg, #0d47a1, #1976d2);
   -webkit-background-clip: text;
   color: transparent;
 `;
 
-const VisionTitle = styled.h3`
-  font-size: 1.8rem;
-  color: #0d47a1;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  font-weight: 600;
-  text-align: center;
-`;
-
 const VisionText = styled.p`
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.15rem;
   line-height: 1.8;
+  color: #333;
   text-align: justify;
-  margin: 20px 0;
-  max-width: 850px;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
   padding: 15px;
-  background: rgba(245, 247, 251, 0.85);
-  
-  border-left: 4px solid #0d47a1;
+  background: #f1f8fe;
   border-radius: 10px;
 `;
 
 const AssociationText = styled.div`
-  font-size: 1.2rem;
-  color: #333;
+  font-size: 1.1rem;
   line-height: 1.8;
-  text-align: justify;
-  max-width: 850px;
-  margin: 25px 0;
+  text-align: right;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  background: rgba(245, 247, 251, 0.85);
-  border-left: 4px solid #1976d2;
+  background: #f9fdff;
   border-radius: 10px;
-
-  p {
-    margin-bottom: 15px;
-  }
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   
-  ul {
-    padding-left: 20px;
-    margin-top: 15px;
+  p {
+    font-weight: bold;
+    color: #0d47a1;
+    margin-bottom: 10px;
+  }
 
-    li {
-      margin-bottom: 10px;
-    }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+
+  li::before {
+    content: "✔️";
+    color: #4caf50;
+    font-size: 1.2rem;
+    margin-right: 10px;
   }
 `;
 export default AboutUs;
