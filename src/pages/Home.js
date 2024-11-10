@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ServiceList from '../components/ServiceList'; // Import the new ServiceList component
-import BankCarousel from '../components/BankCarousel'; // Import the BankCarousel component
+import ServiceList from '../components/ServiceList';
+import BankCarousel from '../components/BankCarousel';
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
@@ -36,39 +36,11 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
-  const handleServiceClick = (serviceId) => {
-    navigate(`/services/${serviceId}`);
-  };
-
-  const handleArticleClick = (id) => {
-    navigate(`/article/${id}`);
-  };
-
-  const handleViewAllArticlesClick = () => {
-    navigate('/articles');
-  };
-
-  const visibleArticles = articles.slice(currentIndex, currentIndex + 3);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + 3 < articles.length ? prevIndex + 1 : 0
-    );
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : articles.length - 3
-    );
-  };
-
-  const handleConsultationClick = () => {
-    navigate('/contact');
-  };
-
-
-
-
+  const handleServiceClick = (serviceId) => navigate(`/services/${serviceId}`);
+  const handleArticleClick = (id) => navigate(`/article/${id}`);
+  const handleViewAllArticlesClick = () => navigate('/articles');
+  const handleConsultationClick = () => navigate('/contact');
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setFadeTransition(false);
@@ -83,10 +55,18 @@ const Home = () => {
   }, []);
 
   const currentTestimonial = testimonials[currentTestimonialIndex];
+  const visibleArticles = articles.slice(currentIndex, currentIndex + 3);
+
+  const handleNext = () => setCurrentIndex((prevIndex) =>
+    prevIndex + 3 < articles.length ? prevIndex + 1 : 0
+  );
+
+  const handlePrev = () => setCurrentIndex((prevIndex) =>
+    prevIndex > 0 ? prevIndex - 1 : articles.length - 3
+  );
 
   return (
     <HomeContainer>
-      {/* Hero Section */}
       <HeroSection>
         <HeroText>
           <h1>ברוכים הבאים לייעוץ משכנתאות</h1>
@@ -95,23 +75,16 @@ const Home = () => {
         </HeroText>
       </HeroSection>
 
-      {/* About Us Section */}
       <AboutSection>
         <h2>אודותינו</h2>
-        <p>
-          עם שנים של ניסיון בתחום המשכנתאות, אנו מספקים ייעוץ מותאם אישית
-          כדי לעזור לך לקבל החלטות פיננסיות נכונות. השירות שלנו אישי,
-          עם ידע מעמיק ומחויבות להגשמת המטרות שלך.
-        </p>
+        <p>עם שנים של ניסיון בתחום המשכנתאות, אנו מספקים ייעוץ מותאם אישית כדי לעזור לך לקבל החלטות פיננסיות נכונות.</p>
       </AboutSection>
 
-      {/* Services Section */}
       <ServicesSection>
         <h2>השירותים שלנו</h2>
         <ServiceList services={services} onCardClick={handleServiceClick} />
       </ServicesSection>
 
-      {/* Testimonials Section */}
       <TestimonialsSection>
         <h2>מה הלקוחות שלנו אומרים</h2>
         <TestimonialCard fadeTransition={fadeTransition}>
@@ -124,14 +97,10 @@ const Home = () => {
         </TestimonialCard>
       </TestimonialsSection>
 
-      {/* Articles Section */}
       <ArticlesSection>
         <h2>מאמרים אחרונים</h2>
         <ArticleCarousel>
-        <Arrow onClick={handleNext}>
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Arrow>
-          
+          <Arrow onClick={handleNext}><FontAwesomeIcon icon={faChevronRight} /></Arrow>
           <ArticleGrid>
             {visibleArticles.map((article) => (
               <ArticleCard key={article.id} onClick={() => handleArticleClick(article.id)}>
@@ -141,43 +110,126 @@ const Home = () => {
               </ArticleCard>
             ))}
           </ArticleGrid>
-          
-          <Arrow onClick={handlePrev}>
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </Arrow>
+          <Arrow onClick={handlePrev}><FontAwesomeIcon icon={faChevronLeft} /></Arrow>
         </ArticleCarousel>
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
+      
       <AssociationLogo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="Association Logo" />
-
+      
       <CarouselSection>
         <h3>גופי מימון</h3>
         <BankCarousel />
       </CarouselSection>
+
       <CTASection>
         <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
         <CTAButton onClick={handleConsultationClick}>קבע פגישה לייעוץ חינם</CTAButton>
-        
         <IconsContainer>
-          <IconLink href="tel:+972508857282" color="#4CAF50">
-            <FontAwesomeIcon icon={faPhone} />
-          </IconLink>
-          <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </IconLink>
-          <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#4CAF50">
-            <FontAwesomeIcon icon={faWhatsapp} />
-          </IconLink>
-          <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#3b5998">
-            <FontAwesomeIcon icon={faFacebook} />
-          </IconLink>
+          <IconLink href="tel:+972508857282" color="#4CAF50"><FontAwesomeIcon icon={faPhone} /></IconLink>
+          <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437"><FontAwesomeIcon icon={faEnvelope} /></IconLink>
+          <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#4CAF50"><FontAwesomeIcon icon={faWhatsapp} /></IconLink>
+          <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#3b5998"><FontAwesomeIcon icon={faFacebook} /></IconLink>
         </IconsContainer>
       </CTASection>
-
-     
     </HomeContainer>
   );
 };
+
+
+// Styled Components
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
+
+const HeroSection = styled.section`
+  background: linear-gradient(135deg, #1b263b, #0d1b2a);
+  color: white;
+  width: 100%;
+  padding: 40px 20px;
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+const HeroButton = styled.button`
+  background-color: #fcbf49;
+  color: #0d1b2a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0a500;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+`;
+
+const AboutSection = styled.section`
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 20px;
+
+  h2 {
+    font-size: 1.8rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const CarouselSection = styled.section`
   width: 100%;
@@ -196,12 +248,7 @@ const AssociationLogo = styled.img`
   margin-top: 15px;
   margin-bottom: 20px;
 `;
-const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-`;
+
   const TestimonialsSection = styled.section`
   max-width: 800px;
   padding: 40px 20px;
@@ -259,16 +306,7 @@ const Source = styled.span`
   color: #888;
 `;
 
-const HeroSection = styled.section`
-  background: linear-gradient(135deg, #1b263b, #0d1b2a);
-  color: white;
-  width: 100%;
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-`;
+
 
 const HeroText = styled.div`
   max-width: 800px;
@@ -284,38 +322,8 @@ const HeroText = styled.div`
   }
 `;
 
-const HeroButton = styled.button`
-  background-color: #fcbf49;
-  color: #0d1b2a;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s;
 
-  &:hover {
-    background-color: #f0a500;
-  }
-`;
 
-const AboutSection = styled.section`
-  max-width: 800px;
-  padding: 40px 20px;
-  text-align: center;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.6;
-  }
-`;
 
 const ServicesSection = styled.section`
   width: 100%;
