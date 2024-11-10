@@ -25,9 +25,8 @@ const Header = () => {
           <StyledLink to="/about" onClick={() => setIsMobileMenuOpen(false)}>אודות</StyledLink>
           <StyledLink to="/real-estate-news" onClick={() => setIsMobileMenuOpen(false)}>כתבות בנושא נדל"ן</StyledLink>
           <StyledLink to="/calculator" onClick={() => setIsMobileMenuOpen(false)}>מחשבון משכנתא</StyledLink>
+          <CTAButton onClick={() => setIsModalOpen(true)}>צור קשר</CTAButton>
         </NavLinks>
-
-        <CTAButton onClick={() => setIsModalOpen(true)}>צור קשר</CTAButton>
 
         <MobileMenuIcon onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
@@ -48,7 +47,7 @@ const HeaderContainer = styled.header`
   z-index: 1000;
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
-  direction: rtl;
+  direction: rtl; /* התאמה לעברית */
 `;
 
 const Nav = styled.nav`
@@ -85,7 +84,7 @@ const MobileMenuIcon = styled.div`
     color: #333;
     cursor: pointer;
     position: absolute;
-    left: 20px;
+    left: 20px; /* מיקום מצד שמאל בהתאמה ל-RTL */
   }
 `;
 
@@ -139,18 +138,23 @@ const StyledLink = styled(Link)`
 `;
 
 const CTAButton = styled.button`
-  background: #333;
+  background: linear-gradient(135deg, #333, #555);
   color: white;
-  padding: 8px 15px;
-  font-size: 0.85rem;
-  border: none;
-  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border: 1px solid #333;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  margin-right: 20px; /* כדי להפריד מהלינקים בצד ימין */
+  transition: transform 0.2s ease, background 0.3s ease;
 
   &:hover {
-    background: #555;
+    background: linear-gradient(135deg, #555, #333);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(1);
   }
 `;
 
