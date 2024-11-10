@@ -51,10 +51,15 @@ const PageWrapper = styled.div`
 
 const MainContent = styled.main`
   width: 100%;
-  max-width: 1200px;
-  min-height: 80vh; /* Ensures consistent minimum height */
-  padding: 40px 20px;
+  max-width: 100%;
+  min-height: 80vh;
+  padding: 40px 2px;
   flex: 1;
+
+  @media (min-width: 768px) {
+    // max-width: 1200px; /* Contain content on larger screens */
+    margin: auto; /* Center align when max-width is applied */
+  }
 `;
 
 export default App;

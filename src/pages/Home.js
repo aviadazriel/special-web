@@ -158,7 +158,7 @@ const HeroSection = styled.section`
   position: relative;
   background-image: url(${process.env.PUBLIC_URL}/family2.webp);
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
   color: white;
   width: 100%;
@@ -183,6 +183,10 @@ const HeroSection = styled.section`
     );
     opacity: 0.7; /* Adjust opacity for desired subtlety */
     z-index: 1;
+  }
+
+  @media (min-width: 1200px) {
+    height: 100vh;
   }
 
   @media (max-width: 768px) {
