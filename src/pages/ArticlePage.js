@@ -138,7 +138,8 @@ const ArticleCard = styled.div`
 
 const ArticleContent = styled.div`
   padding: 15px;
-  text-align: left;
+  text-align: right; /* Align text to the right */
+  direction: rtl; /* Set direction to RTL for Hebrew */
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.9);
@@ -149,19 +150,27 @@ const ArticleDate = styled.p`
   font-size: 0.9rem;
   color: #999;
   margin: 0 0 10px 0;
+  text-align: right; /* Align text to the right */
+  direction: rtl; /* Set direction to RTL for Hebrew */
 `;
+
 
 const ArticleTitle = styled.h2`
   font-size: 1.4rem;
   color: #1a2c3d;
   margin-bottom: 10px;
   font-weight: bold;
+  text-align: right; /* Align text to the right */
+  direction: rtl; /* Set direction to RTL for Hebrew */
 `;
+
 
 const ArticleDescription = styled.p`
   font-size: 1rem;
   color: #666;
   line-height: 1.4;
+  text-align: right; /* Align text to the right */
+  direction: rtl; /* Set direction to RTL for Hebrew */
 `;
 
 export default Articles;

@@ -1,6 +1,6 @@
 // ArticleDetail.js
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import articles from '../data/articlesData';
 
@@ -8,7 +8,6 @@ const ArticleDetail = () => {
   const { id } = useParams();
   const articleMeta = articles.find((article) => article.id === parseInt(id, 10));
   const [articleContent, setArticleContent] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (articleMeta) {
@@ -22,7 +21,6 @@ const ArticleDetail = () => {
 
   return (
     <ArticleDetailContainer>
-      <BackButton onClick={() => navigate(-1)}>← Back to Articles</BackButton>
       <Image src={articleMeta.image} alt={articleMeta.title} />
       <Title>{articleMeta.title}</Title>
       <Description>{articleMeta.description}</Description>
@@ -44,18 +42,6 @@ const ArticleDetailContainer = styled.div`
   direction: rtl; /* Set direction to RTL */
 `;
 
-const BackButton = styled.button`
-  background: none;
-  border: none;
-  color: #007BFF;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-bottom: 20px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 const Image = styled.img`
   width: 100%;
