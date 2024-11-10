@@ -43,7 +43,41 @@ const articleContent = {
     </li>
   </ul>
 
-  <h3>סיכום</h3>
+
+  <h3>ההבדלים העיקריים בין משכנתא להלוואה בנקאית</h3>
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+      <tr style="background-color: #f2f2f2; text-align: center;">
+        <th style="padding: 12px; border: 1px solid #ddd;">קטגוריה</th>
+        <th style="padding: 12px; border: 1px solid #ddd;">משכנתא</th>
+        <th style="padding: 12px; border: 1px solid #ddd;">הלוואה בנקאית</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"><strong>מטרה ושימוש</strong></td>
+        <td style="padding: 12px; border: 1px solid #ddd;">לרכישת נכס נדל"ן כגון דירה או בית</td>
+        <td style="padding: 12px; border: 1px solid #ddd;">ניתן להשתמש למגוון רחב של מטרות כמו שיפוץ, לימודים ורכישת רכב</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"><strong>בטוחה</strong></td>
+        <td style="padding: 12px; border: 1px solid #ddd;">הנכס הנרכש משמש כבטוחה להחזר ההלוואה</td>
+        <td style="padding: 12px; border: 1px solid #ddd;">במקרים מסוימים אין צורך בבטוחה, ולעיתים נדרשת בטוחה כגון רכב</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"><strong>תקופת החזר</strong></td>
+        <td style="padding: 12px; border: 1px solid #ddd;">לטווח ארוך, בדרך כלל מעל 10 שנים</td>
+        <td style="padding: 12px; border: 1px solid #ddd;">לטווח קצר יותר בהתאם לתנאי ההלוואה ולגובה ההחזר</td>
+      </tr>
+      <tr>
+        <td style="padding: 12px; border: 1px solid #ddd; text-align: center;"><strong>ריבית ותנאים</strong></td>
+        <td style="padding: 12px; border: 1px solid #ddd;">ריבית נמוכה יחסית בשל הבטוחה המוצמדת (הנכס)</td>
+        <td style="padding: 12px; border: 1px solid #ddd;">ריבית גבוהה יחסית, במיוחד בהלוואות ללא בטוחה</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top: 20px;">סיכום</h3>
   <p>
     בין אם אתם מתכננים רכישת נכס חדש ובין אם אתם זקוקים למימון למטרות אחרות, חשוב להכיר את ההבדלים בין משכנתא להלוואה 
     בנקאית. הבנה מעמיקה של תנאי כל הלוואה תאפשר לכם לקבל החלטות מושכלות, המתאימות לצרכים וליכולות הפיננסיות שלכם, 
@@ -54,4 +88,6 @@ const articleContent = {
   };
   
   export default articleContent;
+
+  
   
