@@ -1,6 +1,8 @@
+// Footer.js
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faTwitter, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faWhatsapp, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const Footer = () => (
@@ -9,23 +11,23 @@ const Footer = () => (
       {/* Contact Information */}
       <ContactInfo>
         <ContactItem href="tel:+972508857282">📞 050-885-7282</ContactItem>
-        <ContactItem href="mailto:contact@premiumconsult.com">📧 contact@premiumconsult.com</ContactItem>
+        <ContactItem href="mailto:mashkanta.mishtalemet@gmail.com">
+          <FontAwesomeIcon icon={faEnvelope} /> mashkanta.mishtalemet@gmail.com
+        </ContactItem>
         <ContactItem href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
+        </ContactItem>
+        <ContactItem href="https://maps.app.goo.gl/UssHw9rgkTQron728" target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faMapMarkerAlt} /> חיל האויר 1, ראשון לציון
         </ContactItem>
       </ContactInfo>
 
       {/* Social Media Links */}
       <SocialLinks>
-        <SocialLink href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <SocialLink href="https://www.facebook.com/mashkanta.experience/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faFacebook} />
         </SocialLink>
-        <SocialLink href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faTwitter} />
-        </SocialLink>
-        <SocialLink href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faLinkedin} />
-        </SocialLink>
+        {/* Additional Social Links if needed */}
       </SocialLinks>
     </FooterContent>
 
@@ -74,6 +76,9 @@ const ContactItem = styled.a`
   color: #ffffff;
   text-decoration: none;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 
   &:hover {
     color: #fcbf49;
@@ -86,7 +91,7 @@ const SocialLinks = styled.div`
 `;
 
 const SocialLink = styled.a`
-  color: #fcbf49;
+  color: #3b5998; /* Facebook blue */
   font-size: 1.5rem;
   transition: color 0.3s ease;
 
