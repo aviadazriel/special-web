@@ -18,6 +18,10 @@ const Header = () => {
           </Link>
         </LogoContainer>
 
+        <MobileMenuIcon onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
+        </MobileMenuIcon>
+
         <NavLinks isOpen={isMobileMenuOpen}>
           <StyledLink to="/" onClick={() => setIsMobileMenuOpen(false)}>יעוץ משכנתא</StyledLink>
           <StyledLink to="/articles" onClick={() => setIsMobileMenuOpen(false)}>מאמרים</StyledLink>
@@ -27,10 +31,6 @@ const Header = () => {
           <StyledLink to="/calculator" onClick={() => setIsMobileMenuOpen(false)}>מחשבון משכנתא</StyledLink>
           <CTAButton onClick={() => setIsModalOpen(true)}>צור קשר</CTAButton>
         </NavLinks>
-
-        <MobileMenuIcon onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          <FontAwesomeIcon icon={isMobileMenuOpen ? faTimes : faBars} />
-        </MobileMenuIcon>
       </Nav>
       <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </HeaderContainer>
@@ -47,7 +47,7 @@ const HeaderContainer = styled.header`
   z-index: 1000;
   width: 100%;
   border-bottom: 1px solid #e1e1e1;
-  direction: rtl; /* התאמה לעברית */
+  direction: rtl;
 `;
 
 const Nav = styled.nav`
@@ -57,6 +57,10 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+
+  @media (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -64,6 +68,10 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Logo = styled.img`
@@ -72,6 +80,10 @@ const Logo = styled.img`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    height: 40px;
   }
 `;
 
@@ -84,7 +96,7 @@ const MobileMenuIcon = styled.div`
     color: #333;
     cursor: pointer;
     position: absolute;
-    left: 20px; /* מיקום מצד שמאל בהתאמה ל-RTL */
+    left: 10px;
   }
 `;
 
@@ -107,6 +119,7 @@ const NavLinks = styled.div`
     padding: 20px 0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
+    gap: 10px;
   }
 `;
 
@@ -135,6 +148,11 @@ const StyledLink = styled(Link)`
   &:hover:after {
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 12px 0;
+  }
 `;
 
 const CTAButton = styled.button`
@@ -147,6 +165,7 @@ const CTAButton = styled.button`
   border-radius: 25px;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
+  margin-top: 10px;
 
   &:hover {
     background: linear-gradient(135deg, #555, #333);
@@ -155,6 +174,11 @@ const CTAButton = styled.button`
 
   &:active {
     transform: scale(1);
+  }
+
+  @media (max-width: 768px) {
+    width: 80%;
+    padding: 8px;
   }
 `;
 
