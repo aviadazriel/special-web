@@ -148,28 +148,34 @@ const HomeContainer = styled.div`
     padding: 10px;
   }
 `;
-
 const HeroSection = styled.section`
   background: linear-gradient(135deg, #1b263b, #0d1b2a);
   color: white;
   width: 100%;
-  padding: 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 20px; /* מרווח פנימי כללי */
+
+  @media (max-width: 768px) {
+    height: auto; /* בגודל מסך קטן יותר, הגובה יתאים לתוכן */
+    padding: 40px 20px;
+  }
+`;
+
+const HeroText = styled.div`
+  max-width: 800px;
 
   h1 {
-    font-size: 2rem;
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-    }
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
   }
 
   p {
-    font-size: 1rem;
-
-    @media (max-width: 768px) {
-      font-size: 0.9rem;
-    }
+    font-size: 1.2rem;
+    margin-top: 10px;
   }
 `;
 
@@ -308,19 +314,7 @@ const Source = styled.span`
 
 
 
-const HeroText = styled.div`
-  max-width: 800px;
 
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
-`;
 
 
 
