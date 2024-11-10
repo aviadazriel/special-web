@@ -79,6 +79,8 @@ const PageHeader = styled.h1`
   color: #1a2c3d;
   font-weight: bold;
   margin: 0;
+  direction: rtl; 
+  text-align: right;
 `;
 
 const PageSubHeader = styled.p`
