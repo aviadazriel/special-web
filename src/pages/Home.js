@@ -66,8 +66,13 @@ const Home = () => {
   );
 
   return (
-    <HomeContainer>
+    // {`${process.env.PUBLIC_URL}/family.webp`}
+   <HomeContainer>
+  
+
+
       <HeroSection>
+        <Overlay />
         <HeroText>
           <h1>ברוכים הבאים לייעוץ משכנתאות</h1>
           <p>השותף המהימן שלך בניווט מימון המשכנתא והשגת רוגע פיננסי.</p>
@@ -137,45 +142,82 @@ const Home = () => {
 };
 
 
-// Styled Components
-const HomeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-
-  @media (max-width: 768px) {
-    padding: 10px;
-  }
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5), /* Darker at the top */
+    rgba(0, 0, 0, 0.2) /* Lighter at the bottom */
+  );
+  z-index: 1;
 `;
 const HeroSection = styled.section`
-  background: linear-gradient(135deg, #1b263b, #0d1b2a);
+  position: relative;
+  background-image: url(${process.env.PUBLIC_URL}/family2.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   width: 100%;
+  height: 80vh; /* Adjust height as needed */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px; /* מרווח פנימי כללי */
+  padding: 20px;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.6), /* Dark at the top */
+      rgba(0, 0, 0, 0.3) /* Lighter at the bottom */
+    );
+    opacity: 0.7; /* Adjust opacity for desired subtlety */
+    z-index: 1;
+  }
 
   @media (max-width: 768px) {
-    height: auto; /* בגודל מסך קטן יותר, הגובה יתאים לתוכן */
+    height: 60vh;
     padding: 40px 20px;
   }
 `;
 
 const HeroText = styled.div`
+  position: relative;
+  z-index: 2; /* Ensure text is above overlay */
   max-width: 800px;
 
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
+    color: #ffffff; /* Ensure text is visible */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6); /* Subtle shadow for readability */
   }
 
   p {
     font-size: 1.2rem;
     margin-top: 10px;
+    color: #e0e0e0; /* Slightly lighter text for contrast */
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -199,6 +241,19 @@ const HeroButton = styled.button`
     font-size: 0.9rem;
   }
 `;
+
+// Styled Components
+const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
+
 
 const AboutSection = styled.section`
   text-align: center;
