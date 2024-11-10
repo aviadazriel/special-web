@@ -31,7 +31,7 @@ const Articles = () => {
           <ArticleCard key={article.id} onClick={() => handleCardClick(article.id)}>
             <HoverImage src={article.image} alt={article.title} />
             <ArticleContent>
-              <ArticleDate>{article.date}</ArticleDate> {/* הצגת התאריך */}
+              <ArticleDate>{article.date}</ArticleDate>
               <ArticleTitle>{article.title}</ArticleTitle>
               <ArticleDescription>{article.description}</ArticleDescription>
             </ArticleContent>
@@ -52,6 +52,11 @@ const ArticlesContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+    gap: 20px;
+  }
 `;
 
 const Header = styled.div`
@@ -61,6 +66,12 @@ const Header = styled.div`
   width: 100%;
   max-width: 1000px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 `;
 
 const Logo = styled.img`
@@ -68,10 +79,18 @@ const Logo = styled.img`
   width: auto;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    max-height: 150px;
+  }
 `;
 
 const TitleSection = styled.div`
   text-align: left;
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const PageHeader = styled.h1`
@@ -81,12 +100,22 @@ const PageHeader = styled.h1`
   margin: 0;
   direction: rtl; 
   text-align: right;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+    text-align: center;
+  }
 `;
 
 const PageSubHeader = styled.p`
   font-size: 1.2rem;
   color: #444;
   margin-top: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: center;
+  }
 `;
 
 const IntroParagraph = styled.p`
@@ -95,14 +124,24 @@ const IntroParagraph = styled.p`
   text-align: center;
   line-height: 1.6;
   max-width: 800px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
 `;
 
 const ArticlesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); /* Increased minmax to make cards 30% larger */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 `;
 
 const HoverImage = styled.img`
@@ -116,7 +155,6 @@ const HoverImage = styled.img`
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 `;
-
 const ArticleCard = styled.div`
   background: #ffffff;
   border-radius: 10px;
@@ -136,43 +174,62 @@ const ArticleCard = styled.div`
   &:hover ${HoverImage} {
     opacity: 1;
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
+
 
 const ArticleContent = styled.div`
   padding: 15px;
-  text-align: right; /* Align text to the right */
-  direction: rtl; /* Set direction to RTL for Hebrew */
+  text-align: right;
+  direction: rtl;
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const ArticleDate = styled.p`
   font-size: 0.9rem;
   color: #999;
   margin: 0 0 10px 0;
-  text-align: right; /* Align text to the right */
-  direction: rtl; /* Set direction to RTL for Hebrew */
-`;
+  text-align: right;
+  direction: rtl;
 
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+  }
+`;
 
 const ArticleTitle = styled.h2`
   font-size: 1.4rem;
   color: #1a2c3d;
   margin-bottom: 10px;
   font-weight: bold;
-  text-align: right; /* Align text to the right */
-  direction: rtl; /* Set direction to RTL for Hebrew */
-`;
+  text-align: right;
+  direction: rtl;
 
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+`;
 
 const ArticleDescription = styled.p`
   font-size: 1rem;
   color: #666;
   line-height: 1.4;
-  text-align: right; /* Align text to the right */
-  direction: rtl; /* Set direction to RTL for Hebrew */
+  text-align: right;
+  direction: rtl;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export default Articles;
