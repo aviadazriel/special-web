@@ -1,35 +1,47 @@
 // ArticleDetail.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import articles from '../data/articlesData'; // Import articles data
+import articles from '../data/articlesData';
 
 const ArticleDetail = () => {
   const { id } = useParams();
-  const article = articles.find((article) => article.id === parseInt(id));
+  const articleMeta = articles.find((article) => article.id === parseInt(id, 10));
+  const [articleContent, setArticleContent] = useState(null);
   const navigate = useNavigate();
 
-  if (!article) return <p>Article not found.</p>;
+  useEffect(() => {
+    if (articleMeta) {
+      import(`../data/articlesContent/${id}.js`)
+        .then((module) => setArticleContent(module.default))
+        .catch((error) => console.error("Error loading article content:", error));
+    }
+  }, [id, articleMeta]);
+
+  if (!articleMeta) return <p>Article not found.</p>;
 
   return (
     <ArticleDetailContainer>
       <BackButton onClick={() => navigate(-1)}>← Back to Articles</BackButton>
-      <Image src={article.image} alt={article.title} />
-      <Title>{article.title}</Title>
-      <Description>{article.description}</Description>
-      <Content>{article.content}</Content>
+      <Image src={articleMeta.image} alt={articleMeta.title} />
+      <Title>{articleMeta.title}</Title>
+      <Description>{articleMeta.description}</Description>
+      {articleContent ? (
+        <Content dangerouslySetInnerHTML={{ __html: articleContent.content }} />
+      ) : (
+        <p>Loading content...</p>
+      )}
     </ArticleDetailContainer>
   );
 };
 
-// Styled components for ArticleDetail (as before)
-
-// Styled components for ArticleDetail
+// Styled components
 const ArticleDetailContainer = styled.div`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
   text-align: left;
+  direction: rtl; /* Set direction to RTL */
 `;
 
 const BackButton = styled.button`
@@ -56,18 +68,21 @@ const Title = styled.h1`
   font-size: 2rem;
   color: #1b263b;
   margin-bottom: 20px;
+  text-align: right;
 `;
-
 
 const Description = styled.p`
   font-size: 1.2rem;
   color: #333;
   line-height: 1.6;
+  text-align: right;
 `;
-const Content = styled.p`
+
+const Content = styled.div`
   font-size: 1.2rem;
   color: #333;
   line-height: 1.6;
+  text-align: right;
 `;
 
 export default ArticleDetail;
