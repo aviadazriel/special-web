@@ -47,28 +47,28 @@ const AboutUs = () => {
           </ValueCard>
         </ValuesGrid>
       </ValuesSection>
+
+      {/* Association Section */}
       <SectionContainer>
-      <Logo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="לוגו התאחדות יועצי המשכנתאות" />
-      <AssociationTitle>התאחדות יועצי המשכנתאות בישראל</AssociationTitle>
+        <Logo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="לוגו התאחדות יועצי המשכנתאות" />
+        <AssociationTitle>התאחדות יועצי המשכנתאות בישראל</AssociationTitle>
+        <VisionTitle>החזון שלנו</VisionTitle>
+        <VisionText>
+          בחזון העמותה ידע כל לווה שנמצא בתהליך רכישה של נכס ו/או לוקח החלטות כלכליות חשובות וקריטיות, כי באמצעות
+          יועץ משכנתאות <strong>מקצועי</strong> ו<strong>אובייקטיבי</strong> אשר עומד בסף דרישה מקצועי ואתי, יקבל את המידע הדרוש, והייעוץ הנכון לקבלת
+          ההחלטות והליווי המקצועי עד להשגת משכנתא מתוכננת היטב ומתאימה לצרכים הפיננסיים.
+        </VisionText>
 
-      <VisionTitle>החזון שלנו</VisionTitle>
-      <VisionText>
-        בחזון העמותה ידע כל לווה שנמצא בתהליך רכישה של נכס ו/או לוקח החלטות כלכליות חשובות וקריטיות, כי באמצעות
-        יועץ משכנתאות <strong>מקצועי</strong> ו<strong>אובייקטיבי</strong> אשר עומד בסף דרישה מקצועי ואתי, יקבל את המידע הדרוש, והייעוץ הנכון לקבלת
-        ההחלטות והליווי המקצועי עד להשגת משכנתא מתוכננת היטב ומתאימה לצרכים הפיננסיים.
-      </VisionText>
-
-      <AssociationText>
-        <p><strong>למה חשוב לעבוד רק עם יועץ משכנתאות רשום?</strong></p>
-        <ul>
-          <li>היועצים הרשומים בהתאחדות הם אלו אשר עמדו במבחני הקבלה המחמירים ועומדים בסף מקצועי ואתי.</li>
-          <li>ההתאחדות מפיקה ומארגנת כנסים, הדרכות והשתלמויות כדי להעמיק ולהרחיב את הידע המקצועי של היועצים.</li>
-          <li>חברי ההתאחדות מעודכנים בשינויים הבנקאיים ומקבלים מעטפת של תמיכה ועזרה מקצועית.</li>
-          <li>ההתאחדות מייצגת את כלל היועצים מול המוסדות הבנקאיים ופועלת לשיפור תנאי העבודה, כל זאת לטובת הלקוח.</li>
-        </ul>
-      </AssociationText>
-    </SectionContainer>
-
+        <AssociationText>
+          <p><strong>למה חשוב לעבוד רק עם יועץ משכנתאות רשום?</strong></p>
+          <ul>
+            <li>היועצים הרשומים בהתאחדות הם אלו אשר עמדו במבחני הקבלה המחמירים ועומדים בסף מקצועי ואתי.</li>
+            <li>ההתאחדות מפיקה ומארגנת כנסים, הדרכות והשתלמויות כדי להעמיק ולהרחיב את הידע המקצועי של היועצים.</li>
+            <li>חברי ההתאחדות מעודכנים בשינויים הבנקאיים ומקבלים מעטפת של תמיכה ועזרה מקצועית.</li>
+            <li>ההתאחדות מייצגת את כלל היועצים מול המוסדות הבנקאיים ופועלת לשיפור תנאי העבודה, כל זאת לטובת הלקוח.</li>
+          </ul>
+        </AssociationText>
+      </SectionContainer>
 
       {/* Meet the Team Section */}
       <TeamSection>
@@ -135,25 +135,29 @@ const AboutContainer = styled.div`
   padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
-  direction: rtl; /* RTL layout */
+  direction: rtl;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Section = styled.section`
   display: flex;
   align-items: center;
   margin: 40px 0;
-  text-align: right; /* RTL alignment */
+  text-align: right;
   gap: 20px;
 
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
+    gap: 10px;
   }
 `;
 
 const StoryImage = styled.img`
   width: 50%;
-  height: auto;
   border-radius: 10px;
 
   @media (max-width: 768px) {
@@ -168,12 +172,20 @@ const TextContainer = styled.div`
     font-size: 2rem;
     color: #1b263b;
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 
   p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #333;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -184,6 +196,10 @@ const ValuesSection = styled.section`
   h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -192,6 +208,10 @@ const ValuesGrid = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const ValueCard = styled.div`
@@ -205,11 +225,19 @@ const ValueCard = styled.div`
     color: #0d1b2a;
     font-size: 1.5rem;
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     color: #333;
     font-size: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -220,6 +248,10 @@ const TeamSection = styled.section`
   h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
   }
 `;
 
@@ -253,12 +285,20 @@ const CTASection = styled.section`
   h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   p {
     font-size: 1.1rem;
     margin: 10px 0 20px;
     color: #e0e0e0;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -277,10 +317,6 @@ const CTAButton = styled.button`
   }
 `;
 
-
-
-
-// Styled Components
 const SectionContainer = styled.section`
   background: linear-gradient(135deg, #ffffff, #e3f2fd);
   padding: 60px;
@@ -290,6 +326,10 @@ const SectionContainer = styled.section`
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
   color: #0d47a1;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Logo = styled.img`
@@ -302,6 +342,10 @@ const AssociationTitle = styled.h2`
   font-weight: 700;
   color: #0d47a1;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const VisionTitle = styled.h3`
@@ -309,9 +353,6 @@ const VisionTitle = styled.h3`
   font-weight: 600;
   color: #0d47a1;
   margin-bottom: 15px;
-  background: linear-gradient(90deg, #0d47a1, #1976d2);
-  -webkit-background-clip: text;
-  color: transparent;
 `;
 
 const VisionText = styled.p`
@@ -324,6 +365,10 @@ const VisionText = styled.p`
   padding: 15px;
   background: #f1f8fe;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const AssociationText = styled.div`
@@ -336,7 +381,12 @@ const AssociationText = styled.div`
   background: #f9fdff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
   p {
     font-weight: bold;
     color: #0d47a1;
@@ -364,4 +414,5 @@ const AssociationText = styled.div`
     margin-right: 10px;
   }
 `;
+
 export default AboutUs;
