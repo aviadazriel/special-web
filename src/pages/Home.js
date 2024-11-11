@@ -297,7 +297,7 @@ const HomeContainer = styled.div`
   padding: 10px;
 
   @media (max-width: 768px) {
-    padding: 10px;
+    padding: 0px;
   }
 `;
 
