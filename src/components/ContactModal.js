@@ -94,6 +94,12 @@ const ModalContainer = styled.div`
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   direction: rtl;
+
+  @media (max-width: 450px) {
+    padding: 20px 15px;
+    max-width: 90%;
+    border-radius: 10px;
+  }
 `;
 
 const CloseButton = styled.span`
@@ -114,6 +120,11 @@ const IconsContainer = styled.div`
   justify-content: space-around;
   margin: 20px 0;
   gap: 10px;
+
+  @media (max-width: 450px) {
+    gap: 5px;
+    margin: 15px 0;
+  }
 `;
 
 const IconLink = styled.a`
@@ -131,6 +142,11 @@ const IconLink = styled.a`
     transform: scale(1.1);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   }
+
+  @media (max-width: 450px) {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -141,6 +157,12 @@ const FormContainer = styled.div`
     font-size: 1.6rem;
     color: #1b263b;
     margin-bottom: 15px;
+  }
+
+  @media (max-width: 450px) {
+    h2 {
+      font-size: 1.4rem;
+    }
   }
 `;
 
@@ -155,7 +177,7 @@ const InlineFields = styled.div`
   gap: 10px;
   width: 100%;
 
-  @media (max-width: 480px) {
+  @media (max-width: 450px) {
     flex-direction: column;
   }
 `;
@@ -242,6 +264,12 @@ const ThankYouMessage = styled.div`
   p {
     font-size: 0.9rem;
     color: #333;
+  }
+
+  @media (max-width: 450px) {
+    h2 {
+      font-size: 1.4rem;
+    }
   }
 `;
 
