@@ -21,6 +21,9 @@ export default ServiceList;
 
 // Styled Components
 const Container = styled.div`
+width: 100%;
+max-width: 1200px; /* או כל ערך שנראה לך מתאים */
+margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;

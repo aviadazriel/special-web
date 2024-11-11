@@ -56,10 +56,6 @@ const MainContent = styled.main`
   padding: 40px 2px;
   flex: 1;
 
-  @media (min-width: 768px) {
-    // max-width: 1200px; /* Contain content on larger screens */
-    margin: auto; /* Center align when max-width is applied */
-  }
 `;
 
 export default App;
