@@ -40,6 +40,14 @@ const Home = () => {
   const handleArticleClick = (id) => navigate(`/article/${id}`);
   const handleViewAllArticlesClick = () => navigate('/articles');
   const handleConsultationClick = () => navigate('/contact');
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,16 +62,18 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
+
   const currentTestimonial = testimonials[currentTestimonialIndex];
-  const visibleArticles = articles.slice(currentIndex, currentIndex + 3);
+  const visibleArticles = isMobile ? articles.slice(currentIndex, currentIndex + 1) : articles.slice(currentIndex, currentIndex + 3);
+
 
   const handleNext = () => setCurrentIndex((prevIndex) =>
-    prevIndex + 3 < articles.length ? prevIndex + 1 : 0
-  );
+  prevIndex + (isMobile ? 1 : 3) < articles.length ? prevIndex + 1 : 0
+);
 
-  const handlePrev = () => setCurrentIndex((prevIndex) =>
-    prevIndex > 0 ? prevIndex - 1 : articles.length - 3
-  );
+const handlePrev = () => setCurrentIndex((prevIndex) =>
+  prevIndex > 0 ? prevIndex - 1 : articles.length - (isMobile ? 1 : 3)
+);
 
   return (
     // {`${process.env.PUBLIC_URL}/family.webp`}
@@ -127,7 +137,7 @@ const Home = () => {
       <ArticlesSection>
         <h2>מאמרים אחרונים</h2>
         <ArticleCarousel>
-          <Arrow onClick={handleNext}><FontAwesomeIcon icon={faChevronRight} /></Arrow>
+        <Arrow onClick={handleNext}><FontAwesomeIcon icon={faChevronRight} /></Arrow>
           <ArticleGrid>
             {visibleArticles.map((article) => (
               <ArticleCard key={article.id} onClick={() => handleArticleClick(article.id)}>
@@ -138,6 +148,7 @@ const Home = () => {
             ))}
           </ArticleGrid>
           <Arrow onClick={handlePrev}><FontAwesomeIcon icon={faChevronLeft} /></Arrow>
+          
         </ArticleCarousel>
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
@@ -498,11 +509,24 @@ const ArticleCarousel = styled.div`
   gap: 10px;
 `;
 
+// const ArticleGrid = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   flex-wrap: wrap;
+//   gap: 20px;
+// `;
+
+
 const ArticleGrid = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Arrow = styled.div`
