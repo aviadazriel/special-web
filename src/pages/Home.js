@@ -86,7 +86,6 @@ const Home = () => {
   );
 
   return (
-    // {`${process.env.PUBLIC_URL}/family.webp`}
    <HomeContainer>
   
 
