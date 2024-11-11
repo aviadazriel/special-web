@@ -40,14 +40,24 @@ const Home = () => {
   const handleArticleClick = (id) => navigate(`/article/${id}`);
   const handleViewAllArticlesClick = () => navigate('/articles');
   const handleConsultationClick = () => navigate('/contact');
-
+  const [articlesPerPage, setArticlesPerPage] = useState(
+    window.innerWidth <= 768 ? 1 : window.innerWidth <= 1000 ? 2 : 3
+  );
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setArticlesPerPage(1);
+      } else if (window.innerWidth <= 1000) {
+        setArticlesPerPage(2);
+      } else {
+        setArticlesPerPage(3);
+      }
+    };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,16 +74,16 @@ const Home = () => {
 
 
   const currentTestimonial = testimonials[currentTestimonialIndex];
-  const visibleArticles = isMobile ? articles.slice(currentIndex, currentIndex + 1) : articles.slice(currentIndex, currentIndex + 3);
+  const visibleArticles = articles.slice(currentIndex, currentIndex + articlesPerPage);
 
 
   const handleNext = () => setCurrentIndex((prevIndex) =>
-  prevIndex + (isMobile ? 1 : 3) < articles.length ? prevIndex + 1 : 0
-);
+    prevIndex + articlesPerPage < articles.length ? prevIndex + 1 : 0
+  );
 
-const handlePrev = () => setCurrentIndex((prevIndex) =>
-  prevIndex > 0 ? prevIndex - 1 : articles.length - (isMobile ? 1 : 3)
-);
+  const handlePrev = () => setCurrentIndex((prevIndex) =>
+    prevIndex > 0 ? prevIndex - 1 : articles.length - articlesPerPage
+  );
 
   return (
     // {`${process.env.PUBLIC_URL}/family.webp`}
@@ -509,13 +519,6 @@ const ArticleCarousel = styled.div`
   gap: 10px;
 `;
 
-// const ArticleGrid = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   flex-wrap: wrap;
-//   gap: 20px;
-// `;
-
 
 const ArticleGrid = styled.div`
   display: flex;
@@ -523,11 +526,17 @@ const ArticleGrid = styled.div`
   flex-wrap: wrap;
   gap: 20px;
 
+  @media (max-width: 1000px) {
+    justify-content: space-around;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
 `;
+
+
 
 const Arrow = styled.div`
   cursor: pointer;
