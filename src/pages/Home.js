@@ -74,16 +74,40 @@ const Home = () => {
       <HeroSection>
         <Overlay />
         <HeroText>
-          <h1>ברוכים הבאים לייעוץ משכנתאות</h1>
+          <h1>ברוכים הבאים למשכנתא מניסיון</h1>
           <p>השותף המהימן שלך בניווט מימון המשכנתא והשגת רוגע פיננסי.</p>
           <HeroButton onClick={handleConsultationClick}>קבל ייעוץ חינם</HeroButton>
         </HeroText>
       </HeroSection>
 
-      <AboutSection>
-        <h2>אודותינו</h2>
-        <p>עם שנים של ניסיון בתחום המשכנתאות, אנו מספקים ייעוץ מותאם אישית כדי לעזור לך לקבל החלטות פיננסיות נכונות.</p>
-      </AboutSection>
+
+
+
+  <AboutSection>
+    <BackgroundPattern />
+  
+    <ContentContainer>
+      <h2>אודותינו</h2>
+      <Divider />
+      <p>
+        ברוכים הבאים ל<strong>משכנתא מניסיון</strong> – החברה שלכם לייעוץ משכנתאות אישי ומקצועי. בראשותי, אביעד עזריאל, יחד עם צוות של יועצים מומחים, אנחנו כאן כדי להוביל אתכם בביטחון בתהליך המשכנתא ולוודא שתקבלו את התנאים הטובים ביותר, תוך חסכון משמעותי בכספכם.
+      </p>
+      <p>
+        לאחר שנים של ניסיון בבנק מזרחי טפחות בתחום ניהול סיכוני שוק ואשראי, הקמתי את <strong>משכנתא מניסיון</strong> מתוך חזון לעזור לכל לקוח למצוא את הפתרון המושלם לצרכיו. אנחנו כאן לכל שאלה, ללוות אתכם בכל שלב ולספק מענה מדויק – מהתכנון הראשוני ועד להשגת התנאים המשתלמים ביותר עבורכם.
+      </p>
+      <p>
+        כחלק מהמקצועיות והמחויבות שלנו, אנו גאים להיות חלק מהתאחדות יועצי המשכנתאות בישראל.
+      </p>
+      <p>
+        <strong>המשימה שלנו:</strong> להקל עליכם את התהליך ולהפוך אותו לפשוט, יעיל וחסכוני, כך שתוכלו לקבל את ההחלטות הנכונות בביטחון ובשקט נפשי.
+      </p>
+    </ContentContainer>
+    <LogoContainer>
+      <img src={`${process.env.PUBLIC_URL}/MAIN_LOGO.png`} alt="Company Logo" /> {/* לוגו העסק */}
+      <img src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="Association Logo" /> {/* לוגו ההתאחדות */}
+    </LogoContainer>
+  </AboutSection>
+
 
       <ServicesSection>
         <h2>השירותים שלנו</h2>
@@ -120,7 +144,7 @@ const Home = () => {
         <ViewAllLink onClick={handleViewAllArticlesClick}>צפה בכל המאמרים</ViewAllLink>
       </ArticlesSection>
       
-      <AssociationLogo src="https://hfca.org.il/wp-content/uploads/2021/12/logob@4x-8.png" alt="Association Logo" />
+     
       
       <CarouselSection>
         <h3>גופי מימון</h3>
@@ -258,34 +282,105 @@ const HomeContainer = styled.div`
   }
 `;
 
-
 const AboutSection = styled.section`
-  text-align: center;
-  max-width: 800px;
+align-items: center;
+justify-content: center;
+  position: relative;
+  display: flex;
+  max-width: 1400px;
   padding: 40px 20px;
+  margin: 0 auto;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 
-  h2 {
-    font-size: 1.8rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 15px;
+  }
+`;
+
+const BackgroundPattern = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/path/to/background-pattern.svg'); /* Path to a subtle background pattern */
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+  z-index: 1;
+
+  img {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     @media (max-width: 768px) {
-      font-size: 1.5rem;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 15px;
     }
   }
 
-  p {
-    font-size: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+`;
 
-    @media (max-width: 768px) {
-      font-size: 0.9rem;
+const ContentContainer = styled.div`
+  z-index: 1;
+  max-width: 800px;
+
+  h2 {
+    font-size: 2rem;
+    color: #0d1b2a;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  strong {
+    color: #0d1b2a;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1rem;
     }
   }
 `;
 
-
-
-
-
-
+const Divider = styled.div`
+  width: 60px;
+  height: 4px;
+  background-color: #fcbf49;
+  margin: 10px 0 25px;
+  border-radius: 2px;
+`;
 
 
 
@@ -306,12 +401,6 @@ const CarouselSection = styled.section`
     margin-bottom: 20px;
     color: #1b263b;
   }
-`;
-const AssociationLogo = styled.img`
-  width: 120px;
-  height: auto;
-  margin-top: 15px;
-  margin-bottom: 20px;
 `;
 
   const TestimonialsSection = styled.section`
