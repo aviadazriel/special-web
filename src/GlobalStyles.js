@@ -9,7 +9,9 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    display: flex;
+    @media (max-width: 400px) {
+      display: flex;
+    }
 
     
   }
