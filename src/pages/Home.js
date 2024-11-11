@@ -350,7 +350,7 @@ const LogoContainer = styled.div`
     @media (max-width: 768px) {
       width: 150px;
       height: 150px;
-      margin: 0 auto 15px;
+      margin: 0 15px;
     }
   }
 
