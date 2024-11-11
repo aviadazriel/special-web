@@ -1,4 +1,3 @@
-// ContactModal.js
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -77,33 +76,33 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 15px;
 `;
 
 const ModalContainer = styled.div`
-  background: white;
-  padding: 40px 30px;
-  width: 90%;
-  max-width: 550px;
-  border-radius: 20px;
+  background: linear-gradient(145deg, #ffffff, #f1f4f8);
+  padding: 30px 20px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 15px;
   position: relative;
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   direction: rtl;
 `;
 
 const CloseButton = styled.span`
   position: absolute;
-  top: 15px;
-  left: 20px;
-  font-size: 1.8rem;
+  top: 10px;
+  left: 15px;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: #888;
-  transition: color 0.3s;
+  color: #999;
 
   &:hover {
     color: #f44336;
@@ -112,37 +111,36 @@ const CloseButton = styled.span`
 
 const IconsContainer = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  margin: 30px 0 20px;
+  justify-content: space-around;
+  margin: 20px 0;
+  gap: 10px;
 `;
 
 const IconLink = styled.a`
   background-color: ${({ color }) => color};
   color: white;
-  font-size: 2rem;
-  padding: 15px;
+  font-size: 1.5rem;
+  padding: 12px;
   border-radius: 50%;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
   &:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   }
 `;
 
 const FormContainer = styled.div`
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #1b263b;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 15px;
   }
 `;
 
@@ -150,13 +148,16 @@ const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  align-items: center;
 `;
 
 const InlineFields = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 `;
 
 const FormLabel = styled.label`
@@ -164,12 +165,12 @@ const FormLabel = styled.label`
   color: #333;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
   flex: 1;
 `;
 
 const FormInput = styled.input`
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
@@ -189,11 +190,11 @@ const MessageLabel = styled.label`
   color: #333;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 5px;
 `;
 
 const MessageTextarea = styled.textarea`
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
@@ -201,19 +202,24 @@ const MessageTextarea = styled.textarea`
   resize: vertical;
   height: 80px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &:focus {
+    border-color: #fcbf49;
+    outline: none;
+  }
 `;
 
 const SubmitButton = styled.button`
   background-color: #fcbf49;
   color: #0d1b2a;
-  padding: 12px 30px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
-  font-size: 1.1rem;
+  border-radius: 20px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  margin-top: 15px;
+  margin-top: 10px;
 
   &:hover {
     background-color: #f0a500;
@@ -225,17 +231,16 @@ const ThankYouMessage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
   color: #1b263b;
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #1b263b;
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #333;
   }
 `;
