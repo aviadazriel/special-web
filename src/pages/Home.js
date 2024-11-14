@@ -6,7 +6,7 @@ import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-i
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ServiceList from '../components/ServiceList';
 import BankCarousel from '../components/BankCarousel';
-import { faChevronUp, faChevronDown , faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
