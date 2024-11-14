@@ -27,8 +27,8 @@ const Header = () => {
           <StyledLink to="/articles" onClick={() => setIsMobileMenuOpen(false)}>מאמרים</StyledLink>
           <StyledLink to="/services" onClick={() => setIsMobileMenuOpen(false)}>שירותים</StyledLink>
           <StyledLink to="/about" onClick={() => setIsMobileMenuOpen(false)}>אודות</StyledLink>
-          <StyledLink to="/real-estate-news" onClick={() => setIsMobileMenuOpen(false)}>כתבות בנושא נדל"ן</StyledLink>
-          <StyledLink to="/calculator" onClick={() => setIsMobileMenuOpen(false)}>מחשבון משכנתא</StyledLink>
+          <StyledLink to="/real-estate-news" onClick={() => setIsMobileMenuOpen(false)}>כתבות</StyledLink>
+          <StyledLink to="/calculator" onClick={() => setIsMobileMenuOpen(false)}>מחשבונים</StyledLink>
           <CTAButton onClick={() => setIsModalOpen(true)}>צור קשר</CTAButton>
         </NavLinks>
       </Nav>
