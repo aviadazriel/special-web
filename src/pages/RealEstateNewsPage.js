@@ -167,7 +167,7 @@ const PublishDate = styled.p`
 `;
 
 const ReadMore = styled.a`
-  align-self: flex-start;
+  align-self: center;
   display: inline-block;
   background-color: #fcbf49;
   color: #0d1b2a;
