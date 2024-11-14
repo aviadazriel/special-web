@@ -6,35 +6,84 @@ import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-i
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ServiceList from '../components/ServiceList';
 import BankCarousel from '../components/BankCarousel';
+import { faChevronUp, faChevronDown , faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
 const testimonials = [
   {
     id: 1,
-    text: "הצוות בייעוץ המשכנתאות הפך את תהליך המשכנתא לכל כך חלק וחף מלחצים. מומלץ בחום!",
-    author: "אלכס ר.",
+    text: "התרשמתי מאביעד מכל כך הרבה דברים טובים, אביעד מקצועי מאוד, עם ידע רחב , מסביר מעולה, אדיב, מקצועי, נעים, זמין, אביעד פשוט אלוף!!!",
+    author: "ספיר ו.",
     source: "Google",
   },
   {
     id: 2,
-    text: "מקצועיים, ידענים ומחויבים להצלחת הלקוח. תודה על הכל!",
-    author: "ליסה ק.",
+    text: "אין מילים לתאר כמה אנחנו מרוצים ממחזור המשכנתא שעשינו עם אביעד! הוא ליווה אותנו לאורך כל התהליך, הסביר כל שלב בצורה פשוטה וברורה, והשיג לנו ריביות מצוינות שהורידו משמעותית את ההחזרים החודשיים. אביעד היה סבלני, מקצועי ואמין, והצלחנו לחסוך מלא כסף שהיה הולך לבנק.",
+    author: "נועה ג.",
     source: "Facebook",
   },
   {
     id: 3,
-    text: "שירות נהדר! הם עזרו לי למצוא את אפשרויות המימון הטובות ביותר בקלות.",
-    author: "ג'ון ד.",
+    text: "אחלה שירות אני מרוצה מאוד",
+    author: "עילאי ג.",
     source: "Google",
+  },
+  {
+    id: 4,
+    text: "זכינו במחיר למשתכן, אביעד עזר לנו להבין את כל תהליך המשכנתא ולהשיג תנאים מאוד טובים והחזר חודשי נמוך ממה שציפינו. מקצועי וסבלני, ליווה אותנו בכל צעד ועשה את כל המורכבויות הרבה יותר פשוטות .    ",
+    author: "גוני ד.",
+    source: "Facebook",
+  },
+  {
+    id: 5,
+    text: "מקצוען ,יודע את העבודה יסודי מאוד ויודע להביא תוצאות איכותיות",
+    author: "אברהם ל.",
+    source: "Google",
+  },
+  {
+    id: 6,
+    text: "מקצועי ואמין",
+    author: "אסף ז.",
+    source: "Google",
+  },
+  {
+    id: 7,
+    text: "לאחר התלבטויות רבות, פנינו למשכנתא מניסיון וקיבלנו שירות מהשורה הראשונה! אמינות יוצאת דופן, שקיפות מוחלטת לאורך כל התהליך, והכי חשוב – השיגו לנו ריביות מטורפות וחסכו לנו המון כסף. השירות היה אישי ומותאם לצרכים שלנו, וידענו שיש לנו על מי לסמוך בכל שלב. אם אתם מחפשים יועץ משכנתאות אמין ומקצועי, זה המקום בשבילכם! תודה רבה לאביעד עזריאל על עבודה מצוינת",
+    author: "מאירה ל",
+    source: "Facebook",
   },
 ];
 
+const faqData = [
+  {
+    question: "מה ההבדל בין סוגי הריביות במשכנתא?",
+    answer: "ישנם סוגי ריביות שונים במשכנתא, כולל ריבית קבועה, ריבית משתנה וריבית פריים. ההבדלים ביניהם קשורים לתנודתיות של הריבית לאורך השנים וכיצד היא משפיעה על ההחזר החודשי."
+  },
+  {
+    question: "איך מתבצע תהליך קבלת המשכנתא?",
+    answer: "תהליך קבלת המשכנתא כולל פגישת ייעוץ, איסוף מסמכים, הגשת בקשה לבנק, קבלת אישור עקרוני ולאחר מכן חתימה על המשכנתא."
+  },
+  {
+    question: "מה חשוב לדעת על מחזור משכנתא?",
+    answer: "מחזור משכנתא יכול לחסוך כסף במידה והתנאים הכלכליים השתנו או שהמשכנתא הראשונית לא תואמת לצרכים הנוכחיים שלכם. חשוב להתייעץ עם מומחה לפני שמבצעים מחזור."
+  },
+  {
+    question: "כיצד יועץ משכנתאות יכול לעזור לי?",
+    answer: "יועץ משכנתאות מקצועי יכול לעזור לך להבין את האפשרויות השונות, לבחור את תמהיל ההלוואה הנכון, ולשפר את התנאים הפיננסיים שלך כך שתוכל לחסוך כסף לאורך זמן."
+  },
+];
 const Home = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [fadeTransition, setFadeTransition] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
+
+  const [openQuestionIndex, setOpenQuestionIndex] = useState(null);
+
+  const toggleQuestion = (index) => {
+    setOpenQuestionIndex(index === openQuestionIndex ? null : index);
+  };
 
   const handleServiceClick = (serviceId) => navigate(`/services/${serviceId}`);
   const handleArticleClick = (id) => navigate(`/article/${id}`);
@@ -169,6 +218,23 @@ const Home = () => {
         <BankCarousel />
       </CarouselSection>
 
+      <FAQSection>
+        <h2>שאלות ותשובות</h2>
+        <FAQList>
+          {faqData.map((item, index) => (
+            <FAQItem key={index}>
+              <Question onClick={() => toggleQuestion(index)}>
+                {item.question}
+                <IconContainer>
+                  <FontAwesomeIcon icon={openQuestionIndex === index ? faMinus : faPlus} />
+                </IconContainer>
+              </Question>
+              {openQuestionIndex === index && <Answer>{item.answer}</Answer>}
+            </FAQItem>
+          ))}
+        </FAQList>
+      </FAQSection>
+
       <CTASection>
         <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
         <CTAButton onClick={handleConsultationClick}>קבע פגישה לייעוץ חינם</CTAButton>
@@ -182,6 +248,82 @@ const Home = () => {
     </HomeContainer>
   );
 };
+
+
+const FAQSection = styled.section`
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: right;
+
+  h2 {
+    font-size: 2rem;
+    color: #1b263b;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+ 
+
+
+
+`;
+
+const FAQList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+`;
+
+const FAQItem = styled.div`
+  background: #f7f9fc;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+
+  &:hover {
+    background-color: #eef3fa;
+  }
+`;
+
+const Question = styled.div`
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #0d1b2a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const IconContainer = styled.span`
+  font-size: 1.2rem;
+  color: rgb(85 113 219);
+  // background-color: #e0f7e9;
+  border-radius: 50%;
+  padding: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+
+  ${FAQItem}:hover & {
+    // background-color: #c6e9d9;
+    transform: scale(1.1);
+  }
+`;
+
+const Answer = styled.div`
+  font-size: 1rem;
+  color: #333;
+  margin-top: 10px;
+  line-height: 1.6;
+`;
+
+
+
+
 
 
 const Overlay = styled.div`
@@ -446,7 +588,7 @@ const TestimonialCard = styled.div`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px; /* Increase width for better alignment */
-  height: 180px; /* Set consistent height */
+  height: 210px; /* Set consistent height */
   overflow: hidden;
   transition: opacity 0.5s ease-in-out;
   opacity: ${(props) => (props.fadeTransition ? 1 : 0)};
