@@ -352,12 +352,16 @@ const LogoContainer = styled.div`
       margin: 0 15px;
     }
   }
+  img:first-child {
+    border-radius: 30px;
 
   @media (max-width: 768px) {
     flex-direction: row;
     justify-content: center;
   }
 `;
+
+
 
 const ContentContainer = styled.div`
   z-index: 1;
