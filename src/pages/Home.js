@@ -354,6 +354,7 @@ const LogoContainer = styled.div`
   }
   img:first-child {
     border-radius: 30px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: row;
