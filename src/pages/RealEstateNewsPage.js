@@ -38,6 +38,7 @@ const PageContainer = styled.div`
   margin: auto;
   text-align: center;
   color: #1b263b;
+  direction: rtl;
 `;
 
 const Title = styled.h1`
@@ -62,65 +63,47 @@ const Subtitle = styled.p`
 
 const ArticleList = styled.div`
   display: grid;
-  
   gap: 30px;
-  align-items: start;
+  align-items: stretch; /* Ensures all cards have the same height */
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    
   }
 `;
-const Description = styled.p`
-  font-size: 0.9rem;
-  color: #4f5d75;
-  margin: 5px 0 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  transition: white-space 0.3s;
-  
 
-
-
-  @media (max-width: 768px) {
-    -webkit-line-clamp: unset; /* מציג את כל הטקסט במובייל */
-    display: block;
-    white-space: normal;
-  }
-`;
 const ArticleCard = styled.div`
   background: #ffffff;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  gap: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
-  align-items: stretch;
-  
+  min-height: 250px; /* Ensures consistent height for all cards */
+  justify-content: flex-start;
+  text-align: right;
 
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   }
 
-  @media (min-width: 768px) {
-    min-height:225px;
-  }
-
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
-    max-height: none; /* מאפשר גובה אוטומטי במובייל */
+    text-align: center;
+    min-height: auto; /* Removes height limit on mobile */
   }
 `;
 
 const ImageContainer = styled.div`
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const ArticleImage = styled.img`
@@ -136,14 +119,10 @@ const ArticleImage = styled.img`
 `;
 
 const Content = styled.div`
-  text-align: left;
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  overflow: hidden;
-
-  @media (max-width: 768px) {
-    overflow: visible; /* במובייל הטקסט יוצג במלואו */
-  }
 `;
 
 const SourceIcon = styled.div`
@@ -163,7 +142,23 @@ const ArticleTitle = styled.h3`
   }
 `;
 
+const Description = styled.p`
+  font-size: 0.9rem;
+  color: #4f5d75;
+  margin: 5px 0 10px;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 
+  @media (max-width: 768px) {
+    -webkit-line-clamp: unset;
+    display: block;
+    white-space: normal;
+  }
+`;
 
 const PublishDate = styled.p`
   font-size: 0.8rem;
@@ -172,6 +167,7 @@ const PublishDate = styled.p`
 `;
 
 const ReadMore = styled.a`
+  align-self: flex-start;
   display: inline-block;
   background-color: #fcbf49;
   color: #0d1b2a;
@@ -185,8 +181,6 @@ const ReadMore = styled.a`
   &:hover {
     background-color: #f0a500;
   }
-
-  
 
   @media (max-width: 600px) {
     padding: 6px 12px;
