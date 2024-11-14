@@ -412,14 +412,26 @@ const AssociationText = styled.div`
   li::before {
     content: '';
     display: inline-block;
-    width: 1em;
-    height: 1em;
-    margin-right: 10px;
-    margin-left: 5px;
+    width: 1.2em; /* Slightly larger for better visibility */
+    height: 1.2em;
+    margin-right: 8px; /* Adjust spacing */
+    margin-left: 7px;
     background-color: #4caf50;
     mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234CAF50"><path d="M20.292 5.292a1 1 0 00-1.414 0l-11 11a1 1 0 01-1.414 0l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l12-12a1 1 0 000-1.414z"/></svg>');
-    -webkit-mask-size: cover;
-    mask-size: cover;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+ 
+   
+  }
+  
+  @media (max-width: 600px) { /* Mobile adjustments */
+    li::before {
+      width: 1.5em; /* Increase for smaller screens */
+      height: 1.5em;
+      margin-right: 6px; /* Tighter spacing */
+    }
   }
 `;
 
