@@ -410,10 +410,16 @@ const AssociationText = styled.div`
   }
 
   li::before {
-    content: "✔️";
-    color: #4caf50;
-    font-size: 1.2rem;
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
     margin-right: 10px;
+    margin-left: 5px;
+    background-color: #4caf50;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234CAF50"><path d="M20.292 5.292a1 1 0 00-1.414 0l-11 11a1 1 0 01-1.414 0l-3.293-3.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l12-12a1 1 0 000-1.414z"/></svg>');
+    -webkit-mask-size: cover;
+    mask-size: cover;
   }
 `;
 
