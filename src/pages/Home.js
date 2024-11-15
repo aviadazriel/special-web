@@ -6,7 +6,7 @@ import { faGoogle, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-i
 import { faChevronLeft, faChevronRight, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ServiceList from '../components/ServiceList';
 import BankCarousel from '../components/BankCarousel';
-import { faPlus, faMinus} from '@fortawesome/free-solid-svg-icons';
+import FAQSection from '../components/FAQSection';
 
 import articles from '../data/articlesData';
 import services from '../data/servicesData';
@@ -79,11 +79,6 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
-  const [openQuestionIndex, setOpenQuestionIndex] = useState(null);
-
-  const toggleQuestion = (index) => {
-    setOpenQuestionIndex(index === openQuestionIndex ? null : index);
-  };
 
   const handleServiceClick = (serviceId) => navigate(`/services/${serviceId}`);
   const handleArticleClick = (id) => navigate(`/article/${id}`);
@@ -218,22 +213,7 @@ const Home = () => {
         <BankCarousel />
       </CarouselSection>
 
-      <FAQSection>
-        <h2>שאלות ותשובות</h2>
-        <FAQList>
-          {faqData.map((item, index) => (
-            <FAQItem key={index}>
-              <Question onClick={() => toggleQuestion(index)}>
-                {item.question}
-                <IconContainer>
-                  <FontAwesomeIcon icon={openQuestionIndex === index ? faMinus : faPlus} />
-                </IconContainer>
-              </Question>
-              {openQuestionIndex === index && <Answer>{item.answer}</Answer>}
-            </FAQItem>
-          ))}
-        </FAQList>
-      </FAQSection>
+      <FAQSection faqData={faqData}/>
 
       <CTASection>
         <h2>מוכן לקחת שליטה על המשכנתא שלך?</h2>
@@ -248,82 +228,6 @@ const Home = () => {
     </HomeContainer>
   );
 };
-
-
-const FAQSection = styled.section`
-  width: 100%;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  text-align: right;
-
-  h2 {
-    font-size: 2rem;
-    color: #1b263b;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
- 
-
-
-
-`;
-
-const FAQList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-`;
-
-const FAQItem = styled.div`
-  background: #f7f9fc;
-  border-radius: 10px;
-  padding: 15px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100%;
-
-  &:hover {
-    background-color: #eef3fa;
-  }
-`;
-
-const Question = styled.div`
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #0d1b2a;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const IconContainer = styled.span`
-  font-size: 1.2rem;
-  color: rgb(85 113 219);
-  // background-color: #e0f7e9;
-  border-radius: 50%;
-  padding: 5px;
-  transition: background-color 0.3s, transform 0.3s;
-
-  ${FAQItem}:hover & {
-    // background-color: #c6e9d9;
-    transform: scale(1.1);
-  }
-`;
-
-const Answer = styled.div`
-  font-size: 1rem;
-  color: #333;
-  margin-top: 10px;
-  line-height: 1.6;
-`;
-
-
-
-
 
 
 const Overlay = styled.div`
