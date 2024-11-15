@@ -13,7 +13,11 @@ const FAQSection = ({ faqData }) => {
 
   return (
     <FAQContainer>
-      <h2>שאלות ותשובות</h2>
+      {/* <img src={`${process.env.PUBLIC_URL}/a.svg`} alt="FAQ Icon" style={{ width: '50px', height: '50px' }} /> */}
+      <Header>
+        <h2>שאלות ותשובות</h2>
+        <img src={`${process.env.PUBLIC_URL}/a.svg`} alt="FAQ Icon" />
+      </Header>
       <FAQList>
         {faqData.map((item, index) => (
           <FAQItem key={index}>
@@ -30,6 +34,27 @@ const FAQSection = ({ faqData }) => {
     </FAQContainer>
   );
 };
+
+
+
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 2rem;
+    color: #1b263b;
+  }
+
+  img {
+    width: 50px;
+    height: 100%;
+    margin-bottom: 20px;
+  }
+`;
 
 // Styled Components
 const FAQContainer = styled.section`
