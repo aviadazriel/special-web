@@ -9,6 +9,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import ArticlePage from './pages/ArticlePage';
 import ArticleDetail from './pages/ArticleDetail';
+import ServiceDetail from './pages/ServiceDetail';
 import CalculatorPage from './pages/CalculatorPage';
 import RealEstateNews from './pages/RealEstateNewsPage'; // Import your new component
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/articles" element={<ArticlePage />} />
             <Route path="/article/:id" element={<ArticleDetail />} />
+            <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/calculator" element={<CalculatorPage />} />
             <Route path="/real-estate-news" element={<RealEstateNews />} />
           </Routes>
