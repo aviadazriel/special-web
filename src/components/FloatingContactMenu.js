@@ -4,29 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faCommentDots, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-import Draggable from 'react-draggable';
 
 const FloatingContactMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [startTime, setStartTime] = useState(0);
-
-  const handleTouchStart = () => {
-    setStartTime(Date.now());
-  };
-
-  const handleTouchEnd = () => {
-    const elapsedTime = Date.now() - startTime;
-    if (elapsedTime < 200) {
-      toggleMenu(); // Trigger click if the touch is less than 200ms
-    }
-  };
   const toggleMenu = (e) => {
-    console.log('clicked')
     setIsOpen(!isOpen);
   };
 
   return (
-    <Draggable>
     <MenuContainer>
       <MenuItems isOpen={isOpen}>
         <MenuItem color="rgb(7 111 46)">
@@ -60,13 +45,10 @@ const FloatingContactMenu = () => {
           </a>
         </MenuItem>
       </MenuItems>
-      <ToggleButton onClick={toggleMenu} 
-      onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}>
+      <ToggleButton onClick={toggleMenu} >
         <FontAwesomeIcon icon={isOpen ? faTimesCircle : faCommentDots}  />
       </ToggleButton>
     </MenuContainer>
-    </Draggable>
   );
 };
 
