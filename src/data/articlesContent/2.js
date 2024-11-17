@@ -151,89 +151,96 @@ const articleContent = {
       <p>
         בטבלה הבאה תוכלו לראות דוגמה להשוואה בין מסלולים ייחודיים בבנקים שונים:
       </p>
-      <StyledTableContainer>
-      <StyledTable striped responsive>
-        <thead>
+      <div style="overflow-x:auto;">
+      <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: center;">
+        <thead style="background-color: #f7f7f7;">
           <tr>
-            <th>בנק</th>
-            <th>סוג המסלול</th>
-            <th>תקופת השינוי</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">בנק</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">סוג המסלול</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">תקופת השינוי</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>לאומי</td>
-            <td>משתנה לא צמודה (מק"מ)</td>
-            <td>כל 2.5, 5, 7, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">לאומי</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה (מק"מ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1, 2.5, 5, 7, 10 שנים</td>
           </tr>
           <tr>
-            <td>לאומי</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 1, 2, 5 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">לאומי</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1, 2, 5 שנים</td>
           </tr>
           <tr>
-            <td>פועלים</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 1.5 (מוצר חדש), 3, 5, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">פועלים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1.5 (מוצר חדש), 3, 5, 10 שנים</td>
           </tr>
           <tr>
-            <td>פועלים</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 3, 5, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">פועלים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 3, 5, 10 שנים</td>
           </tr>
           <tr>
-            <td>מרכנתיל</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 2, 5, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">מרכנתיל</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2, 5, 10 שנים</td>
           </tr>
           <tr>
-            <td>מרכנתיל</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 1, 2, 3, 5, 6, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">מרכנתיל</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1, 2, 3, 5, 6, 10 שנים</td>
           </tr>
           <tr>
-            <td>דיסקונט</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 2, 5 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">דיסקונט</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2, 5 שנים</td>
           </tr>
           <tr>
-            <td>דיסקונט</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 2, 5 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">דיסקונט</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2, 5 שנים</td>
           </tr>
           <tr>
-            <td>ירושלים</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 5 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">ירושלים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 5 שנים</td>
           </tr>
           <tr>
-            <td>ירושלים</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 2.5, 5 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">ירושלים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2.5, 5 שנים</td>
           </tr>
           <tr>
-            <td>טפחות</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 2, 5, 7 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">טפחות</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2, 5, 7 שנים</td>
           </tr>
           <tr>
-            <td>טפחות</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 2.5, 5, 7, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">טפחות</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 2.5, 5, 7, 10 שנים</td>
           </tr>
           <tr>
-            <td>הבינלאומי</td>
-            <td>משתנה לא צמודה</td>
-            <td>כל 1, 2, 3, 5, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">הבינלאומי</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה לא צמודה</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1, 2, 3, 5, 10 שנים</td>
           </tr>
           <tr>
-            <td>הבינלאומי</td>
-            <td>משתנה צמודה (מ"צ)</td>
-            <td>כל 1, 2, 3, 5, 10 שנים</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">הבינלאומי</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">משתנה צמודה (מ"צ)</td>
+            <td style="border: 1px solid #ddd; padding: 8px;">כל 1, 2, 3, 5, 10 שנים</td>
           </tr>
         </tbody>
-      </StyledTable>
-    </StyledTableContainer>
+      </table>
+    </div>
+
+    <h2>🔹 טיפים לבחירת מסלול</h2>
+    <ul>
+      <li><strong>התאמה אישית:</strong> בחרו את המסלול המתאים ביותר להכנסות שלכם, לאופי הכלכלי שלכם, ולמטרות המשכנתא.</li>
+      <li><strong>השוואת בנקים:</strong> קחו הצעות מבנקים שונים והשוו את התנאים – ריביות, נקודות יציאה, והצמדות.</li>
+      <li><strong>ייעוץ מקצועי:</strong> התייעצות עם יועץ משכנתאות תעזור להימנע מהפתעות לאורך חיי ההלוואה.</li>
+    </ul>
     
 
       <h2>🔹 טיפים לבחירת מסלול</h2>
