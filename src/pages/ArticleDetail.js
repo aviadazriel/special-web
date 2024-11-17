@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import articles from '../data/articlesData';
 import ContactForm from '../components/ContactForm2';
-import FloatingContactMenu from '../components/FloatingContactMenu';
 
 
 const ArticleDetail = () => {
@@ -58,7 +57,7 @@ const ArticleDetail = () => {
           </RelatedGrid>
         </RelatedArticles>
       </ContentContainer>
-      <FloatingContactMenu />
+     
     </ArticleContainer>
   );
 };

@@ -13,6 +13,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import CalculatorPage from './pages/CalculatorPage';
 import RealEstateNews from './pages/RealEstateNewsPage'; // Import your new component
 import ScrollToTop from './components/ScrollToTop';
+import FloatingContactMenu from './components/FloatingContactMenu';
 
 import GlobalStyles from './GlobalStyles';
 
@@ -40,7 +41,9 @@ function App() {
         </MainContent>
         <Footer />
       </PageWrapper>
+      <FloatingContactMenu />
     </Router>
+
   );
 }
 
