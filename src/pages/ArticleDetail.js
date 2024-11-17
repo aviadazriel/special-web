@@ -62,10 +62,11 @@ const ArticleDetail = () => {
 const ArticleContainer = styled.div`
   max-width: 900px;
   margin: auto;
-  padding: 20px;
-  background: #fdfdfd;
+  padding: 40px;
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
 `;
 
 const ImageContainer = styled.div`
@@ -73,13 +74,13 @@ const ImageContainer = styled.div`
   height: 300px;
   overflow: hidden;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 `;
 
 const ContentContainer = styled.div`
@@ -89,9 +90,10 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: #1a2c3d;
-  margin-bottom: 10px;
+  font-weight: bold;
+  margin-bottom: 20px;
 `;
 
 const MetaInfo = styled.div`
@@ -100,26 +102,49 @@ const MetaInfo = styled.div`
   margin-bottom: 20px;
 `;
 
-
 const Date = styled.span``;
 
 const Description = styled.p`
   font-size: 1.2rem;
-  color: #444;
-  line-height: 1.6;
-  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
 `;
 
 const Divider = styled.hr`
-  margin: 20px 0;
+  margin: 40px 0;
   border: none;
   border-top: 1px solid #eee;
 `;
 
 const Content = styled.div`
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #333;
   line-height: 1.8;
+  line-height: 1.8;
+  text-align: justify;
+
+  h2 {
+    font-size: 1.8rem;
+    color: #1a2c3d;
+    margin: 20px 0;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    color: #555;
+    margin: 15px 0;
+  }
+
+  ul {
+    padding-left: 20px;
+    list-style: disc;
+    margin-bottom: 20px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
 `;
 
 const LoadingMessage = styled.p`
@@ -135,13 +160,14 @@ const ErrorMessage = styled.p`
 `;
 
 const RelatedArticles = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 const RelatedHeader = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #1a2c3d;
   margin-bottom: 20px;
+  font-weight: bold;
 `;
 
 const RelatedGrid = styled.div`
@@ -153,16 +179,16 @@ const RelatedGrid = styled.div`
 const RelatedCard = styled(Link)`
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #f9f9f9;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -179,15 +205,14 @@ const RelatedInfo = styled.div`
 `;
 
 const RelatedTitle = styled.h4`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #1a2c3d;
   margin-bottom: 10px;
 `;
 
 const RelatedDescription = styled.p`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #666;
-  line-height: 1.4;
+  line-height: 1.6;
 `;
-
 export default ArticleDetail;
