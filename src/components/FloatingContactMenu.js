@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faCommentDots, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import Draggable from 'react-draggable';
 
 const FloatingContactMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const FloatingContactMenu = () => {
   };
 
   return (
+    <Draggable>
     <MenuContainer>
       <MenuItems isOpen={isOpen}>
         <MenuItem color="rgb(7 111 46)">
@@ -50,6 +52,7 @@ const FloatingContactMenu = () => {
         <FontAwesomeIcon icon={isOpen ? faTimesCircle : faCommentDots} size="m" />
       </ToggleButton>
     </MenuContainer>
+    </Draggable>
   );
 };
 
@@ -62,6 +65,7 @@ const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: move; /* Show that the component is draggable */
 `;
 
 const ToggleButton = styled.button`
