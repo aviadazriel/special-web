@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import articles from '../data/articlesData';
+import { Table } from 'reactstrap';
 
 const ArticleDetail = () => {
   const { id } = useParams();
@@ -58,9 +59,44 @@ const ArticleDetail = () => {
   );
 };
 
+
+
+const StyledTableContainer = styled.div`
+  padding: 20px;
+  margin: auto;
+  max-width: 1200px;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
+
+const StyledTable = styled(Table)`
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+  th {
+    background-color: #f7f7f7;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
 // Styled Components
 const ArticleContainer = styled.div`
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   padding: 40px;
   background: #ffffff;
