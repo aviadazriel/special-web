@@ -55,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 200px) {
     table, thead, tbody, th, td, tr {
       display: block;
       width: 100%;
