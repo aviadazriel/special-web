@@ -29,7 +29,6 @@ const ArticleDetail = () => {
       <ContentContainer>
         <Title>{articleMeta.title}</Title>
         <MetaInfo>
-          <Author>נכתב על ידי: {articleMeta.author || 'אנונימי'}</Author>
           <Date>תאריך פרסום: {articleMeta.date}</Date>
         </MetaInfo>
         <Description>{articleMeta.description}</Description>
@@ -101,9 +100,6 @@ const MetaInfo = styled.div`
   margin-bottom: 20px;
 `;
 
-const Author = styled.span`
-  margin-right: 10px;
-`;
 
 const Date = styled.span``;
 
