@@ -14,17 +14,17 @@ const FloatingContactMenu = () => {
   return (
     <MenuContainer>
       <MenuItems isOpen={isOpen}>
-        <MenuItem>
+        <MenuItem color="rgb(7 111 46)">
           <a href="tel:+972508857282" title="Call">
             <FontAwesomeIcon icon={faPhone} size="lg" />
           </a>
         </MenuItem>
-        <MenuItem>
+        <MenuItem color="#DB4437">
           <a href="mailto:contact@premiumconsult.com" title="Email">
             <FontAwesomeIcon icon={faEnvelope} size="lg" />
           </a>
         </MenuItem>
-        <MenuItem>
+        <MenuItem color="#25D366">
           <a
             href="https://wa.me/972508857282"
             target="_blank"
@@ -34,7 +34,7 @@ const FloatingContactMenu = () => {
             <FontAwesomeIcon icon={faWhatsapp} size="lg" />
           </a>
         </MenuItem>
-        <MenuItem>
+        <MenuItem color="#4267B2">
           <a
             href="https://facebook.com"
             target="_blank"
@@ -96,7 +96,7 @@ const MenuItems = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  background: #ffffff;
+  background: ${({ color }) => color};
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -107,12 +107,12 @@ const MenuItem = styled.li`
   transition: transform 0.3s, box-shadow 0.3s;
 
   a {
-    color: #555;
+    color: white;
     font-size: 1.5rem;
     text-decoration: none;
 
     &:hover {
-      color: #007bff;
+      opacity: 0.8;
     }
   }
 
