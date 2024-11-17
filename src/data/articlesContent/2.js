@@ -235,6 +235,10 @@ const articleContent = {
       </table>
     </div>
 
+
+
+
+
     <h2>🔹 טיפים לבחירת מסלול</h2>
     <ul>
       <li><strong>התאמה אישית:</strong> בחרו את המסלול המתאים ביותר להכנסות שלכם, לאופי הכלכלי שלכם, ולמטרות המשכנתא.</li>
@@ -258,6 +262,90 @@ const articleContent = {
         בחירת המסלול המתאים תלויה במצבכם הכלכלי, תוכניותיכם לעתיד, ויכולתכם להתמודד עם תנודתיות השוק.
         חשוב להשוות בין הבנקים ולהתייעץ עם יועץ משכנתאות מקצועי כדי להגיע להחלטה נכונה.
       </p>
+
+      
+    <div>
+
+    <div class="table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>סוג מסלול</th>
+          <th>יציבות/תנודתיות</th>
+          <th>צמוד/לא צמוד</th>
+          <th>יתרונות</th>
+          <th>חסרונות</th>
+          <th>השפעה על מרווח בנקאי</th>
+          <th>סביבת ריבית</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>קל"צ (קבועה לא צמודה)</td>
+          <td>יציב לחלוטין</td>
+          <td>לא צמוד</td>
+          <td>ללא הצמדה למדד, תכנון פיננסי פשוט</td>
+          <td>ריבית גבוהה, קנסות הוון גבוהים</td>
+          <td>מוריד מרווח</td>
+          <td>4.5-5.5</td>
+        </tr>
+        <tr>
+          <td>ק"צ (קבועה צמודה)</td>
+          <td>תנודתית</td>
+          <td>צמוד</td>
+          <td>ריבית נמוכה יחסית</td>
+          <td>הצמדה למדד, קנסות הוון גבוהים</td>
+          <td>מעלה מרווח</td>
+          <td>2.5-3.5</td>
+        </tr>
+        <tr>
+          <td>זכאות</td>
+          <td>תנודתית מאוד</td>
+          <td>צמוד</td>
+          <td>ריבית נמוכה, הגנה בחדלות פירעון</td>
+          <td>הצמדה למדד, מתאים לזכאים בלבד</td>
+          <td>מעלה מרווח</td>
+          <td>2.17-2.64</td>
+        </tr>
+        <tr>
+          <td>מל"צ (משתנה לא צמודה)</td>
+          <td>תנודתיות נמוכה</td>
+          <td>לא צמוד</td>
+          <td>ללא הצמדה למדד, קנסות הוון נמוכות</td>
+          <td>יכולת שינוי עוגן כל נקודת יציאה</td>
+          <td>מוריד מרווח</td>
+          <td>4.5-5.5</td>
+        </tr>
+        <tr>
+          <td>מ"צ (משתנה צמודה)</td>
+          <td>תנודתיות גבוהה</td>
+          <td>צמוד</td>
+          <td>ריבית נמוכה, קנסות הוון נמוכות</td>
+          <td>הצמדה למדד, תנודתיות בעוגן</td>
+          <td>מעלה מרווח</td>
+          <td>2.5-3.5</td>
+        </tr>
+        <tr>
+          <td>מק"מ (משתנה כל שנה)</td>
+          <td>תנודתיות נמוכה</td>
+          <td>לא צמוד</td>
+          <td>ללא הצמדה למדד, ללא קנסות הוון</td>
+          <td>שינוי עוגן כל שנה</td>
+          <td>מוריד מרווח</td>
+          <td>4.5-5.5</td>
+        </tr>
+        <tr>
+          <td>פריים</td>
+          <td>תנודתיות גבוהה</td>
+          <td>לא צמוד</td>
+          <td>ללא הצמדה למדד, ללא קנסות הוון</td>
+          <td>ריבית משתנה עד 8 פעמים בשנה</td>
+          <td>מוריד מרווח</td>
+          <td>4.9-6</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
     </div>
   `,
 };
