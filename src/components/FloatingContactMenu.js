@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faCommentDots, faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 
 const FloatingContactMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +17,12 @@ const FloatingContactMenu = () => {
       <MenuItems isOpen={isOpen}>
         <MenuItem color="rgb(7 111 46)">
           <a href="tel:+972508857282" title="Call">
-            <FontAwesomeIcon icon={faPhone} size="lg" />
+            <FontAwesomeIcon icon={faPhone} size="m" />
           </a>
         </MenuItem>
         <MenuItem color="#DB4437">
           <a href="mailto:contact@premiumconsult.com" title="Email">
-            <FontAwesomeIcon icon={faEnvelope} size="lg" />
+            <FontAwesomeIcon icon={faEnvelope} size="m" />
           </a>
         </MenuItem>
         <MenuItem color="#25D366">
@@ -31,7 +32,7 @@ const FloatingContactMenu = () => {
             rel="noopener noreferrer"
             title="WhatsApp"
           >
-            <FontAwesomeIcon icon={faWhatsapp} size="lg" />
+            <FontAwesomeIcon icon={faWhatsapp} size="m" />
           </a>
         </MenuItem>
         <MenuItem color="#4267B2">
@@ -41,12 +42,12 @@ const FloatingContactMenu = () => {
             rel="noopener noreferrer"
             title="Facebook"
           >
-            <FontAwesomeIcon icon={faFacebook} size="lg" />
+            <FontAwesomeIcon icon={faFacebook} size="m" />
           </a>
         </MenuItem>
       </MenuItems>
       <ToggleButton onClick={toggleMenu}>
-        {isOpen ? '×' : '+'}
+        <FontAwesomeIcon icon={isOpen ? faTimesCircle : faCommentDots} size="m" />
       </ToggleButton>
     </MenuContainer>
   );
@@ -64,7 +65,8 @@ const MenuContainer = styled.div`
 `;
 
 const ToggleButton = styled.button`
-  background: #007bff;
+  background: rgb(18 65 115 / 87%);
+
   color: white;
   border: none;
   border-radius: 50%;
@@ -98,8 +100,8 @@ const MenuItems = styled.ul`
 const MenuItem = styled.li`
   background: ${({ color }) => color};
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
