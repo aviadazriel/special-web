@@ -8,8 +8,20 @@ import Draggable from 'react-draggable';
 
 const FloatingContactMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [startTime, setStartTime] = useState(0);
 
-  const toggleMenu = () => {
+  const handleTouchStart = () => {
+    setStartTime(Date.now());
+  };
+
+  const handleTouchEnd = () => {
+    const elapsedTime = Date.now() - startTime;
+    if (elapsedTime < 200) {
+      toggleMenu(); // Trigger click if the touch is less than 200ms
+    }
+  };
+  const toggleMenu = (e) => {
+    console.log('clicked')
     setIsOpen(!isOpen);
   };
 
@@ -19,12 +31,12 @@ const FloatingContactMenu = () => {
       <MenuItems isOpen={isOpen}>
         <MenuItem color="rgb(7 111 46)">
           <a href="tel:+972508857282" title="Call">
-            <FontAwesomeIcon icon={faPhone} size="m" />
+            <FontAwesomeIcon icon={faPhone}  />
           </a>
         </MenuItem>
         <MenuItem color="#DB4437">
           <a href="mailto:contact@premiumconsult.com" title="Email">
-            <FontAwesomeIcon icon={faEnvelope} size="m" />
+            <FontAwesomeIcon icon={faEnvelope}  />
           </a>
         </MenuItem>
         <MenuItem color="#25D366">
@@ -34,22 +46,24 @@ const FloatingContactMenu = () => {
             rel="noopener noreferrer"
             title="WhatsApp"
           >
-            <FontAwesomeIcon icon={faWhatsapp} size="m" />
+            <FontAwesomeIcon icon={faWhatsapp}  />
           </a>
         </MenuItem>
-        <MenuItem color="#4267B2">
+        <MenuItem color="#4267B2" >
           <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
             title="Facebook"
           >
-            <FontAwesomeIcon icon={faFacebook} size="m" />
+            <FontAwesomeIcon icon={faFacebook}  />
           </a>
         </MenuItem>
       </MenuItems>
-      <ToggleButton onClick={toggleMenu}>
-        <FontAwesomeIcon icon={isOpen ? faTimesCircle : faCommentDots} size="m" />
+      <ToggleButton onClick={toggleMenu} 
+      onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}>
+        <FontAwesomeIcon icon={isOpen ? faTimesCircle : faCommentDots}  />
       </ToggleButton>
     </MenuContainer>
     </Draggable>
