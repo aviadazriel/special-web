@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import articles from '../data/articlesData';
+import ContactForm from '../components/ContactForm2';
+import FloatingContactMenu from '../components/FloatingContactMenu';
 
 
 const ArticleDetail = () => {
@@ -39,6 +41,7 @@ const ArticleDetail = () => {
         ) : (
           <LoadingMessage>טוען תוכן...</LoadingMessage>
         )}
+        <ContactForm />
         <Divider />
         <RelatedArticles>
           <RelatedHeader>מאמרים קשורים</RelatedHeader>
@@ -55,6 +58,7 @@ const ArticleDetail = () => {
           </RelatedGrid>
         </RelatedArticles>
       </ContentContainer>
+      <FloatingContactMenu />
     </ArticleContainer>
   );
 };
