@@ -12,6 +12,7 @@ import ArticleDetail from './pages/ArticleDetail';
 import ServiceDetail from './pages/ServiceDetail';
 import CalculatorPage from './pages/CalculatorPage';
 import RealEstateNews from './pages/RealEstateNewsPage'; // Import your new component
+import ScrollToTop from './components/ScrollToTop';
 
 import GlobalStyles from './GlobalStyles';
 
@@ -20,6 +21,7 @@ function App() {
   
   return (
     <Router>
+      <ScrollToTop />
       <PageWrapper>
       <GlobalStyles />
         <Header />

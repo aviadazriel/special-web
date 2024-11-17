@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 import articles from '../data/articlesData';
-import ScrollToTop from './components/ScrollToTop';
 
 const ArticleDetail = () => {
   const { id } = useParams();
