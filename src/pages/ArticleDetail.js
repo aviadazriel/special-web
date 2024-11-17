@@ -19,7 +19,7 @@ const ArticleDetail = () => {
   if (!articleMeta) return <ErrorMessage>מאמר לא נמצא</ErrorMessage>;
 
   // Filter related articles (excluding the current article)
-  const relatedArticles = articles.filter((article) => article.id !== parseInt(id, 10)).slice(0, 3);
+  const relatedArticles =articles.filter((article) => articleMeta.relatedArticles.includes(article.id));
 
   return (
     <ArticleContainer>
