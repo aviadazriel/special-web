@@ -2,53 +2,7 @@
 const serviceContent = {
     content: `
     <section class="first-home-mortgage">
-    <style>
-      .first-home-mortgage {
-        font-family: Arial, sans-serif;
-        line-height: 1.8;
-        color: #333;
-        margin: 20px auto;
-        padding: 20px;
-        max-width: 800px;
-      }
-  
-      .first-home-mortgage h1, .first-home-mortgage h2, .first-home-mortgage h3 {
-        color: #0d1b2a;
-        margin-bottom: 15px;
-      }
-  
-      .first-home-mortgage ul {
-        list-style: disc inside;
-        margin: 10px 0;
-      }
-  
-      .first-home-mortgage ul li {
-        margin-bottom: 10px;
-      }
-  
-      .call-to-action {
-        margin-top: 30px;
-        padding: 20px;
-        background-color: #f7f9fc;
-        text-align: center;
-        border-radius: 8px;
-      }
-  
-      .call-to-action a.cta-button {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #4caf50;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-      }
-  
-      .call-to-action a.cta-button:hover {
-        background-color: #45a045;
-      }
-    </style>
+   
   
     <div class="container">
       <h1>משכנתא לדירה ראשונה – המדריך המלא</h1>
