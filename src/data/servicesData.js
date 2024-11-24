@@ -15,6 +15,7 @@ const services = [
     title: "משכנתא לדירה ראשונה",
     description: "ליווי צמוד במתן פתרונות פיננסיים למשכנתא לרוכשי דירה ראשונה.",
     icon: faHome,
+    image: "/images/services/first.webp"
   },
   {
     id: 3,
