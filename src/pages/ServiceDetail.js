@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import DOMPurify from 'dompurify';
 import servicesData from '../data/servicesData';
+import CallToAction from '../components/CallToAction';
 
 const ServiceDetail = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ServiceDetail = () => {
     }
   }, [id, serviceMeta]);
 
-  if (!serviceMeta) return <p>Service not found.</p>;
+  if (!serviceMeta) return <p>שירות לא נמצא.</p>;
 
   const sanitizedContent = serviceContent
     ? DOMPurify.sanitize(serviceContent.content)
@@ -31,70 +32,59 @@ const ServiceDetail = () => {
       {serviceContent ? (
         <Content dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       ) : (
-        <Loader>Loading content...</Loader>
+        <Loader>טוען תוכן...</Loader>
       )}
+      <ContactButtonContainer>
+        <CallToAction />
+      </ContactButtonContainer>
     </ServiceDetailContainer>
   );
 };
 
-// Styled components with styles from the provided CSS
+// רכיבי עיצוב מעודכנים
 const ServiceDetailContainer = styled.div`
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  text-align: left;
   direction: rtl;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #434242;
-  background: linear-gradient(180deg, #fff 0%, #d1d1d1 100%);
-  box-shadow: 6px 6px 9px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  font-family: 'Assistant', sans-serif;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
 `;
 
 const Image = styled.img`
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
-  font-size: 42px; /* --wp--preset--font-size--huge */
+  font-size: 36px;
   color: #0d1b2a;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: right;
 `;
 
 const Description = styled.p`
-  font-size: 16px; /* --wp--preset--font-size--normal */
-  line-height: 1.8;
-  color: #7a7a7a; /* --e-global-color-text */
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555555;
   text-align: right;
+  margin-bottom: 20px;
 `;
 
 const Content = styled.div`
-  font-size: 16px; /* --wp--preset--font-size--normal */
+  font-size: 18px;
   line-height: 1.8;
-  color: #7a7a7a;
-   text-align: right;
+  color: #333333;
+  text-align: right;
 
-  h1 {
-    color: #19508bed; /* Vivid orange for h1 */
-    font-size: 42px; /* --wp--preset--font-size--huge */
+  h1, h2, h3 {
     margin-bottom: 15px;
-  }
-
-  h2 {
-    color: #19508bed; /* Vivid green-cyan for h2 */
-    font-size: 36px; /* --wp--preset--font-size--large */
-    margin-bottom: 15px;
-  }
-
-  h3 {
-    color: #19508bed; /* Vivid cyan-blue for h3 */
-    font-size: 32px;
-    margin-bottom: 10px;
+    color: #19508bed;
+    font-size: 1.5rem;
   }
 
   ul {
@@ -104,7 +94,6 @@ const Content = styled.div`
 
   ul li {
     margin-bottom: 10px;
-    font-size: 16px;
   }
 
   .call-to-action {
@@ -113,29 +102,19 @@ const Content = styled.div`
     background-color: #f7f9fc;
     text-align: center;
     border-radius: 8px;
-
-    a.cta-button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #61ce70; /* --e-global-color-accent */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 20px; /* --wp--preset--font-size--medium */
-    }
-
-    a.cta-button:hover {
-      background-color: #45a045;
-    }
   }
 `;
 
 const Loader = styled.div`
   text-align: center;
-  font-size: 20px; /* --wp--preset--font-size--medium */
-  color: #888;
-  margin: 20px 0;
+  font-size: 20px;
+  color: #888888;
+`;
+
+const ContactButtonContainer = styled.div`
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 `;
 
 export default ServiceDetail;

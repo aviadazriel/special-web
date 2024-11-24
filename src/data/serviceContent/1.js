@@ -84,11 +84,6 @@ const serviceContent = {
         לכם להפוך את החלום למציאות.
       </p>
   
-      <div class="call-to-action">
-        <h3>בואו נעשה את זה ביחד!</h3>
-        <p>צרו קשר עוד היום וגלו כיצד נוכל לעזור לכם להתמודד עם סירוב למשכנתא ולהשיג את המימון הדרוש לכם.</p>
-        <a href="/contact" class="cta-button">צרו קשר עכשיו</a>
-      </div>
     </div>
   </section>
 
