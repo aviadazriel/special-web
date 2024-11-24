@@ -6,7 +6,7 @@ import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
@@ -19,19 +19,19 @@ const ContactUs = () => {
 
     emailjs
       .send(
-        'service_57fj4n9', // מזהה השירות שלך ב-EmailJS
-        'template_i1vru3k', // מזהה התבנית שלך
+        'service_57fj4n9', 
+        'template_i1vru3k', 
         formData,
-        'wFi9VAP5cqkrjZKFw' // מזהה המשתמש שלך
+        'wFi9VAP5cqkrjZKFw'
       )
       .then(
         () => {
-          alert('Message sent successfully!');
-          setFormData({ name: '', email: '', message: '' });
+          alert('ההודעה נשלחה בהצלחה!');
+          setFormData({ name: '', email: '', phone: '', message: '' });
           setIsSending(false);
         },
         (error) => {
-          alert('Failed to send the message. Please try again.');
+          alert('שליחת ההודעה נכשלה. נסה שוב מאוחר יותר.');
           console.error('Error:', error);
           setIsSending(false);
         }
@@ -40,62 +40,72 @@ const ContactUs = () => {
 
   return (
     <ContactContainer>
-      <h1>Contact Us</h1>
+      <h1>יצירת קשר</h1>
 
       {/* Contact Icons Section */}
       <IconsContainer>
         <IconLink href="tel:+972508857282" color="#25D366">
           <FontAwesomeIcon icon={faPhone} />
         </IconLink>
-        <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
+        <IconLink href="mailto:mashkanta.mishtalemet@gmail.com" color="#DB4437">
           <FontAwesomeIcon icon={faEnvelope} />
         </IconLink>
         <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
           <FontAwesomeIcon icon={faWhatsapp} />
         </IconLink>
-        <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
+        <IconLink href="https://www.facebook.com/mashkanta.experience" target="_blank" rel="noopener noreferrer" color="#4267B2">
           <FontAwesomeIcon icon={faFacebook} />
         </IconLink>
       </IconsContainer>
 
       {/* Contact Form Section */}
       <FormContainer>
-        <h2>Send Us a Message</h2>
+        <h2>השארת פרטים</h2>
         <ContactForm onSubmit={handleSubmit}>
           <FormLabel>
-            Name
+            שם מלא
             <FormInput
               name="name"
               type="text"
-              placeholder="Your Name"
+              placeholder="הכנס את שמך המלא"
               value={formData.name}
               onChange={handleChange}
               required
             />
           </FormLabel>
+          <TwoColumns>
+            <FormLabel>
+              טלפון
+              <FormInput
+                name="phone"
+                type="tel"
+                placeholder="הכנס את מספר הטלפון שלך"
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </FormLabel>
+            <FormLabel>
+              אימייל
+              <FormInput
+                name="email"
+                type="email"
+                placeholder="הכנס את כתובת האימייל שלך"
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </FormLabel>
+          </TwoColumns>
           <FormLabel>
-            Email
-            <FormInput
-              name="email"
-              type="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </FormLabel>
-          <FormLabel>
-            Message
+            הודעה
             <FormTextarea
               name="message"
-              placeholder="Your Message"
+              placeholder="אנא כתוב את הודעתך כאן (אופציונלי)"
               value={formData.message}
               onChange={handleChange}
-              required
             />
           </FormLabel>
           <SubmitButton type="submit" disabled={isSending}>
-            {isSending ? 'Sending...' : 'Submit'}
+            {isSending ? 'שולח...' : 'שלח הודעה'}
           </SubmitButton>
         </ContactForm>
       </FormContainer>
@@ -109,12 +119,15 @@ const ContactContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   text-align: center;
+  background: linear-gradient(180deg, #ffffff, #f3f4f6);
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #1b263b;
     margin-bottom: 20px;
   }
@@ -126,16 +139,17 @@ const IconsContainer = styled.div`
   gap: 20px;
   margin-bottom: 40px;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
 `;
 
 const IconLink = styled.a`
   color: ${({ color }) => color};
-  font-size: 3rem;
+  font-size: 4rem;
   transition: transform 0.3s, color 0.3s;
+  text-decoration: none;
 
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
     color: ${({ color }) => color};
   }
 `;
@@ -143,7 +157,7 @@ const IconLink = styled.a`
 const FormContainer = styled.div`
   width: 100%;
   max-width: 600px;
-  text-align: left;
+  text-align: right;
 
   h2 {
     font-size: 2rem;
@@ -159,18 +173,25 @@ const ContactForm = styled.form`
   gap: 20px;
 `;
 
+const TwoColumns = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+`;
+
 const FormLabel = styled.label`
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #333;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  flex: 1;
 `;
 
 const FormInput = styled.input`
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1rem;
   color: #333;
   width: 100%;
@@ -182,9 +203,9 @@ const FormInput = styled.input`
 `;
 
 const FormTextarea = styled.textarea`
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 1rem;
   color: #333;
   width: 100%;
@@ -199,10 +220,10 @@ const FormTextarea = styled.textarea`
 const SubmitButton = styled.button`
   background-color: #fcbf49;
   color: #0d1b2a;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
