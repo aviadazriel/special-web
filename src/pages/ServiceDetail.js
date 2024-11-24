@@ -60,7 +60,7 @@ const Image = styled.img`
   border-radius: 12px;
   margin-bottom: 20px;
   display: block; /* Ensures the image behaves as a block element */
-  margin: 0 auto; /* Centers the image horizontally */
+  margin: 10px auto; /* Centers the image horizontally */
 `;
 
 const Title = styled.h1`
