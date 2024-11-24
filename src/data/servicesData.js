@@ -29,6 +29,7 @@ const services = [
     title: "משכנתא לזוגות צעירים",
     description: "פתרונות מימון מותאמים לזוגות צעירים כדי לאפשר התחלת חיים משותפים בצורה כלכלית.",
     icon: faUsers,
+    image: "/images/services/4.webp"
   },
   {
     id: 5,
