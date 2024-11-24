@@ -36,6 +36,7 @@ const services = [
     title: "משכנתא לדירה בהנחה",
     description: "ייעוץ משכנתא עבור רכישת דירה בתנאים מיוחדים של מחירים מוזלים.",
     icon: faHandHoldingUsd,
+    image: "/images/services/5.jpg"
   },
   {
     id: 6,
