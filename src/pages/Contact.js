@@ -1,50 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
+import emailjs from 'emailjs-com';
 
-const ContactUs = () => (
-  <ContactContainer>
-    <h1>Contact Us</h1>
+const ContactUs = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSending, setIsSending] = useState(false);
 
-    {/* Contact Icons Section */}
-    <IconsContainer>
-      <IconLink href="tel:+972508857282" color="#25D366">
-        <FontAwesomeIcon icon={faPhone} />
-      </IconLink>
-      <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
-        <FontAwesomeIcon icon={faEnvelope} />
-      </IconLink>
-      <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
-        <FontAwesomeIcon icon={faWhatsapp} />
-      </IconLink>
-      <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
-        <FontAwesomeIcon icon={faFacebook} />
-      </IconLink>
-    </IconsContainer>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    {/* Contact Form Section */}
-    <FormContainer>
-      <h2>Send Us a Message</h2>
-      <ContactForm>
-        <FormLabel>
-          Name
-          <FormInput type="text" placeholder="Your Name" required />
-        </FormLabel>
-        <FormLabel>
-          Email
-          <FormInput type="email" placeholder="Your Email" required />
-        </FormLabel>
-        <FormLabel>
-          Message
-          <FormTextarea placeholder="Your Message" required />
-        </FormLabel>
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </ContactForm>
-    </FormContainer>
-  </ContactContainer>
-);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+
+    emailjs
+      .send(
+        'service_57fj4n9', // מזהה השירות שלך ב-EmailJS
+        'template_i1vru3k', // מזהה התבנית שלך
+        formData,
+        'wFi9VAP5cqkrjZKFw' // מזהה המשתמש שלך
+      )
+      .then(
+        () => {
+          alert('Message sent successfully!');
+          setFormData({ name: '', email: '', message: '' });
+          setIsSending(false);
+        },
+        (error) => {
+          alert('Failed to send the message. Please try again.');
+          console.error('Error:', error);
+          setIsSending(false);
+        }
+      );
+  };
+
+  return (
+    <ContactContainer>
+      <h1>Contact Us</h1>
+
+      {/* Contact Icons Section */}
+      <IconsContainer>
+        <IconLink href="tel:+972508857282" color="#25D366">
+          <FontAwesomeIcon icon={faPhone} />
+        </IconLink>
+        <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
+          <FontAwesomeIcon icon={faEnvelope} />
+        </IconLink>
+        <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
+          <FontAwesomeIcon icon={faWhatsapp} />
+        </IconLink>
+        <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
+          <FontAwesomeIcon icon={faFacebook} />
+        </IconLink>
+      </IconsContainer>
+
+      {/* Contact Form Section */}
+      <FormContainer>
+        <h2>Send Us a Message</h2>
+        <ContactForm onSubmit={handleSubmit}>
+          <FormLabel>
+            Name
+            <FormInput
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </FormLabel>
+          <FormLabel>
+            Email
+            <FormInput
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </FormLabel>
+          <FormLabel>
+            Message
+            <FormTextarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </FormLabel>
+          <SubmitButton type="submit" disabled={isSending}>
+            {isSending ? 'Sending...' : 'Submit'}
+          </SubmitButton>
+        </ContactForm>
+      </FormContainer>
+    </ContactContainer>
+  );
+};
 
 // Styled Components
 const ContactContainer = styled.div`
@@ -74,7 +131,7 @@ const IconsContainer = styled.div`
 
 const IconLink = styled.a`
   color: ${({ color }) => color};
-  font-size: 3rem; /* Larger icon size */
+  font-size: 3rem;
   transition: transform 0.3s, color 0.3s;
 
   &:hover {
@@ -152,6 +209,11 @@ const SubmitButton = styled.button`
 
   &:hover {
     background-color: #f0a500;
+  }
+
+  &:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
   }
 `;
 
