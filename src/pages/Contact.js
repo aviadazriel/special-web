@@ -220,26 +220,31 @@ const FormTextarea = styled.textarea`
     outline: none;
   }
 `;
-
 const SubmitButton = styled.button`
-  background-color: #fcbf49;
-  color: #0d1b2a;
+  background: linear-gradient(90deg, #0076d6, #0056a6); /* Professional blue gradient */
+  color: #ffffff;
   padding: 12px 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: #f0a500;
+    background: linear-gradient(90deg, #0056a6, #003f87); /* Slightly darker gradient on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
   }
 
   &:disabled {
-    background-color: #ddd;
+    background: #b8c2cc; /* Neutral gray for disabled state */
     cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
   }
 `;
+
 
 export default ContactUs;
