@@ -22,6 +22,7 @@ const services = [
     title: "משכנתא לדירה שניה",
     description: "שירותי ייעוץ והשגת תנאים מיטביים עבור רוכשי דירה נוספת להשקעה או מגורים.",
     icon: faBuilding,
+    image: "/images/services/second.webp"
   },
   {
     id: 4,
