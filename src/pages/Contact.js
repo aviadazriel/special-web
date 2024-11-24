@@ -84,7 +84,9 @@ const ContactUs = () => {
                 onChange={handleChange}
               />
             </FormLabel>
-            <FormLabel>
+            
+          </TwoColumns>
+          <FormLabel>
               אימייל
               <FormInput
                 name="email"
@@ -94,7 +96,6 @@ const ContactUs = () => {
                 onChange={handleChange}
               />
             </FormLabel>
-          </TwoColumns>
           <FormLabel>
             הודעה
             <FormTextarea
@@ -177,6 +178,8 @@ const TwoColumns = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 20px;
+  text-align: right;
+
 `;
 
 const FormLabel = styled.label`
@@ -195,6 +198,7 @@ const FormInput = styled.input`
   font-size: 1rem;
   color: #333;
   width: 100%;
+  text-align: right;
 
   &:focus {
     border-color: #fcbf49;
