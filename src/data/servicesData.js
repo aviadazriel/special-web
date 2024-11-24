@@ -43,6 +43,7 @@ const services = [
     title: "משכנתא למשפרי דיור",
     description: "ליווי מקצועי במעבר דירה תוך שמירה על תנאים מיטביים.",
     icon: faTools,
+    image: "/images/services/6.webp"
   },
   {
     id: 7,
