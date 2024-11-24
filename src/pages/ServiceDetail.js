@@ -54,10 +54,13 @@ const ServiceDetailContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
+  width: auto;
   height: auto;
+  max-height: 300px;
   border-radius: 12px;
   margin-bottom: 20px;
+  display: block; /* Ensures the image behaves as a block element */
+  margin: 0 auto; /* Centers the image horizontally */
 `;
 
 const Title = styled.h1`

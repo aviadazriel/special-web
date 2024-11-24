@@ -8,7 +8,7 @@ const services = [
     title: "מסורבי משכנתא",
     description: "סיוע לאנשים אשר הבקשה שלהם למשכנתא נדחתה על ידי הבנקים, ומתן פתרונות חלופיים.",
     icon: faHandHoldingUsd,
-    Image: faHandHoldingUsd
+    image: "/images/services/d.webp"
   },
   {
     id: 2,
