@@ -1,6 +1,6 @@
 const articleContent = {
     content: `
-    <div style="font-family: Arial, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
+    <div style="line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
     <h2 style="font-size: 2rem; margin-bottom: 20px;">מהו אישור עקרוני למשכנתא ומדוע הוא חשוב?</h2>
     <p style="margin-bottom: 20px;">
       אישור עקרוני הוא מסמך רשמי שמנפיק הבנק, המאשר באופן ראשוני את האפשרות שלכם לקבל משכנתא. אישור זה נחשב

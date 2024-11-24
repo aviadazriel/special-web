@@ -1,6 +1,6 @@
 const articleContent = {
     content: `
-    <div style="font-family: Arial, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
+    <div style="line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
   <h2 style="font-size: 2rem; margin-bottom: 20px;">הכירו את קנס הפירעון המוקדם במשכנתא</h2>
 
   <p style="margin-bottom: 20px;">

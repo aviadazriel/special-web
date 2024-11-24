@@ -3,9 +3,19 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   body {
+
+  font-family: Assistant, sans-serif;
+    font-size: 16px; /* Base font size */
+    line-height: 1.6; /* Consistent line height */
+    color: #434242; /* Default text color */
+    background: #f7f9fc; /* Light background for readability */
+
+
+
+
+
     direction: rtl;
     text-align: right;
-    font-family: 'Alef', sans-serif; /* Use a font suitable for Hebrew */
     margin: 0;
     padding: 0;
     box-sizing: border-box;

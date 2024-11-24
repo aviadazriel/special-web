@@ -1,6 +1,6 @@
 const articleContent = {
     content: `
-    <div style="font-family: Arial, sans-serif; line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
+    <div style="line-height: 1.8; color: #333; max-width: 800px; margin: auto;">
     <h2 style="font-size: 2rem; margin-bottom: 20px;">רגולציה בתחום המשכנתאות: כל מה שחשוב לדעת</h2>
     <p style="margin-bottom: 20px;">
       רגולציה בתחום המשכנתאות היא חלק משמעותי ובלתי נפרד מהמערכת הפיננסית, ומטרתה להבטיח שקיפות, יציבות והגנה על הצרכנים.

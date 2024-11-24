@@ -44,7 +44,6 @@ const ServiceDetailContainer = styled.div`
   padding: 20px;
   text-align: left;
   direction: rtl;
-  font-family: Assistant, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: #434242;
