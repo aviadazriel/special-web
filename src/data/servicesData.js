@@ -64,6 +64,7 @@ const services = [
     title: "איחוד הלוואות",
     description: "הלוואת משכנתא לשימושים שונים, כולל שיפוץ, חופשה, ועוד.",
     icon: faUmbrella,
+     image: "/images/services/9.webp"
   },
 ];
 // משכנתא לבניה עצמית
