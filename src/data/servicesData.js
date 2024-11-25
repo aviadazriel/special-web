@@ -50,12 +50,14 @@ const services = [
     title: "מחזור משכנתא",
     description: "בחינת תנאי המשכנתא הקיימת והשגת מימון טוב יותר דרך מיחזור.",
     icon: faRedo,
+    image: "/images/services/7.webp"
   },
   {
     id: 8,
     title: "משכנתא לכל מטרה",
     description: "הלוואת משכנתא לשימושים שונים, כולל שיפוץ, חופשה, ועוד.",
     icon: faUmbrella,
+    image: "/images/services/8.webp"
   },
   {
     id: 9,
