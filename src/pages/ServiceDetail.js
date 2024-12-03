@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import DOMPurify from 'dompurify';
 import servicesData from '../data/servicesData';
 import CallToAction from '../components/CallToAction';
+import { Link } from 'react-router-dom';
 
 const ServiceDetail = () => {
   const { id } = useParams();
@@ -18,14 +19,17 @@ const ServiceDetail = () => {
     }
   }, [id, serviceMeta]);
 
-  if (!serviceMeta) return <p>שירות לא נמצא.</p>;
+  if (!serviceMeta) return <NotFound>שירות לא נמצא.</NotFound>;
 
   const sanitizedContent = serviceContent
     ? DOMPurify.sanitize(serviceContent.content)
     : null;
 
   return (
+    <>
+    
     <ServiceDetailContainer>
+    <Breadcrumb serviceName={serviceMeta.title} />
       <Image src={serviceMeta.image} alt={serviceMeta.title} />
       <Title>{serviceMeta.title}</Title>
       <Description>{serviceMeta.description}</Description>
@@ -38,8 +42,80 @@ const ServiceDetail = () => {
         <CallToAction />
       </ContactButtonContainer>
     </ServiceDetailContainer>
+    </>
   );
 };
+
+// רכיב Breadcrumb
+const Breadcrumb = ({ serviceName }) => (
+  <BreadcrumbContainer>
+    <BreadcrumbContent>
+    <StyledLink to="/">ייעוץ משכנתאות</StyledLink>
+      <Arrow>›</Arrow>
+      <StyledLink to="/services">שירותים</StyledLink>
+      <Arrow>›</Arrow>
+      <CurrentService>{serviceName}</CurrentService>
+    </BreadcrumbContent>
+  </BreadcrumbContainer>
+);
+
+// Styled Components
+const BreadcrumbContainer = styled.div`
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const BreadcrumbContent = styled.div`
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+`;
+
+const Arrow = styled.span`
+  color: #ffcc00;
+`;
+
+const CurrentService = styled.span`
+  font-weight: bold;
+  text-decoration: underline;
+  color: #ffcc00;
+`;
+
+const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const NotFound = styled.div`
+  text-align: center;
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin: 50px;
+`;
+
+
+
+
+
+
+
+
+
+
 
 // רכיבי עיצוב מעודכנים
 const ServiceDetailContainer = styled.div`
