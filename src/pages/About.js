@@ -176,15 +176,7 @@ const AboutUs = () => {
             <h3>מיכאל כהן</h3>
             <p>יועץ משכנתאות</p>
           </TeamMember>
-
-          
-          
-          <TeamMember>
-            <MemberImage src="https://www.zmo.ai/wp-content/uploads/2023/03/Feishu20230309-195534-300x300.png" alt="יונתן יובל" />
-            <h3>יונתן יובל</h3>
-            <p>יועץ פיננסי</p>
-          </TeamMember>
-          
+   
 
           <TeamMember>
             <MemberImage src="https://scontent.ftlv1-1.fna.fbcdn.net/v/t1.6435-9/64783947_2849908318356078_730348687489761280_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=53a332&_nc_ohc=XXkJpX6urNQQ7kNvgHZG5me&_nc_zt=23&_nc_ht=scontent.ftlv1-1.fna&_nc_gid=AxipmrZTJjZcHvSZ4E9sjTp&oh=00_AYClSGRC1uIaADn5Hn_i_eRhWwdgirUmE_qCjQ3nr131Fw&oe=6755C6F4" alt="אורלי ברון" />
