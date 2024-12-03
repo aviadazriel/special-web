@@ -1,6 +1,6 @@
 // src/data/servicesData.js
 
-import { faHome, faRedo, faUsers, faHandHoldingUsd, faTools, faBuilding, faUmbrella } from '@fortawesome/free-solid-svg-icons';
+import { faHome,faHouseChimneyCrack , faHammer, faRedo, faUsers, faHandHoldingUsd, faTools, faBuilding, faUmbrella } from '@fortawesome/free-solid-svg-icons';
 
 const services = [
   {
@@ -66,7 +66,20 @@ const services = [
     icon: faUmbrella,
      image: "/images/services/9.webp"
   },
+  {
+    id: 10,
+    title: "משכנתא הפוכה",
+    description: "משכנתא הפוכה מאפשרת לבעלי נכסים בגילאי 60 ומעלה לקבל גישה להון שצברו בנכסיהם מבלי למכור את הבית. עם אפשרות לתשלומים חודשיים או סכום חד פעמי, בעלי הנכס יכולים לשמור על בעלותם ולהשתמש בכסף למטרות שונות, תוך שמירה על איכות החיים.",
+    icon: faHouseChimneyCrack ,
+     image: "/images/services/9.webp"
+  },
+  {
+    id: 11,
+    title: "משכנתא לבניה עצמית",
+    description: "משכנתא לבנייה עצמית מיועדת לבונים המעוניינים לממן את תהליך הבנייה. השירות שלנו כולל ייעוץ מקצועי, סיוע בהכנת תוכניות פיננסיות, ושחרור הכסף בהדרגה בהתאם להתקדמות הבנייה, כדי להבטיח שהפרויקט יתנהל בצורה חלקה ויעילה.",
+    icon: faHammer  ,
+     image: "/images/services/9.webp"
+  },
 ];
-// משכנתא לבניה עצמית
 
 export default services;
