@@ -27,30 +27,32 @@ const ServiceDetail = () => {
 
   return (
     <>
-    
-    <ServiceDetailContainer>
-    <Breadcrumb serviceName={serviceMeta.title} />
-      <Image src={serviceMeta.image} alt={serviceMeta.title} />
-      <Title>{serviceMeta.title}</Title>
-      <Description>{serviceMeta.description}</Description>
-      {serviceContent ? (
-        <Content dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
-      ) : (
-        <Loader>טוען תוכן...</Loader>
-      )}
-      <ContactButtonContainer>
-        <CallToAction />
-      </ContactButtonContainer>
-    </ServiceDetailContainer>
+      <Breadcrumb serviceName={serviceMeta.title} />
+      <ServiceDetailContainer>
+      <ImageWrapper>
+    <Image src={serviceMeta.image} alt={serviceMeta.title} />
+  </ImageWrapper>
+
+        <Title>{serviceMeta.title}</Title>
+        <Description>{serviceMeta.description}</Description>
+        {serviceContent ? (
+          <Content dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+        ) : (
+          <Loader>טוען תוכן...</Loader>
+        )}
+        <ContactButtonContainer>
+          <CallToAction />
+        </ContactButtonContainer>
+      </ServiceDetailContainer>
     </>
   );
 };
 
-// רכיב Breadcrumb
+// Breadcrumb Component
 const Breadcrumb = ({ serviceName }) => (
   <BreadcrumbContainer>
     <BreadcrumbContent>
-    <StyledLink to="/">ייעוץ משכנתאות</StyledLink>
+      <StyledLink to="/">ייעוץ משכנתאות</StyledLink>
       <Arrow>›</Arrow>
       <StyledLink to="/services">שירותים</StyledLink>
       <Arrow>›</Arrow>
@@ -61,38 +63,25 @@ const Breadcrumb = ({ serviceName }) => (
 
 // Styled Components
 const BreadcrumbContainer = styled.div`
-  background: linear-gradient(135deg, #0d1b2a, #1b263b);
-  padding: 20px;
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: #f4f6f8;
+  padding: 15px 25px;
+  color: #2c3e50;
+  border-bottom: 2px solid #dcdfe6;
 `;
 
 const BreadcrumbContent = styled.div`
-  font-size: 1rem;
+  font-size: 14px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
-
-  @media (max-width: 768px) {
-    font-size: 0.9rem;
-    flex-wrap: wrap;
-  }
+  gap: 8px;
 `;
 
 const Arrow = styled.span`
-  color: #ffcc00;
-`;
-
-const CurrentService = styled.span`
-  font-weight: bold;
-  text-decoration: underline;
-  color: #ffcc00;
+  color: #95a5a6;
 `;
 
 const StyledLink = styled(Link)`
-  color: #fff;
+  color: #3498db;
   text-decoration: none;
 
   &:hover {
@@ -100,70 +89,54 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const NotFound = styled.div`
-  text-align: center;
-  font-size: 1.5rem;
-  color: #e74c3c;
-  margin: 50px;
+const CurrentService = styled.span`
+  font-weight: bold;
+  color: #34495e;
 `;
 
-
-
-
-
-
-
-
-
-
-
-// רכיבי עיצוב מעודכנים
 const ServiceDetailContainer = styled.div`
-  max-width: 800px;
-  margin: 40px auto;
+  max-width: 900px;
+  margin: 30px auto;
   padding: 20px;
-  direction: rtl;
   font-family: 'Assistant', sans-serif;
   background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 `;
 
 const Image = styled.img`
-  width: auto;
-  height: auto;
-  max-height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: inherit;
   border-radius: 12px;
-  margin-bottom: 20px;
-  display: block; /* Ensures the image behaves as a block element */
-  margin: 10px auto; /* Centers the image horizontally */
 `;
 
 const Title = styled.h1`
-  font-size: 36px;
-  color: #0d1b2a;
-  margin-bottom: 15px;
-  text-align: right;
-`;
-
-const Description = styled.p`
-  font-size: 18px;
-  line-height: 1.6;
-  color: #555555;
-  text-align: right;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-align: center;
   margin-bottom: 20px;
 `;
 
-const Content = styled.div`
-  font-size: 18px;
+const Description = styled.p`
+  font-size: 1.2rem;
   line-height: 1.8;
+  color: #555555;
+  text-align: center;
+`;
+
+const Content = styled.div`
+  font-size: 1rem;
+  line-height: 1.6;
   color: #333333;
   text-align: right;
 
   h1, h2, h3 {
     margin-bottom: 15px;
-    color: #19508bed;
-    font-size: 1.5rem;
+    color: #19508b;
   }
 
   ul {
@@ -172,22 +145,15 @@ const Content = styled.div`
   }
 
   ul li {
-    margin-bottom: 10px;
-  }
-
-  .call-to-action {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #f7f9fc;
-    text-align: center;
-    border-radius: 8px;
+    margin-bottom: 8px;
   }
 `;
 
 const Loader = styled.div`
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   color: #888888;
+  margin-top: 20px;
 `;
 
 const ContactButtonContainer = styled.div`
@@ -196,4 +162,20 @@ const ContactButtonContainer = styled.div`
   justify-content: center;
 `;
 
+const NotFound = styled.div`
+  text-align: center;
+  font-size: 20px;
+  color: #e74c3c;
+  margin: 50px;
+`;
+const ImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* יחס גובה-רוחב 16:9 */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f4f4f4; /* צבע רקע במידה ואין תמונה */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+`;
 export default ServiceDetail;
