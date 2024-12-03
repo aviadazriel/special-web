@@ -103,7 +103,7 @@ const MobileMenuIcon = styled.div`
 const NavLinks = styled.div`
   display: flex;
   gap: 20px;
-  align-items: center;
+  align-items: center; /* יישור אנכי */
   justify-content: flex-end;
   flex: 2;
   flex-wrap: nowrap;
@@ -122,6 +122,7 @@ const NavLinks = styled.div`
     gap: 10px;
   }
 `;
+
 
 const StyledLink = styled(Link)`
   color: #333;
@@ -165,8 +166,9 @@ const CTAButton = styled.button`
   border-radius: 25px;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
-  margin-top: 10px;
-
+  margin-left: 10px; /* מרווח משמאל */
+  align-self: center; /* יישור אנכי ספציפי */
+  
   &:hover {
     background: linear-gradient(135deg, #555, #333);
     transform: scale(1.05);
@@ -179,7 +181,10 @@ const CTAButton = styled.button`
   @media (max-width: 768px) {
     width: 80%;
     padding: 8px;
+    margin-top: 10px;
+    margin-left: 0; /* התאמה למרכזיות בתפריט נייד */
   }
 `;
+
 
 export default Header;
