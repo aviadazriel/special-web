@@ -24,6 +24,10 @@ const ArticleDetail = () => {
   const relatedArticles =articles.filter((article) => articleMeta.relatedArticles.includes(article.id));
 
   return (
+    <>
+     <Breadcrumb articleName={articleMeta.title} />
+    
+  
     <ArticleContainer>
       <ImageContainer>
         <Image src={articleMeta.image} alt={articleMeta.title} />
@@ -59,8 +63,64 @@ const ArticleDetail = () => {
       </ContentContainer>
      
     </ArticleContainer>
+    </>
   );
 };
+// Breadcrumb Component
+const Breadcrumb = ({ articleName }) => (
+  <BreadcrumbContainer>
+    <BreadcrumbContent>
+      <StyledLink to="/">ייעוץ משכנתאות</StyledLink>
+      <Arrow>›</Arrow>
+      <StyledLink to="/articles">מאמרים</StyledLink>
+      <Arrow>›</Arrow>
+      <CurrentService>{articleName}</CurrentService>
+    </BreadcrumbContent>
+  </BreadcrumbContainer>
+);
+
+
+
+
+
+// Styled Components
+const BreadcrumbContainer = styled.div`
+  background: #f4f6f8;
+  padding: 15px 25px;
+  color: #2c3e50;
+  border-bottom: 2px solid #dcdfe6;
+`;
+
+const BreadcrumbContent = styled.div`
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const Arrow = styled.span`
+  color: #95a5a6;
+`;
+
+const StyledLink = styled(Link)`
+  color: #3498db;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+const CurrentService = styled.span`
+  font-weight: bold;
+  color: #34495e;
+`;
+
+
+
+
+
+
+
 
 
 // Styled Components
