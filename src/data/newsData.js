@@ -61,7 +61,7 @@ const news = [
       link: 'https://www.israelhayom.co.il/business/article/16446438',
       description: 'ניתוח על ההשפעות הכלכליות של העלייה בהשקעות נדל"ן.',
       imageUrl: 'https://www.israelhayom.co.il/wp-content/uploads/2024/09/15/15/DSC_4930-960x640.jpg',
-      source: 'Israel Hayom',
+      source: 'IH',
       publishDate: '2023-08-10'
     }
   ];
