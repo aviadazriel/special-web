@@ -115,7 +115,7 @@ const Answer = styled.ul`
   color: #333;
   margin-top: 8px;
   line-height: 1.4;
-  padding-left: 20px;
+  padding-left: 4px;
   list-style-position: inside;
    white-space: pre-wrap; /* Maintains multi-line formatting */
 
