@@ -26,10 +26,8 @@ const FAQSection = ({ faqData }) => {
               </IconContainer>
             </Question>
             {openQuestionIndex === index && (
-              <Answer>
-                {item.answer.split("\n").map((line, idx) => (
-                  <li key={idx}>{line.trim()}</li>
-                ))}
+              <Answer>{item.answer}
+                
               </Answer>
             )}
           </FAQItem>
