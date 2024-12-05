@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 const FAQSection = ({ faqData }) => {
-
   const [openQuestionIndex, setOpenQuestionIndex] = useState(null);
 
   const toggleQuestion = (index) => {
@@ -13,7 +12,6 @@ const FAQSection = ({ faqData }) => {
 
   return (
     <FAQContainer>
-      {/* <img src={`${process.env.PUBLIC_URL}/a.svg`} alt="FAQ Icon" style={{ width: '50px', height: '50px' }} /> */}
       <Header>
         <h2>שאלות ותשובות</h2>
         <img src={`${process.env.PUBLIC_URL}/a.svg`} alt="FAQ Icon" />
@@ -27,7 +25,13 @@ const FAQSection = ({ faqData }) => {
                 <FontAwesomeIcon icon={openQuestionIndex === index ? faMinus : faPlus} />
               </IconContainer>
             </Question>
-            {openQuestionIndex === index && <Answer>{item.answer}</Answer>}
+            {openQuestionIndex === index && (
+              <Answer>
+                {item.answer.split("\n").map((line, idx) => (
+                  <li key={idx}>{line.trim()}</li>
+                ))}
+              </Answer>
+            )}
           </FAQItem>
         ))}
       </FAQList>
@@ -35,8 +39,7 @@ const FAQSection = ({ faqData }) => {
   );
 };
 
-
-
+// Styled Components
 const Header = styled.div`
   display: flex;
   align-items: center;
@@ -56,7 +59,6 @@ const Header = styled.div`
   }
 `;
 
-// Styled Components
 const FAQContainer = styled.section`
   width: 100%;
   max-width: 1000px;
@@ -111,11 +113,17 @@ const IconContainer = styled.div`
   }
 `;
 
-const Answer = styled.div`
+const Answer = styled.ul`
   font-size: 1rem;
   color: #333;
   margin-top: 10px;
   line-height: 1.6;
+  padding-left: 20px;
+  list-style-position: inside;
+
+  li {
+    margin-bottom: 10px;
+  }
 `;
 
 export default FAQSection;
