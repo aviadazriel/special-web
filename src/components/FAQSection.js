@@ -77,7 +77,7 @@ const FAQContainer = styled.section`
 const FAQList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   width: 100%;
 `;
 
@@ -95,7 +95,7 @@ const FAQItem = styled.div`
 `;
 
 const Question = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #0d1b2a;
   display: flex;
