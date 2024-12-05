@@ -181,7 +181,7 @@ const PublishDate = styled.p`
 `;
 
 const ReadMore = styled.a`
-  align-self: center;
+  align-self: end;
   display: inline-block;
   background-color: #fcbf49;
   color: #0d1b2a;
@@ -198,6 +198,7 @@ const ReadMore = styled.a`
 
   @media (max-width: 600px) {
     padding: 6px 12px;
+    align-self: center;
   }
 `;
 
