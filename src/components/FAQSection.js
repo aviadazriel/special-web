@@ -48,12 +48,12 @@ const Header = styled.div`
   margin-bottom: 20px;
 
   h2 {
-    font-size: 2rem;
-    color: #1b263b;
+      font-size: 2rem;
+  color: #1b263b;
   }
 
   img {
-    width: 50px;
+    width: 40px;
     height: 100%;
     margin-bottom: 20px;
   }
@@ -63,12 +63,11 @@ const FAQContainer = styled.section`
   width: 100%;
   max-width: 1000px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 10px;
   text-align: right;
 
   h2 {
-    font-size: 2rem;
-    color: #1b263b;
+  
     margin-bottom: 20px;
     text-align: center;
   }
