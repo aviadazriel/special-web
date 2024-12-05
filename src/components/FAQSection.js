@@ -104,9 +104,9 @@ const Question = styled.div`
 `;
 
 const IconContainer = styled.div`
-  font-size: 1.5rem;
-  color: rgb(85, 113, 219);
+  font-size: 1.2rem;
   transition: transform 0.3s;
+  color: #5571db;
 
   &:hover {
     transform: scale(1.2);
@@ -114,12 +114,13 @@ const IconContainer = styled.div`
 `;
 
 const Answer = styled.ul`
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
-  margin-top: 10px;
-  line-height: 1.6;
+  margin-top: 8px;
+  line-height: 1.4;
   padding-left: 20px;
   list-style-position: inside;
+   white-space: pre-wrap; /* Maintains multi-line formatting */
 
   li {
     margin-bottom: 10px;
