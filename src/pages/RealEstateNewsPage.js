@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import news from '../data/newsData';
-
+let a = "https://play-lh.googleusercontent.com/7MEJ_P39r3Jd99MS8kkMtyPbvWu-jgzSdwAvxKp4EMDmol1KljtEftuGcDbkUorVWa8=w240-h480-rw"
 const RealEstateNewsPage = () => (
     <PageContainer>
       <Title>חדשות נדל"ן בישראל</Title>
@@ -18,7 +18,7 @@ const RealEstateNewsPage = () => (
               <SourceIcon>
                 <FontAwesomeIcon icon={faNewspaper} />
                 <img
-                  src={"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEXPIifPISf////SMjbNAA7MAADtt7jOGB/NDhfZW1/jkJL229zPHiXNAxHOGSD339/MAAf99PTcbnHxy8vRKzHrsbH11tfYVVjpqqvhhoj++fnffoD87+/xxMbRKS/kk5XWS0/UQETaZGfed3nnoKLuvLzwxsfVRUrmm50pxmKCAAAEr0lEQVR4nO3Z6WKqOhiF4UKliZbgVOehdrDt/V/hEZQQMlgcTuvqXu+vU/HDPBtF8Nzd/fHuf3sB/3sU4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiZwmjvxGF+FGIH4X4UYgfhfhRiB+F+FGIH4X4UYgfhfhRiB+F+FGIH4X4UYgfhfhRiB+F+P2kME32ZSdN9fZD4txX/UFhuh4XPW5OIcrhfmhwLvEnhU/xvskpQjXfDy3kmS9L4RW7caFsFUnjv9XhNdOWmzx8apR+RFXCTWI9eycWzi6UqAnf7CHhHZLpmUL5/pC3ne1UcrYt/pgu8leJ0mj/Z62vdpK/lBjpR0ZCC1fWk7eTTCycnUzfit2XwqE9NBC+oYW0z0gNhUl3/zrbVhS1toeVxv22yk+Rsa9x/q8pq7/nSgudBkKNPA8vJ7ISOnWkmnoenudrukD4kAsfqv21xe4Y+lfQVWkkq+X1jwt9i43jl+xkYbGmKwqXvaAwHrUuFnZ76enCfv2zeKFwt7igMBbppcL4VZwujGfymsKpCgvb4mLhuzpDuGpdKtwae3tohYUD2VzoO9PE+TtdhYZ2wsDQsHehUAyeO52ZfkAL3zuHnvXC03UkZlp417HTTxSvz7UNs2UpFPbMTAsze6h7JWEkpJTJ0BFuWrJIRXrhUZpKLdx9eVgl1ROFtWV8EKrgUEdGmbVleC1hXs8Vlhdj+t1Y3A6YQjtpPrGWIbTrVUJ7y80Js8R8YkNhahzDWxeql/HpQrleoQizpDxlOFchYWGaLPTQ7MaF6r48gLvunRsCv1Cmq2rIvQe7JWGWlF8UeePaioLC1DjqxfXirQgX/WVe13hTSfMAxv0n5xD6hPJuaAzNN+7vNr8kLG9TjYOh3oylxh9Pnt+YXKFsm0Pje88t/28JnbKNeQD3t8qO8NES1u5C5wPv0FWEo6TMFX6Wm8RxoXk5ucoOx0Im9exjKJ+rofE6MHQN4fKxrO8Iu3rbcWGiP4R9fSzkczVdNLeE1eX+/C041L+C0OnovUVAWO5rK/WHKXhvUQp75ffEcF0NBe6ezhL2PoLCqBW6gwv8tl0KV8aHKbRYfeFSCj8aDNW/RBsK5Zt/Z4Vw69+0TLxA96x1ZLH6i6QUrnrfD9WvBRoKg2/T3TKzT/+mQeA3XPN3u28WO9IeLfx+aFj/l20qTJ+WIWGkFr4tX4FDeILQuNhpLnwU9W+SpsLd3ebU93krlqlehs7rvLpXVaVw6Vms50yznBmfufK77uObof6X/VXZWBilKvlsO30W+8sSMTEfnURH/n9fNjFHDzt3d/2SmO/ybLN/1Dx7eYecm7TmwvxlMmFXrjKtbcp8lxzVbuqj+3l7x/YuDkPZ8SHP2fskIWQU4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4vdPC/9gFOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4kchfhTiRyF+FOJHIX4U4vcPCP8Dn3io93GcrPQAAAAASUVORK5CYII="}
+                  src={a}
                   alt="Source Icon"
                   style={{ width: '24px', height: '24px', borderRadius: '50%', marginRight: '8px' }}
                 />
@@ -136,6 +136,8 @@ const SourceIcon = styled.div`
   color: #fcbf49;
   margin-bottom: 5px;
   display: flex;
+      align-items: center;
+
 
     @media (max-width: 768px) {
       justify-content: center;
