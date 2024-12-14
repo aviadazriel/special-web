@@ -3,14 +3,35 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
-
+import emailjs from 'emailjs-com';
 const ContactModal = ({ isOpen, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true); // Show the "Thank You" message instead of closing the modal
+  
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setIsSubmitted(false);
+
+  const formData = {
+    name: e.target.name.value,
+    phone: e.target.phone.value,
+    message: e.target.message.value,
   };
+
+  emailjs
+    .send('service_57fj4n9', 'template_i1vru3k', formData, 'wFi9VAP5cqkrjZKFw')
+    .then(
+      () => {
+        setIsSubmitted(true); // Show "Thank You" message
+      },
+      (error) => {
+        console.error('Error:', error);
+        alert('שליחת ההודעה נכשלה. נסה שוב מאוחר יותר.');
+      }
+    );
+};
+
 
   if (!isOpen) return null;
 
@@ -48,16 +69,16 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <InlineFields>
                   <FormLabel>
                     שם
-                    <FormInput type="text" placeholder="הכנס את שמך" required />
+                    <FormInput name="name" type="text" placeholder="הכנס את שמך" required />
                   </FormLabel>
                   <FormLabel>
                     מספר טלפון
-                    <FormInput type="tel" placeholder="הכנס את מספר הטלפון שלך" required />
+                    <FormInput name="phone" type="tel" placeholder="הכנס את מספר הטלפון שלך" required />
                   </FormLabel>
                 </InlineFields>
                 <MessageLabel>
                   הודעה
-                  <MessageTextarea placeholder="הכנס את הודעתך" />
+                  <MessageTextarea name="message" placeholder="הכנס את הודעתך" />
                 </MessageLabel>
                 <SubmitButton type="submit">שלח</SubmitButton>
               </ContactForm>
@@ -232,8 +253,9 @@ const MessageTextarea = styled.textarea`
 `;
 
 const SubmitButton = styled.button`
-  background-color: #fcbf49;
-  color: #0d1b2a;
+
+  background: linear-gradient(90deg, #0076d6, #0056a6);
+  color: #ffffff;
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
