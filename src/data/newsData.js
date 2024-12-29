@@ -75,6 +75,16 @@ const news = [
       source: 'Walla',
       publishDate: '2019-12-07' // Replace with actual publish date if available
     },
+    {
+    
+      id: 9,
+      title: 'בורחים מהמשכנתא צמודת המדד: תנועה ערה במיחזורי המשכנתאות',
+      link: 'https://www.themarker.com/realestate/2024-12-24/ty-article/00000193-f967-d657-a39f-ffff701f0000',
+      description: 'בנובמבר מוחזרו משכנתאות ב-494 מיליון שקל, עלייה של 10.3% לעומת החודש הקודם ■ שיא של שנתיים וחצי נרשם בהיקף הלקוחות שמיחזרו משכנתא שלקחו בבנק אחד — באמצעות הלוואה בבנק אחר',
+      imageUrl: 'https://img.haarets.co.il/bs/00000193-f978-d315-addb-fd7f4e9b0000/f9/6a/b0ddf2564df1a09c436a85576405/630657.jpg?&width=1500&height=872&cmsprod', // Replace with actual image if available
+      source: 'DM',
+      publishDate: '2024-12-24' // Replace with actual publish date if available
+    },
   ];
 
 
