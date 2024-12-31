@@ -85,6 +85,17 @@ const news = [
       source: 'DM',
       publishDate: '2024-12-24' // Replace with actual publish date if available
     },
+    {
+    
+      id: 10,
+      title: 'סיכום 2024 בנדל"ן: 10 הערים שהכי התייקרו השנה',
+      link: 'https://www.ynet.co.il/economy/article/yokra14203000',
+      description: 'לא ת"א או ירושלים: דווקא לוד וקריית גת, ואפילו ערים מופגזות כמו עכו ואופקים, הציגו את העליות הגבוהות ביותר במחירי הדיור. בשנה הקשה שחלפה רובנו ‏חיפשנו בעיקר נכס עם ממ"ד, וזה התבטא במחירים.',
+      imageUrl: 'https://ynet-pic1.yit.co.il/cdn-cgi/image/f=auto,w=740,q=75/picserver6/crop_images/2024/12/30/H1LqFuxUke/H1LqFuxUke_0_0_851_1406_0_x-large.jpg', // Replace with actual image if available
+      source: 'Ynet',
+      publishDate: '2024-12-31' // Replace with actual publish date if available
+    },
+
   ];
 
 
