@@ -9,12 +9,14 @@ let ynet = `${process.env.PUBLIC_URL}/images/sites/ynet.jpeg`;
 let ih = `${process.env.PUBLIC_URL}/images/sites/ih.png`;
 let walla = `${process.env.PUBLIC_URL}/images/sites/walla.png`;
 let de_marker = `${process.env.PUBLIC_URL}/images/sites/dm.webp`
+
+const sortedNews = [...news].sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 const RealEstateNewsPage = () => (
     <PageContainer>
       <Title>חדשות נדל"ן בישראל</Title>
       <Subtitle>כתבות ומאמרים עדכניים בנושא נדל"ן והשקעות בישראל</Subtitle>
       <ArticleList>
-        {news.map((article) => (
+        {sortedNews.map((article) => (
           <ArticleCard key={article.id}>
             <ImageContainer>
               <ArticleImage src={article.imageUrl} alt="Article" />
