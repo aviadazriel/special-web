@@ -165,19 +165,21 @@ const AboutUs = () => {
             <h3>אביעד עזריאל</h3>
             <p>יועץ משכנתאות בכיר</p>
           </TeamMember>
-          
-
-          <TeamMember>
-            <MemberImage src={`${process.env.PUBLIC_URL}/images/employees/ETIEL_PIC.jpeg`} alt="איתיאל עזריאל" />
-            <h3>איתיאל עזריאל</h3>
-            <p>יועץ משכנתאות ורואה חשבון</p>
-          </TeamMember>
 
           <TeamMember>
             <MemberImage src={`${process.env.PUBLIC_URL}/images/employees/SAPIR_PIC.jpeg`} alt="מיכה כהן" />
             <h3>ספיר וקנין</h3>
             <p>יועצת משכנתאות ורואת חשבון</p>
           </TeamMember>
+          
+
+          <TeamMember>
+            <MemberImage src={`${process.env.PUBLIC_URL}/images/employees/ETIEL_PIC.jpeg`} alt="איתיאל עזריאל" />
+            <h3>איתיאל עזריאל</h3>
+            <p>יועץ משכנתאות</p>
+          </TeamMember>
+
+          
 
           
 
