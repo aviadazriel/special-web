@@ -95,7 +95,19 @@ const news = [
       source: 'Ynet',
       publishDate: '2024-12-31' // Replace with actual publish date if available
     },
+    {
+    
+      id: 11,
+      title: 'טירוף הנדל״ן: שיא כל הזמנים במשכנתאות בדצמבר - 13.8 מיליארד שקל',
+      link: 'https://www.calcalist.co.il/investing/article/bk6fwjnvjg',
+      description: 'לפי נתוני בנק ישראל, היקף המשכנתאות בדצמבר היה גבוה פי 2.5 מזה שבחודש המקביל ב-2023. שיא גם בהיקף הלוואות הבלון ששיעורן בדצמבר עמד על 23.2%. כלומר כמעט כל הלוואה רביעית נלקחה כבלון. הפעם האחרונה שהיקף המשכנתאות הגיע לשיא הייתה במרץ 2022, רגע לפני תחילת העלאות הריבית',
+      imageUrl: `${process.env.PUBLIC_URL}/images/news/news_11.jpg`, // Replace with actual image if available
+      source: 'Calcalist',
+      publishDate: '2025-01-14' // Replace with actual publish date if available
+    },
 
+
+    
   ];
 
 
