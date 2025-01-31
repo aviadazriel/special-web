@@ -161,7 +161,7 @@ const AboutUs = () => {
         <h2>פגשו את הצוות</h2>
         <TeamGrid>
           <TeamMember>
-            <MemberImage src={`${process.env.PUBLIC_URL}/images/employees/AVIAD_PIC.jpeg`} alt="אביעד עזריאל" />
+            <MemberImage src={`${process.env.PUBLIC_URL}/images/employees/AVIAD_PIC.jpg`} alt="אביעד עזריאל" />
             <h3>אביעד עזריאל</h3>
             <p>יועץ משכנתאות בכיר</p>
           </TeamMember>
