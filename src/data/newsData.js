@@ -114,7 +114,18 @@ const news = [
       description: 'האם הלוואות קבלן הן בעיה או דווקא פתרון, מה שיעור האנשים שנעזרים ביועצי משכנתא ולמה מיחזורי משכנתא התרחבו בשנים האחרונות?',
       imageUrl: `${process.env.PUBLIC_URL}/images/news/PIC_12.webp`, // Replace with actual image if available
       source: 'BIZ',
-      publishDate: '2025-01-27' // Replace with actual publish date if available
+      publishDate: '2025-01-27'
+    },
+
+    {
+    
+      id: 13,
+      title: 'השכונות שבהן מחירי הדיור קפצו ביותר מ-50%',
+      link: 'https://www.ice.co.il/realestate/news/article/1049954',
+      description: 'אם אתם גרים באחת מ-10 השכונות האלה, סביר להניח שרשמתם עליית ערך מטורפת ב-5 השנים האחרונות. מהשכונה שמחירי הדיור בה קפצו ב-67% ועד שתי השכונות מהדרום שרשמו תשואת חלומית.',
+      imageUrl: `${process.env.PUBLIC_URL}/images/news/pic_13.jpg`,
+      source: 'Calcalist',
+      publishDate: '2025-02-04' 
     },
 
 
