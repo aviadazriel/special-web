@@ -52,13 +52,13 @@ const handleSubmit = (e) => {
               <IconLink href="tel:+972508857282" color="#25D366">
                 <FontAwesomeIcon icon={faPhone} />
               </IconLink>
-              <IconLink href="mailto:contact@premiumconsult.com" color="#DB4437">
+              <IconLink href="mailto:mashkanta.mishtalemet@gmail.com" color="#DB4437">
                 <FontAwesomeIcon icon={faEnvelope} />
               </IconLink>
               <IconLink href="https://wa.me/972508857282" target="_blank" rel="noopener noreferrer" color="#25D366">
                 <FontAwesomeIcon icon={faWhatsapp} />
               </IconLink>
-              <IconLink href="https://facebook.com" target="_blank" rel="noopener noreferrer" color="#4267B2">
+              <IconLink href="https://www.facebook.com/mashkanta.experience" target="_blank" rel="noopener noreferrer" color="#4267B2">
                 <FontAwesomeIcon icon={faFacebook} />
               </IconLink>
             </IconsContainer>
