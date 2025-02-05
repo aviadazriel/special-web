@@ -105,7 +105,21 @@ const news = [
       source: 'Calcalist',
       publishDate: '2025-01-14' // Replace with actual publish date if available
     },
+    
+    {
+    
+      id: 12,
+      title: 'המפקח על הבנקים: נבדוק את הלווואת הקבלן הן מהוות כבר 25% מהשוק',
+      link: 'https://www.bizportal.co.il/realestates/news/article/20012847',
+      description: 'האם הלוואות קבלן הן בעיה או דווקא פתרון, מה שיעור האנשים שנעזרים ביועצי משכנתא ולמה מיחזורי משכנתא התרחבו בשנים האחרונות?',
+      imageUrl: `${process.env.PUBLIC_URL}/images/news/PIC_12.webp`, // Replace with actual image if available
+      source: 'BIZ',
+      publishDate: '2025-01-27' // Replace with actual publish date if available
+    },
 
+
+
+    
 
     
   ];

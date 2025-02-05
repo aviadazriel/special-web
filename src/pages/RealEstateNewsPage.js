@@ -8,7 +8,8 @@ let globes = `${process.env.PUBLIC_URL}/images/sites/globes.png`;
 let ynet = `${process.env.PUBLIC_URL}/images/sites/ynet.jpeg`;
 let ih = `${process.env.PUBLIC_URL}/images/sites/ih.png`;
 let walla = `${process.env.PUBLIC_URL}/images/sites/walla.png`;
-let de_marker = `${process.env.PUBLIC_URL}/images/sites/dm.webp`
+let de_marker = `${process.env.PUBLIC_URL}/images/sites/dm.webp`;
+let biz = `${process.env.PUBLIC_URL}/images/sites/BIZ.ico`;
 
 const sortedNews = [...news].sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
 const RealEstateNewsPage = () => (
@@ -37,6 +38,8 @@ const RealEstateNewsPage = () => (
                     ? walla
                     : article.source === "DM"
                     ? de_marker
+                    : article.source === "BIZ"
+                    ? biz
                     : calcalist }
                   alt="Source Icon"
                   style={{ width: '24px', height: '24px', borderRadius: '50%', marginRight: '8px' }}
