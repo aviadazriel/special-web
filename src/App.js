@@ -16,8 +16,8 @@ import ScrollToTop from './components/ScrollToTop';
 import FloatingContactMenu from './components/FloatingContactMenu';
 
 import GlobalStyles from './GlobalStyles';
-// import UploadPage from './pages/UploadPage';
-// import HowToDownload from "./pages/HowToDownload";
+import UploadPage from './pages/UploadPage';
+import HowToDownload from "./pages/HowToDownload";
 
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
             <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/calculator" element={<CalculatorPage />} />
             <Route path="/real-estate-news" element={<RealEstateNews />} />
-            {/* <Route path="/UploadPage" element={<UploadPage />} />
-            <Route path="/how-to-download" element={<HowToDownload />} /> */}
+             <Route path="/UploadPage" element={<UploadPage />} /> 
+            <Route path="/how-to-download" element={<HowToDownload />} />
           </Routes>
         </MainContent>
         <Footer />
