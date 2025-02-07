@@ -55,15 +55,15 @@ const UploadPage = () => {
             setUploadMessage("הקובץ נשלח בהצלחה! נחזור אליך תוך יום עסקים.");
             setFormData({ bank: "", fullName: "", email: "", phone: "", file: null });
         } else {
-            setUploadMessage(response.statusText + "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+            setUploadMessage( "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
             
-            setUploadMessage(await response.text());
+          
         }
       } catch (err) {
         console.error(err);
 
-        setUploadMessage(String(err));
-        // setUploadMessage( err+ "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+        setUploadMessage( "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+
         
       }
 
