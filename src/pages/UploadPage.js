@@ -62,7 +62,7 @@ const UploadPage = () => {
       } catch (err) {
         console.error(err);
 
-        setUploadMessage(err.message || String(err));
+        setUploadMessage(String(err));
         // setUploadMessage( err+ "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
         
       }
