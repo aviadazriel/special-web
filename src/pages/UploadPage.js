@@ -40,11 +40,14 @@ const UploadPage = () => {
       data.append("file", formData.file);
     //   http://ec2-13-61-177-219.eu-north-1.compute.amazonaws.com:8000/api_test
     // http://localhost:8000
+
+    // ,
+    // referrerPolicy: "unsafe-url" 
+
     try {
         const response = await fetch("https://ec2-13-61-177-219.eu-north-1.compute.amazonaws.com/api_test/", {
           method: "POST",
-          body: data,
-          referrerPolicy: "unsafe-url" 
+          body: data
         });
 
   
