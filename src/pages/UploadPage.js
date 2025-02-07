@@ -52,11 +52,12 @@ const UploadPage = () => {
             setUploadMessage("הקובץ נשלח בהצלחה! נחזור אליך תוך יום עסקים.");
             setFormData({ bank: "", fullName: "", email: "", phone: "", file: null });
         } else {
-            setUploadMessage("אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+            setUploadMessage(response.statusText + "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
         }
       } catch (err) {
         console.error(err);
-        setUploadMessage("אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+        setUploadMessage( err+ "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+        
       }
 
 
