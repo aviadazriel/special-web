@@ -56,10 +56,12 @@ const UploadPage = () => {
             setFormData({ bank: "", fullName: "", email: "", phone: "", file: null });
         } else {
             setUploadMessage(response.statusText + "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+            setUploadMessage(await response.text());
         }
       } catch (err) {
         console.error(err);
-        setUploadMessage( err+ "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+        setUploadMessage(err.stack || err.message || String(err));
+        // setUploadMessage( err+ "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
         
       }
 
