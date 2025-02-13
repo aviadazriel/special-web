@@ -45,7 +45,7 @@ const UploadPage = () => {
     // referrerPolicy: "unsafe-url" 
 
     try {
-        const response = await fetch("https://ec2-13-61-177-219.eu-north-1.compute.amazonaws.com/api_test/", {
+        const response = await fetch("https://mashkanta-me.com/api_test/", {
           method: "POST",
           body: data
         });
