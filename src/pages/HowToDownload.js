@@ -11,7 +11,7 @@ const banksData = [
       "היכנסו לאתר בנק הפועלים והתחברו לחשבון האישי שלכם.",
       "בחרו בתפריט 'משכנתאות'.",
       "איתרו את האפשרות 'דוח יתרות לסילוק' ולחצו על הורדה.",
-      "שמרו את הקובץ בפורמט PDF והעלו אותו לאתר.",
+      "שמרו את הקובץ בפורמט PDF והעלו אותו לאתר."
     ],
   },
   {
@@ -22,7 +22,7 @@ const banksData = [
       "היכנסו לאתר בנק לאומי והתחברו למערכת הבנקאות המקוונת.",
       "לחצו על 'משכנתא שלי' או 'הלוואות'.",
       "חפשו את האפשרות 'דוח יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו את הדוח בפורמט PDF והעלו אותו באתר.",
+      "שמרו את הדוח בפורמט PDF והעלו אותו באתר."
     ],
   },
   {
@@ -33,7 +33,7 @@ const banksData = [
       "היכנסו לאתר בנק דיסקונט והתחברו לחשבונכם.",
       "עברו לקטגוריית 'הלוואות ומשכנתאות'.",
       "בחרו ב'יתרות לסילוק' או 'סילוק הלוואה' והורידו את הקובץ.",
-      "שמרו כ-PDF והעלו לאתר.",
+      "שמרו כ-PDF והעלו לאתר."
     ],
   },
   {
@@ -44,7 +44,7 @@ const banksData = [
       "היכנסו לאתר מזרחי טפחות והתחברו לחשבון.",
       "לחצו על 'חשבונות המשכנתא שלי'.",
       "חפשו את 'דוח יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו בפורמט PDF והעלו בטופס באתר.",
+      "שמרו בפורמט PDF והעלו בטופס באתר."
     ],
   },
   {
@@ -55,7 +55,7 @@ const banksData = [
       "היכנסו לאתר הבינלאומי והתחברו לחשבון האישי.",
       "עברו ל'משכנתאות והלוואות'.",
       "אתרו את 'דוח יתרות לסילוק' ולחצו להורדה.",
-      "שמרו את הקובץ והעלו אותו לאתר.",
+      "שמרו את הקובץ והעלו אותו לאתר."
     ],
   },
   {
@@ -66,13 +66,18 @@ const banksData = [
       "היכנסו לאתר בנק יהב והתחברו לאזור האישי.",
       "לחצו על 'משכנתאות או הלוואות'.",
       "בחרו ב'יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו בפורמט PDF והעלו אותו למערכת.",
+      "שמרו בפורמט PDF והעלו אותו למערכת."
     ],
   },
 ];
 
 const HowToDownload = () => {
   const [selectedBank, setSelectedBank] = useState(null);
+
+  // פונקציה לסגירת המודאל
+  const closeModal = () => {
+    setSelectedBank(null);
+  };
 
   return (
     <PageWrapper>
@@ -87,24 +92,26 @@ const HowToDownload = () => {
             <LogoWrapper>
               <Logo src={bank.logo} alt={bank.name} />
             </LogoWrapper>
-
           </BankCard>
         ))}
       </BanksGrid>
 
+      {/* אם יש בנק שנבחר - נפתח מודאל */}
       {selectedBank && (
-        <InstructionsWrapper>
-          <InstructionsTitle>
-            הוראות להורדת דו"ח יתרות לסילוק מבנק {selectedBank.name}
-          </InstructionsTitle>
-          <InstructionsList>
-            {selectedBank.steps.map((step, index) => (
-              <StepItem key={index}>
-                {index + 1}. {step}
-              </StepItem>
-            ))}
-          </InstructionsList>
-        </InstructionsWrapper>
+        <ModalOverlay onClick={closeModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={closeModal}>×</CloseButton>
+            <ModalTitle>הוראות להורדת דו"ח יתרות לסילוק</ModalTitle>
+            <BankHeader>בנק {selectedBank.name}</BankHeader>
+            <InstructionsList>
+              {selectedBank.steps.map((step, index) => (
+                <StepItem key={index}>
+                  {index + 1}. {step}
+                </StepItem>
+              ))}
+            </InstructionsList>
+          </ModalContent>
+        </ModalOverlay>
       )}
     </PageWrapper>
   );
@@ -129,7 +136,6 @@ const Title = styled.h1`
   margin-bottom: 0.5em;
   color: #2c3e50;
 
-  /* התאמה למסכים קטנים יותר */
   @media (max-width: 600px) {
     font-size: 1.8em;
   }
@@ -145,16 +151,20 @@ const Subtitle = styled.p`
   }
 `;
 
+/** הגדרת הגריד - עד 3 עמודות, במובייל 2 עמודות */
 const BanksGrid = styled.div`
   display: grid;
-  /* 3 עמודות בדסקטופ */
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 30px;
 
-  /* עבור מסכים עד 900px - 2 עמודות (מובייל/טאבלט) */
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    /* ניתן להחליט אם רוצים להישאר על 2 עמודות גם במובייל צר מאוד */
+    grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -166,7 +176,7 @@ const BankCard = styled.div`
   padding: 20px 10px;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 
-  display: flex;            /* מאפשר יישור מרכזי אנכי ואופקי */
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -176,16 +186,11 @@ const BankCard = styled.div`
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
-  /* במסכים קטנים, נקטין קצת את הריווחים */
   @media (max-width: 600px) {
     padding: 15px 8px;
   }
 `;
 
-/**
- * מיכל קבוע עבור הלוגו, על מנת להבטיח שהלוגו יוצג בצורה אחידה.
- * ניתן להתאים את הגודל בהתאם לצורך.
- */
 const LogoWrapper = styled.div`
   width: 120px;
   height: 120px;
@@ -202,46 +207,82 @@ const Logo = styled.img`
   object-fit: contain;
 `;
 
+/* =============== רכיבי ה-Modal (חלון קופץ) =============== */
 
+/**
+ * שכבת הרקע של המודאל (מאפילה על המסך)
+ */
+const ModalOverlay = styled.div`
+  position: fixed; 
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 
-const InstructionsWrapper = styled.div`
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999; /* לוודא שהמודאל מעל הכל */
+`;
+
+/**
+ * תוכן המודאל עצמו
+ */
+const ModalContent = styled.div`
+  background: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative; 
   text-align: right;
-  margin-top: 20px;
+`;
 
-  @media (max-width: 600px) {
-    padding: 15px;
+/**
+ * כפתור לסגירת המודאל (X)
+ */
+const CloseButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+  cursor: pointer;
+  color: #aaa;
+
+  &:hover {
+    color: #333;
   }
 `;
 
-const InstructionsTitle = styled.h2`
-  margin-top: 0;
+/**
+ * כותרות המודאל
+ */
+const ModalTitle = styled.h2`
+  margin: 0 0 10px 0;
   color: #2c3e50;
-
-  @media (max-width: 600px) {
-    font-size: 1.4em;
-  }
+  text-align: center; /* ליישור מרכזי */
 `;
 
+const BankHeader = styled.h3`
+  margin: 0;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+`;
+
+/**
+ * רשימת ההוראות
+ */
 const InstructionsList = styled.ol`
-  text-align: right;
   padding-right: 20px;
   color: #555;
-
-  @media (max-width: 600px) {
-    padding-right: 10px;
-  }
+  line-height: 1.5;
 `;
 
 const StepItem = styled.li`
-  margin-bottom: 10px;
-  line-height: 1.6;
-
-  @media (max-width: 600px) {
-    font-size: 0.95em;
-    margin-bottom: 8px;
-  }
+  margin-bottom: 8px;
+  font-size: 1em;
 `;
