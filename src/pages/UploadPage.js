@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 
 const UploadPage = () => {
@@ -12,6 +12,7 @@ const UploadPage = () => {
   });
 
   const [uploadMessage, setUploadMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // מצב טעינה
 
   // עדכון הנתונים בטופס
   const handleChange = (e) => {
@@ -28,53 +29,46 @@ const UploadPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.file) {
-        setUploadMessage("יש להעלות מסמך קודם!");
-        return;
-      }
+      setUploadMessage("יש להעלות מסמך קודם!");
+      return;
+    }
 
-      const data = new FormData();
-      data.append("bank", formData.bank);
-      data.append("fullName", formData.fullName);
-      data.append("email", formData.email);
-      data.append("phone", formData.phone);
-      data.append("file", formData.file);
-    // http://localhost:8000
+    // הפעלת מצב טעינה
+    setIsLoading(true);
+    setUploadMessage("");
+
+    const data = new FormData();
+    data.append("bank", formData.bank);
+    data.append("fullName", formData.fullName);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("file", formData.file);
 
     try {
-        const response = await fetch("https://mashkanta-me.com/api_test/", {
-          method: "POST",
-          body: data
+      const response = await fetch("https://mashkanta-me.com/api_test/", {
+        method: "POST",
+        body: data,
+      });
+
+      if (response.ok) {
+        setUploadMessage("הקובץ נשלח בהצלחה! נחזור אליך תוך יום עסקים.");
+        setFormData({
+          bank: "",
+          fullName: "",
+          email: "",
+          phone: "",
+          file: null,
         });
-
-  
-        if (response.ok) {
-            setUploadMessage("הקובץ נשלח בהצלחה! נחזור אליך תוך יום עסקים.");
-            setFormData({ bank: "", fullName: "", email: "", phone: "", file: null });
-        } else {
-            setUploadMessage( "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
-            
-          
-        }
-      } catch (err) {
-        console.error(err);
-
-        setUploadMessage( "אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
-
-        
+      } else {
+        setUploadMessage("אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
       }
-
-
-
-
-
-
-
-
-
-    
-    
-
-    
+    } catch (err) {
+      console.error(err);
+      setUploadMessage("אירעה שגיאה בשליחת הקובץ. אנא נסה שוב.");
+    } finally {
+      // הפסקת מצב טעינה
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -83,6 +77,8 @@ const UploadPage = () => {
       <Description>
         <p>
           <strong>מהו דוח יתרות לסילוק?</strong>  
+          </p>
+        <p>
           זהו מסמך רשמי מהבנק שמציג את יתרת המשכנתא שלכם, כולל סכום הקרן, יתרת הריבית, והתחייבויות נוספות.  
           המסמך חיוני לבדיקת אפשרות לשיפור תנאי המשכנתא שלכם.
         </p>
@@ -90,8 +86,9 @@ const UploadPage = () => {
           לא יודעים איך להוריד את הדוח?  
           <Link to="/how-to-download" target="_blank">לחצו כאן למדריך המלא</Link>.
         </p>
-        <p><strong>חשוב לדעת:</strong>  
-          השירות ניתן **ללא עלות**, ונחזור אליכם עם תוצאות הבדיקה תוך **יום עסקים אחד**.
+        <p>
+          <strong >חשוב לדעת: </strong>   
+            השירות ניתן  <strong>ללא עלות</strong>, ונחזור אליכם עם תוצאות הבדיקה תוך <strong>יום עסקים אחד</strong>.
         </p>
       </Description>
 
@@ -111,18 +108,46 @@ const UploadPage = () => {
         </Select>
 
         <Label>שם מלא:</Label>
-        <Input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
+        <Input
+          type="text"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleChange}
+          required
+        />
 
         <Label>אימייל:</Label>
-        <Input type="email" name="email" value={formData.email} onChange={handleChange} required />
+        <Input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
 
         <Label>טלפון:</Label>
-        <Input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
+        <Input
+          type="tel"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
 
         <Label>העלה מסמך (PDF בלבד):</Label>
         <Input type="file" accept=".pdf" onChange={handleFileChange} required />
 
-        <Button type="submit">שלח</Button>
+        <Button type="submit" disabled={isLoading}>
+          {isLoading ? "שולח..." : "שלח"}
+        </Button>
+
+        {/* ספינר יופיע כאשר isLoading = true */}
+        {isLoading && (
+          <SpinnerWrapper>
+            <LoadingSpinner />
+            <SpinnerText>אנא ממתין...</SpinnerText>
+          </SpinnerWrapper>
+        )}
       </Form>
 
       {uploadMessage && <Message>{uploadMessage}</Message>}
@@ -194,8 +219,14 @@ const Button = styled.button`
   &:hover {
     background: #0056b3;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
 `;
 
+// הודעה מתחת לטופס
 const Message = styled.p`
   font-size: 1rem;
   font-weight: bold;
@@ -203,4 +234,32 @@ const Message = styled.p`
   margin-top: 10px;
 `;
 
-export default UploadPage;
+/* ספינר */
+const SpinnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -5px; /* אפשר לשחק עם זה כדי לקרב את הספינר לטקסט */
+`;
+
+const rotate = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const LoadingSpinner = styled.div`
+  width: 25px;
+  height: 25px;
+  border: 4px solid #999;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: ${rotate} 1s linear infinite;
+`;
+
+const SpinnerText = styled.span`
+  margin-right: 8px;
+  font-size: 0.9rem;
+  color: #555;
+`;
+export default UploadPage; // <-- חשוב!
