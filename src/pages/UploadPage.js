@@ -38,11 +38,7 @@ const UploadPage = () => {
       data.append("email", formData.email);
       data.append("phone", formData.phone);
       data.append("file", formData.file);
-    //   http://ec2-13-61-177-219.eu-north-1.compute.amazonaws.com:8000/api_test
     // http://localhost:8000
-
-    // ,
-    // referrerPolicy: "unsafe-url" 
 
     try {
         const response = await fetch("https://mashkanta-me.com/api_test/", {
