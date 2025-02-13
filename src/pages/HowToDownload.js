@@ -11,7 +11,7 @@ const banksData = [
       "היכנסו לאתר בנק הפועלים והתחברו לחשבון האישי שלכם.",
       "בחרו בתפריט 'משכנתאות'.",
       "איתרו את האפשרות 'דוח יתרות לסילוק' ולחצו על הורדה.",
-      "שמרו את הקובץ בפורמט PDF והעלו אותו לאתר."
+      "שמרו את הקובץ בפורמט PDF והעלו אותו לאתר.",
     ],
   },
   {
@@ -22,7 +22,7 @@ const banksData = [
       "היכנסו לאתר בנק לאומי והתחברו למערכת הבנקאות המקוונת.",
       "לחצו על 'משכנתא שלי' או 'הלוואות'.",
       "חפשו את האפשרות 'דוח יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו את הדוח בפורמט PDF והעלו אותו באתר."
+      "שמרו את הדוח בפורמט PDF והעלו אותו באתר.",
     ],
   },
   {
@@ -33,7 +33,7 @@ const banksData = [
       "היכנסו לאתר בנק דיסקונט והתחברו לחשבונכם.",
       "עברו לקטגוריית 'הלוואות ומשכנתאות'.",
       "בחרו ב'יתרות לסילוק' או 'סילוק הלוואה' והורידו את הקובץ.",
-      "שמרו כ-PDF והעלו לאתר."
+      "שמרו כ-PDF והעלו לאתר.",
     ],
   },
   {
@@ -44,7 +44,7 @@ const banksData = [
       "היכנסו לאתר מזרחי טפחות והתחברו לחשבון.",
       "לחצו על 'חשבונות המשכנתא שלי'.",
       "חפשו את 'דוח יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו בפורמט PDF והעלו בטופס באתר."
+      "שמרו בפורמט PDF והעלו בטופס באתר.",
     ],
   },
   {
@@ -55,7 +55,7 @@ const banksData = [
       "היכנסו לאתר הבינלאומי והתחברו לחשבון האישי.",
       "עברו ל'משכנתאות והלוואות'.",
       "אתרו את 'דוח יתרות לסילוק' ולחצו להורדה.",
-      "שמרו את הקובץ והעלו אותו לאתר."
+      "שמרו את הקובץ והעלו אותו לאתר.",
     ],
   },
   {
@@ -66,7 +66,7 @@ const banksData = [
       "היכנסו לאתר בנק יהב והתחברו לאזור האישי.",
       "לחצו על 'משכנתאות או הלוואות'.",
       "בחרו ב'יתרות לסילוק' והורידו את הקובץ.",
-      "שמרו בפורמט PDF והעלו אותו למערכת."
+      "שמרו בפורמט PDF והעלו אותו למערכת.",
     ],
   },
 ];
@@ -84,8 +84,10 @@ const HowToDownload = () => {
       <BanksGrid>
         {banksData.map((bank) => (
           <BankCard key={bank.id} onClick={() => setSelectedBank(bank)}>
-            <Logo src={bank.logo} alt={bank.name} />
-            {/* <BankName>{bank.name}</BankName> */}
+            <LogoWrapper>
+              <Logo src={bank.logo} alt={bank.name} />
+            </LogoWrapper>
+
           </BankCard>
         ))}
       </BanksGrid>
@@ -145,14 +147,14 @@ const Subtitle = styled.p`
 
 const BanksGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  /* 3 עמודות בדסקטופ */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 30px;
 
-  /* עבור מסכים מאד קטנים ניתן להגדיר עמודה אחת */
-  @media (max-width: 400px) {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  /* עבור מסכים עד 900px - 2 עמודות (מובייל/טאבלט) */
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -163,6 +165,11 @@ const BankCard = styled.div`
   cursor: pointer;
   padding: 20px 10px;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
+  display: flex;            /* מאפשר יישור מרכזי אנכי ואופקי */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: #fff;
@@ -175,27 +182,27 @@ const BankCard = styled.div`
   }
 `;
 
-const Logo = styled.img`
-  max-width: 100%;
-  height: 50px;
-  object-fit: contain;
+/**
+ * מיכל קבוע עבור הלוגו, על מנת להבטיח שהלוגו יוצג בצורה אחידה.
+ * ניתן להתאים את הגודל בהתאם לצורך.
+ */
+const LogoWrapper = styled.div`
+  width: 120px;
+  height: 120px;
   margin-bottom: 10px;
 
-  /* במסכים קטנים, נקטין את הגובה */
-  @media (max-width: 600px) {
-    height: 40px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const BankName = styled.h3`
-  font-size: 1em;
-  color: #333;
-  margin: 0;
-
-  @media (max-width: 600px) {
-    font-size: 0.95em;
-  }
+const Logo = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 `;
+
+
 
 const InstructionsWrapper = styled.div`
   background-color: #fafafa;
